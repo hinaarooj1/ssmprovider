@@ -1,0 +1,80 @@
+#form{
+    border: 1px solid #ec4899 !important;
+}
+#form span.span-input img {
+    position: absolute;
+    width: 18px;
+    bottom: 10px;
+    left: 10px;
+    filter: invert(27%) sepia(44%) saturate(3806%) hue-rotate(326deg) brightness(95%) contrast(100%);
+}
+
+#form span.span-input input{
+    border: none;
+    border: 1px solid #80808036;
+    padding: 14px;
+    border-radius: 5px;
+    padding-left: 40px;
+}
+#form span.span-input input:focus{
+    border: 2px solid #bb86fc;
+}
+
+.animation-finally {
+    animation: pulse-finally 4s infinite
+}
+
+.rs-modal-content {
+    background-color: #020202!important
+}
+
+.checked-bg {
+    background-image: url(/images/check.svg);
+    border-color: transparent;
+    background-color: #7c3aed;
+    background-size: 100% 100%;
+    background-position: center;
+    background-repeat: no-repeat
+}
+
+input[type=checkbox] {
+    accent-color: rgb(124 58 237 / 1)
+}
+
+@keyframes pulse-finally {
+    0% {
+        transform: scale(1);
+        transform: translateZ(0);
+        box-shadow: 0 0 #eca9a9
+    }
+
+    5% {
+        transform: translate(-1px)
+    }
+
+    10% {
+        transform: translate(3px)
+    }
+
+    15% {
+        transform: translate(-1px)
+    }
+
+    20% {
+        transform: translate(1px)
+    }
+
+    25% {
+        transform: translateZ(0)
+    }
+
+    70% {
+        transform: scale(1);
+        box-shadow: 0 0 0 10px #e53e3e00
+    }
+
+    to {
+        transform: scale(1);
+        transform: translateZ(0)
+    }
+}

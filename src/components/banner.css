@@ -1,0 +1,191 @@
+.banner-container {
+  background:linear-gradient(180deg,#9011c9 45%,#d415a7 120%);
+  min-height: 70vh;
+}
+
+.banner-container .container-fluid{
+  padding: 0px 60px;
+  padding-top: 80px !important;
+  padding-bottom: 0px !important;
+}
+.text-cyan {
+  color: #06D1a9;
+}
+
+.banner-container :where(h1, h2, h3, h4, h5, h6, p) {
+  font-weight: 600;
+}
+
+/* Button Styles */
+.button-main {
+    margin-left: auto;
+    margin-right: auto;
+    width: -moz-fit-content;
+    width: fit-content;
+    border-radius: .75rem;
+    padding: 1rem 3rem;
+    font-size: 1.125rem;
+    font-weight: 700;
+}
+
+@media (min-width: 1024px) {
+    .button-main {
+        margin-left: 0;
+        padding: 1rem 2.5rem;
+        font-size: 1.5rem;
+    }
+}
+
+/* Button background and shadow effects */
+.button-main {
+    z-index: 1;
+    position: relative;
+    background: #8448c7;
+    overflow: hidden;
+    background: radial-gradient(circle, #00b2d1 50%, #3a09ff 140%);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#00bdd1", endColorstr="#06d1a9", GradientType=1);
+    box-shadow: 1px 10px 30px -5px #ff00ab;
+    -webkit-box-shadow: 1px 10px 30px -5px rgba(255, 0, 171, 1);
+    -moz-box-shadow: 1px 20px 30px -5px rgba(255, 0, 171, 1);
+    border: none !important;
+}
+
+/* Span effects inside the button */
+.button-main span {
+    position: absolute;
+    width: 25%;
+    height: 100%;
+    background-color: #4e0246;
+    transform: translateY(150%);
+    border-radius: 50%;
+    left: calc((var(--n) - 1) * 25%);
+    transition: .5s;
+    transition-delay: calc((var(--n) - 1) * .1s);
+    z-index: -1;
+}
+
+.button-main:hover span {
+    transform: translateY(0) scale(2);
+}
+
+/* For each span (with different delays) */
+.button-main span:nth-child(1) {
+    --n: 1;
+}
+
+.button-main span:nth-child(2) {
+    --n: 2;
+}
+
+.button-main span:nth-child(3) {
+    --n: 3;
+}
+
+.button-main span:nth-child(4) {
+    --n: 4;
+}
+
+/* Animation */
+.button-main {
+    animation: bouncy 4s infinite linear;
+    position: relative;
+}
+
+/* Bounce animation */
+@keyframes bouncy {
+    0% {
+        top: 0;
+    }
+    33% {
+        top: 0;
+    }
+    38% {
+        top: -.6em;
+    }
+    46% {
+        top: 0;
+    }
+    54% {
+        top: -.2em;
+    }
+    58% {
+        top: 0;
+    }
+    to {
+        top: 0;
+    }
+}
+
+.cursor-pointer {
+    cursor: pointer;
+}
+a {
+    color: inherit;
+    text-decoration: inherit;
+}
+.btn-below-text span {
+    font-size: 13px;
+    font-weight: 550 !important;
+}
+/* Wave Animation */
+.waves {
+  position:relative;
+  width: 100%;
+  height:15vh;
+  margin-bottom:-7px; /*Fix for safari gap*/
+  min-height:100px;
+  max-height:150px;
+}
+
+/* Animation */
+
+.parallax > use {
+  animation: move-forever 25s cubic-bezier(.55,.5,.45,.5)     infinite;
+}
+.parallax > use:nth-child(1) {
+  animation-delay: -2s;
+  animation-duration: 7s;
+}
+.parallax > use:nth-child(2) {
+  animation-delay: -3s;
+  animation-duration: 10s;
+}
+.parallax > use:nth-child(3) {
+  animation-delay: -4s;
+  animation-duration: 13s;
+}
+.parallax > use:nth-child(4) {
+  animation-delay: -5s;
+  animation-duration: 20s;
+}
+@keyframes move-forever {
+  0% {
+   transform: translate3d(-90px,0,0);
+  }
+  100% { 
+    transform: translate3d(85px,0,0);
+  }
+}
+/*Shrinking for mobile*/
+@media (max-width: 768px) {
+  .waves {
+    height:40px;
+    min-height:40px;
+  }
+  .content {
+    height:30vh;
+  }
+  h1 {
+    font-size:24px;
+  }
+}
+/* Responsive Styles */
+@media (max-width: 768px) {
+  .banner-container {
+    text-align: center;
+  }
+  
+}
+
+
+

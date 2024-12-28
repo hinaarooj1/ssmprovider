@@ -1,0 +1,268 @@
+.log {
+    border: 2px solid #b787c7
+}
+
+.input-data {
+    height: 40px;
+    width: 100%;
+    position: relative
+}
+
+.input-data input {
+    background-color: transparent;
+    height: 100%;
+    width: 100%;
+    border: none;
+    font-size: 17px;
+    border-bottom: 2px solid silver;
+    outline: none;
+    color: #000
+}
+
+.input-data input:focus~label,.input-data input:valid~label {
+    transform: translateY(-20px);
+    margin-left: -2px;
+    font-size: 15px;
+    color: gray
+}
+
+.input-data label {
+    position: absolute;
+    bottom: 10px;
+    left: 0;
+    color: gray;
+    pointer-events: none;
+    transition: all .3s ease
+}
+
+.input-data .underline {
+    position: absolute;
+    height: 2px;
+    width: 100%;
+    bottom: 0
+}
+
+.elipse1 {
+    width: 205px;
+    height: 453px;
+    transform: rotate(105deg);
+    flex-shrink: 0;
+    position: absolute;
+    top: 70vh;
+    left: -5vw;
+    border-radius: 753px;
+    background: #a631c6;
+    filter: blur(150px);
+    z-index: -10;
+    animation: bounce1 2s infinite alternate-reverse,move1 15s infinite linear
+}
+
+.elipse2 {
+    position: absolute;
+    width: 405px;
+    height: 853px;
+    right: 0;
+    top: -400px;
+    transform: rotate(15deg);
+    flex-shrink: 0;
+    border-radius: 753px;
+    background: #a631c6;
+    filter: blur(150px);
+    z-index: -10;
+    animation: bounce2 2s infinite alternate-reverse,move2 15s infinite linear
+}
+
+@keyframes bounce1 {
+    0%,to {
+        transform: translateY(0)
+    }
+
+    50% {
+        transform: translateY(-20px)
+    }
+}
+
+@keyframes bounce2 {
+    0%,to {
+        transform: translateY(0)
+    }
+
+    50% {
+        transform: translateY(-30px)
+    }
+}
+
+@keyframes move1 {
+    0%,to {
+        left: 0vw
+    }
+
+    50% {
+        left: 70vw
+    }
+}
+
+@keyframes move2 {
+    0%,to {
+        right: -5vw
+    }
+
+    50% {
+        right: 70vw
+    }
+}
+
+#style-1::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,.3);
+    border-start-start-radius: 40px;
+    border-end-start-radius: 40px;
+    background-color: #f5f5f500
+}
+
+#style-1::-webkit-scrollbar {
+    width: 3px;
+    background-color: #d8282800
+}
+
+#style-1::-webkit-scrollbar-thumb {
+    border-start-start-radius: 40px;
+    border-end-start-radius: 40px;
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,.3);
+    background-color: #555
+}
+.pacoteCard-main {
+    margin-left: auto;
+    margin-right: auto;
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    border-radius: 1rem;
+    border-width: 1px;
+    --tw-border-opacity: 1;
+    border-color: rgb(167 44 206 / var(--tw-border-opacity));
+    background-color: #9634a520;
+    padding: 1.5rem 1.5rem 2rem;
+    font-size: 1.25rem;
+    --tw-text-opacity: 1;
+    color: rgb(214 144 235 / var(--tw-text-opacity));
+    --tw-backdrop-blur: blur(24px);
+    -webkit-backdrop-filter: var(--tw-backdrop-blur) var(--tw-backdrop-brightness) var(--tw-backdrop-contrast) var(--tw-backdrop-grayscale) var(--tw-backdrop-hue-rotate) var(--tw-backdrop-invert) var(--tw-backdrop-opacity) var(--tw-backdrop-saturate) var(--tw-backdrop-sepia);
+    backdrop-filter: var(--tw-backdrop-blur) var(--tw-backdrop-brightness) var(--tw-backdrop-contrast) var(--tw-backdrop-grayscale) var(--tw-backdrop-hue-rotate) var(--tw-backdrop-invert) var(--tw-backdrop-opacity) var(--tw-backdrop-saturate) var(--tw-backdrop-sepia)
+}
+
+.pacoteCard-main:hover {
+    background-color: #ec4eec20;
+    --tw-shadow: 0 20px 25px -5px rgb(0 0 0 / .1), 0 8px 10px -6px rgb(0 0 0 / .1);
+    --tw-shadow-colored: 0 20px 25px -5px var(--tw-shadow-color), 0 8px 10px -6px var(--tw-shadow-color);
+    box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000),var(--tw-ring-shadow, 0 0 #0000),var(--tw-shadow);
+    --tw-shadow-color: #c752d7a0;
+    --tw-shadow: var(--tw-shadow-colored)
+}
+
+@media (min-width: 1024px) {
+    .pacoteCard-main {
+        width:auto
+    }
+}
+
+.pacoteCard-main {
+    transition: box-shadow 1s,background-color .3s
+}
+
+.pacoteCard-instagram {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: .5rem;
+    border-radius: .5rem;
+    --tw-bg-opacity: 1;
+    background-color: rgb(255 255 255 / var(--tw-bg-opacity));
+    padding: .5rem 1.5rem .5rem 1rem;
+    transition-property: all;
+    transition-timing-function: cubic-bezier(.4,0,.2,1);
+    transition-duration: .5s
+}
+
+.pacoteCard-instagram:hover {
+    --tw-bg-opacity: 1;
+    background-color: rgb(233 233 233 / var(--tw-bg-opacity))
+}
+
+@media (min-width: 1024px) {
+    .pacoteCard-instagram {
+        width:550px
+    }
+}
+
+@media (min-width: 1360px) {
+    .pacoteCard-instagram {
+        width:800px
+    }
+}
+
+.pacoteCard-instagram {
+    background: #fff;
+    margin: 0 0 22px;
+    padding: 18px 36px 18px 18px;
+    border: 1.2px solid rgb(108 24 205 / 72%);
+    border-radius: 8px;
+    box-shadow: 4px 4px #6c18cd5c!important;
+    transition: all .2s ease;
+    position: relative;
+    top: 0
+}
+
+.pacoteCard-instagram:hover {
+    position: relative;
+    top: -4px;
+    background: #faeeff;
+    box-shadow: 8px 8px #6c18cd5c!important
+}
+
+.pacoteCard-svg {
+    border-radius: 9999px;
+    --tw-bg-opacity: 1;
+    background-color: rgb(177 6 160 / var(--tw-bg-opacity));
+    padding: 1rem
+}
+
+.pacoteCard-text {
+    flex-grow: 1
+}
+
+.pacoteCard-text h3 {
+    font-size: 1.125rem;
+    font-weight: 700;
+    --tw-text-opacity: 1;
+    color: rgb(37 37 37 / var(--tw-text-opacity))
+}
+
+.pacoteCard-text p {
+    font-size: .84rem;
+    font-weight: 600;
+    --tw-text-opacity: 1;
+    color: rgb(96 96 96 / var(--tw-text-opacity))
+}
+
+.opcion {
+    -webkit-text-stroke-width: 1px;
+    -webkit-text-stroke-color: white
+}
+
+.no-stroke {
+    -webkit-text-stroke-width: 0px;
+    -webkit-text-stroke-color: rgba(114,19,19,0)
+}
+
+.elipse309 {
+    height: 403px;
+    right: 0;
+    flex-shrink: 0;
+    position: absolute;
+    border-radius: 753px;
+    background: #a72cce;
+    filter: blur(150px)
+}
