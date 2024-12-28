@@ -1,5 +1,5 @@
 import React from 'react';
-import './app.css';
+
 import { BrowserRouter as Router, Route, Routes, Link } from 'react-router-dom';
 import Home from './pages/Home';
 import Followers from './pages/Followers';
@@ -21,20 +21,20 @@ import Checkout from './pages/Checkout.jsx';
 function App() {
   return (
     <Router>
-          <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/followers" element={<Followers />} />
-            <Route path="/FAQ" element={<FAQ />} />
-            <Route path="/avaliacoes" element={<Avaliacoes />} />
-            <Route path="/tiktok/followers" element={<TikTokFollower />} />
-            <Route path="/login" element={<Login />} />
-            <Route path="/instagram/curtidas" element={<Curtidas />} />
-            <Route path="/instagram/views" element={<Views />} />
-            <Route path="/instagram/reels" element={<Reels />} />
-            <Route path="/instagram/comentarios" element={<Comentarios />} />
-            <Route path="/pay/checkout" element={<Checkout />} />
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/followers" element={<Followers />} />
+        <Route path="/FAQ" element={<FAQ />} />
+        <Route path="/avaliacoes" element={<Avaliacoes />} />
+        <Route path="/tiktok/followers" element={<TikTokFollower />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/instagram/curtidas" element={<Curtidas />} />
+        <Route path="/instagram/views" element={<Views />} />
+        <Route path="/instagram/reels" element={<Reels />} />
+        <Route path="/instagram/comentarios" element={<Comentarios />} />
+        <Route path="/pay/checkout" element={<Checkout />} />
 
-            </Routes>
+      </Routes>
     </Router>
   );
 }
