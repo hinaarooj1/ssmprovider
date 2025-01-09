@@ -127,7 +127,7 @@ nav.navbar-new.lg\:gap-32.gap-2.\!z-40.w-full.md\:\!flex.items-center.justify-be
 }
 
 .navlink-button {
-    font-family: Montserrat,-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen,Ubuntu,Cantarell,Open Sans,Helvetica Neue,sans-serif
+    	font-family: Quicksand,sans-serif;
 }
 
 .btn-log-ext {
@@ -140,7 +140,7 @@ nav.navbar-new.lg\:gap-32.gap-2.\!z-40.w-full.md\:\!flex.items-center.justify-be
     --tw-backdrop-blur: blur(4px);
     -webkit-backdrop-filter: var(--tw-backdrop-blur) var(--tw-backdrop-brightness) var(--tw-backdrop-contrast) var(--tw-backdrop-grayscale) var(--tw-backdrop-hue-rotate) var(--tw-backdrop-invert) var(--tw-backdrop-opacity) var(--tw-backdrop-saturate) var(--tw-backdrop-sepia);
     backdrop-filter: var(--tw-backdrop-blur) var(--tw-backdrop-brightness) var(--tw-backdrop-contrast) var(--tw-backdrop-grayscale) var(--tw-backdrop-hue-rotate) var(--tw-backdrop-invert) var(--tw-backdrop-opacity) var(--tw-backdrop-saturate) var(--tw-backdrop-sepia);
-    font-family: Montserrat,-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen,Ubuntu,Cantarell,Open Sans,Helvetica Neue,sans-serif;
+    	font-family: Quicksand,sans-serif;;
     transition: background 1.5s,color 1.5s
 }
 
@@ -158,7 +158,7 @@ nav.navbar-new.lg\:gap-32.gap-2.\!z-40.w-full.md\:\!flex.items-center.justify-be
     --tw-backdrop-blur: blur(4px);
     -webkit-backdrop-filter: var(--tw-backdrop-blur) var(--tw-backdrop-brightness) var(--tw-backdrop-contrast) var(--tw-backdrop-grayscale) var(--tw-backdrop-hue-rotate) var(--tw-backdrop-invert) var(--tw-backdrop-opacity) var(--tw-backdrop-saturate) var(--tw-backdrop-sepia);
     backdrop-filter: var(--tw-backdrop-blur) var(--tw-backdrop-brightness) var(--tw-backdrop-contrast) var(--tw-backdrop-grayscale) var(--tw-backdrop-hue-rotate) var(--tw-backdrop-invert) var(--tw-backdrop-opacity) var(--tw-backdrop-saturate) var(--tw-backdrop-sepia);
-    font-family: Montserrat,-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen,Ubuntu,Cantarell,Open Sans,Helvetica Neue,sans-serif;
+    	font-family: Quicksand,sans-serif;;
     transition: background 1.5s,color 1.5s
 }
 
@@ -169,7 +169,7 @@ nav.navbar-new.lg\:gap-32.gap-2.\!z-40.w-full.md\:\!flex.items-center.justify-be
     background-color: #00000037;
     --tw-text-opacity: 1;
     color: rgb(255 255 255 / var(--tw-text-opacity));
-    font-family: Montserrat,-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen,Ubuntu,Cantarell,Open Sans,Helvetica Neue,sans-serif
+    	font-family: Quicksand,sans-serif;
 }
 
 .navlink-button:hover {

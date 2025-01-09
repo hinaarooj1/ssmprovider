@@ -9,7 +9,7 @@
   padding-bottom: 0px !important;
 }
 .text-cyan {
-  color: #06D1a9;
+  color: #f9cd12;
 }
 
 .banner-container :where(h1, h2, h3, h4, h5, h6, p) {
@@ -27,7 +27,17 @@
     font-size: 1.125rem;
     font-weight: 700;
 }
-
+.wave-t.waves{
+  position: absolute;
+  bottom: 6px;
+  z-index: 99;
+}
+.button-main:hover {
+color: white !important;
+}
+.button-main {
+color: #b604a4 !important;
+}
 @media (min-width: 1024px) {
     .button-main {
         margin-left: 0;
@@ -40,14 +50,18 @@
 .button-main {
     z-index: 1;
     position: relative;
-    background: #8448c7;
+    /* background: #8448c7;
+    
+    background: radial-gradient(circle, #00b2d1 50%, #3a09ff 140%); */
+    background: rgb(245,181,17);
+background: linear-gradient(90deg, rgba(245,181,17,1) 13%, rgba(255,242,100,1) 49%, rgba(246,178,40,1) 91%);
     overflow: hidden;
-    background: radial-gradient(circle, #00b2d1 50%, #3a09ff 140%);
     filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#00bdd1", endColorstr="#06d1a9", GradientType=1);
     box-shadow: 1px 10px 30px -5px #ff00ab;
     -webkit-box-shadow: 1px 10px 30px -5px rgba(255, 0, 171, 1);
     -moz-box-shadow: 1px 20px 30px -5px rgba(255, 0, 171, 1);
     border: none !important;
+    border-radius: 50px;
 }
 
 /* Span effects inside the button */
