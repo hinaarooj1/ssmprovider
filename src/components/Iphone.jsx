@@ -16,16 +16,16 @@ const Iphone = () => {
       {/* Text layer 1 */}
       <div className="custom-text-layer">
         <h1 className="custom-heading opcion">
-          Sua melhor{' '}
-          <span className="custom-highlight">escolha.</span>
+          Vamos Bombar sua {' '}
+          <span className="custom-highlight">Rede Social</span>
         </h1>
       </div>
 
       {/* Text layer 2 */}
       <div className="custom-text-layer-2">
         <h1 className="custom-heading-2">
-          Sua melhor{' '}
-          <span className="custom-transparent">escolha.</span>
+          Vamos Bombar sua {' '}
+          <span className="custom-transparent">Rede Social</span>
         </h1>
       </div>
 

@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import './footer.css';
 export default function Footer() {
   return (
@@ -10,15 +11,15 @@ export default function Footer() {
               <img src="/Engaja.png" alt="Engaja Logo" height="50" />
             </div>
             <div className="contact-info">
-              <p className="mb-4">equipe@engajamaisvoce.com.br</p>
+              <p className="mb-4">suporte@vocemaisengajado.com.br</p>
               <p className="mb-4">
-                <a href="https://wa.me/5599992203528" className="wa text-white text-decoration-none">
-                  <i className="bi bi-whatsapp"></i> (99) 99220-3528
+                <a href="https://wa.me/5591989905821" className="wa text-white text-decoration-none">
+                  <i className="bi bi-whatsapp"></i> (91) 98990-5821
                 </a>
               </p>
               <p className="mb-4">
-                <a href="https://twitter.com/engajamaisvoce" className="text-white text-decoration-none">
-                  <i className="bi bi-twitter"></i> @engajamaisvoce
+                <a href="https://www.instagram.com/vocemaisengajadooficial" className="text-white text-decoration-none">
+                  <i className="bi bi-instagram"></i>  vocemaisengajadooficial
                 </a>
               </p>
             </div>
@@ -40,7 +41,7 @@ export default function Footer() {
             <ul className="list-unstyled">
               <li className="mb-4"><a href="#" className="text-white text-decoration-none">Suporte</a></li>
               <li className="mb-4"><a href="#" className="text-white text-decoration-none">Termos</a></li>
-              <li className="mb-4"><a href="#" className="text-white text-decoration-none">Privacidade</a></li>
+              <li className="mb-4"><Link to="/privacy-policy" className="text-white text-decoration-none">Privacidade</Link></li>
             </ul>
           </div>
 
@@ -59,14 +60,16 @@ export default function Footer() {
           <div className="row">
             <div className="col-12">
               <small>
-                Copyright © 2024 - {new Date().getFullYear()} - engajamaisvoce.com.br
+                Copyright © 2024 - {new Date().getFullYear()} - VocêMaisEngajado.com.br
               </small>
               <div className="mt-2">
-                <a href="#" className="text-white text-decoration-none mx-2">Política de privacidade</a>
+                <Link to="/privacy-policy" className="text-white text-decoration-none mx-2">Política de privacidade</Link>
                 <span className="mx-2">|</span>
-                <a href="#" className="text-white text-decoration-none mx-2">Termos de Uso e Compra</a>
+                <Link to="/terms-of-use" className="text-white text-decoration-none mx-2">Termos de Uso e Compra</Link>
                 <span className="mx-2">|</span>
-                <a href="#" className="text-white text-decoration-none mx-2">Termos de Responsabilidade</a>
+                <Link to="/cookie-policy" className="text-white text-decoration-none mx-2">Política de cookies</Link>
+                <span className="mx-2">|</span>
+                <Link to="/disclaimer" className="text-white text-decoration-none mx-2">Termos de responsabilidade</Link>
               </div>
             </div>
           </div>

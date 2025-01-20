@@ -11,7 +11,12 @@
 .text-cyan {
   color: #f9cd12;
 }
-
+.banner-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  
+}
 .banner-container :where(h1, h2, h3, h4, h5, h6, p) {
   font-weight: 600;
 }

@@ -190,16 +190,16 @@ export default function Header() {
       </nav>
 
       <div className="d-flex align-items-center absolute justify-between bg-white" style={{ zIndex: '9999999999 !important' }}>
-        <div>
+        {/* <div>
           <figure className="h-[54px] w-[54px] rotate-45 ml-0 mr-auto">
             <img className="w-full h-full object-contain" src="../rocket-3.png" alt="" />
           </figure>
-        </div>
-        <div className="d-flex">
+        </div> */}
+        {/* <div className="d-flex">
           <a
             href="https://wa.me/99992203528"
             className="navlink lg:flex hidden items-center gap-2 bg-white rounded-lg px-2 py-1 hover:!text-purple-400 !text-purple-600 nav-li w-fit" />
-        </div>
+        </div> */}
       </div>
     </>
   );

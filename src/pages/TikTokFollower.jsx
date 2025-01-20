@@ -1,10 +1,10 @@
 import React from 'react';
 import TiktokPackage from '../components/TiktokPackage';
 import Header from '../components/Header';
+import Footer from '../components/Footer';
 import PacotesSection from '../components/PacotesSection';
 import Iphone from '../components/Iphone';
 import FAQSection from '../components/FAQSection';
-import Footer from '../components/Footer';
 
 const packages = [
   {
@@ -112,20 +112,20 @@ const packages = [
 const TikTokFollower = () => {
   return (
     <>
-    <Header/>
-    <div className="w-full relative w-screen overflow-hidden pb-5">
-      <div className="w-full lg:px-28 pt-28 grid grid grid-flow-cols grid-cols-1 lg:grid-cols-3 gap-y-8 justify-center items-end">
-        {packages.map((pkg, index) => (
-          <TiktokPackage key={index} {...pkg} />
-        ))}
+      <Header />
+      <div className="w-full relative w-screen overflow-hidden pb-5">
+        <div className="w-full lg:px-28 pt-28 grid grid grid-flow-cols grid-cols-1 lg:grid-cols-3 gap-y-8 justify-center items-end">
+          {packages.map((pkg, index) => (
+            <TiktokPackage key={index} {...pkg} />
+          ))}
+        </div>
+        <div className="-z-10 lg:-left-[50px] -top-10 2xl:-left-[5vw] elipse303 hidden lg:block overflow-hidden"></div>
+        <div className="-z-10 elipse304 lg:top-[-500px] 2xl:top-[-400px] 2xl:right-0 lg:-right-[300px] -right-[600px] top-[200px] overflow-hidden"></div>
+        <div className="-z-10 elipse304 lg:bottom-0 2xl: 2xl:right-0 lg:right-[300px] -right-[600px] overflow-hidden"></div>
       </div>
-      <div className="-z-10 lg:-left-[50px] -top-10 2xl:-left-[5vw] elipse303 hidden lg:block overflow-hidden"></div>
-      <div className="-z-10 elipse304 lg:top-[-500px] 2xl:top-[-400px] 2xl:right-0 lg:-right-[300px] -right-[600px] top-[200px] overflow-hidden"></div>
-      <div className="-z-10 elipse304 lg:bottom-0 2xl: 2xl:right-0 lg:right-[300px] -right-[600px] overflow-hidden"></div>
-    </div>
-    <PacotesSection/>
-    <Iphone/>
-    <Footer/>
+      <PacotesSection />
+      <Iphone />
+      <Footer />
     </>
   );
 };
