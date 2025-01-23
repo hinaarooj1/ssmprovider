@@ -3,7 +3,7 @@ import React from 'react';
 const DisclaimerSec = () => {
     return (
         <div>
-            <div className="py-28 md:px-28 px-10 bg-[#1a0625] text-white text-white">
+            <div className="py-28 md:px-28 privacy-policy-wrapper px-10 bg-[#1a0625] text-white text-white">
                 <div className="max-w-4xl mx-auto bg-[#0a0010] shadow-md rounded-lg p-6">
                     <h1 className="text-2xl sm:text-3xl font-bold text-white mb-6">
                         Termos de Responsabilidade

@@ -1,9 +1,9 @@
 import React from 'react';
-
 import { BrowserRouter as Router, Route, Routes, Link } from 'react-router-dom';
 import Home from './pages/Home';
 import Followers from './pages/Followers';
 import PrivacyPolicy from './pages/privacyPolicy';
+import Top from './top.jsx'
 import Disclaimer from './pages/Disclaimer.jsx';
 import Termsofuse from './pages/termsOfUse';
 import CookiePolicy from './pages/cookiePolicy';
@@ -17,7 +17,12 @@ import Reels from './pages/Reels';
 import Comentarios from './pages/Comentarios';
 import Checkout from './pages/Checkout.jsx';
 
-
+import './assets/css/client.css'
+import './assets/css/icons.css'
+import './assets/css/index.css'
+import './assets/css/nav.css'
+import './assets/css/style.css'
+import './assets/css/styles.css'
 
 
 
@@ -25,6 +30,7 @@ import Checkout from './pages/Checkout.jsx';
 function App() {
   return (
     <Router>
+      <Top />
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/privacy-policy" element={<PrivacyPolicy />} />

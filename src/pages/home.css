@@ -1,0 +1,139 @@
+.text-yello {
+    color: #f9cd12;
+}
+
+.button-main-sel {
+    animation: bouncy 4s infinite linear;
+    position: relative;
+}
+
+.button-main-sel {
+    z-index: 1;
+    position: relative;
+    background: #f5b511;
+    background: linear-gradient(90deg, #f5b511 13%, #fff264 49%, #f6b228 91%);
+    overflow: hidden;
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#00bdd1", endColorstr="#06d1a9", GradientType=1);
+    box-shadow: 1px 10px 30px -5px #ff00ab;
+    -webkit-box-shadow: 1px 10px 30px -5px rgba(255, 0, 171, 1);
+    -moz-box-shadow: 1px 20px 30px -5px rgba(255, 0, 171, 1);
+    border: none !important;
+    border-radius: 50px !important;
+}
+
+@media (min-width: 1024px) {
+    .button-main-sel {
+        margin-left: 0;
+        padding: 1rem 2.5rem;
+        font-size: 1.5rem;
+    }
+}
+
+.button-main-sel {
+    color: #b604a4 !important;
+}
+
+.button-main-sel {
+    width: -moz-fit-content;
+    width: fit-content;
+    border-radius: .75rem;
+    padding: 1rem 3rem;
+    font-size: 1.125rem;
+    font-weight: 700;
+}
+
+.privacy-policy-wrapper {
+    padding-top: 7rem;
+    /* Equivalent to Tailwind's py-28 */
+    padding-bottom: 7rem;
+    padding-left: 2.5rem;
+    /* Equivalent to Tailwind's px-10 */
+    padding-right: 2.5rem;
+    background-color: #1a0625;
+    color: #ffffff;
+}
+
+.privacy-policy-wrapper .max-w-4xl {
+    max-width: 64rem;
+    /* Equivalent to Tailwind's max-w-4xl */
+    margin-left: auto;
+    margin-right: auto;
+    background-color: #0a0010;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    /* Tailwind's shadow-md */
+    border-radius: 0.5rem;
+    /* Equivalent to Tailwind's rounded-lg */
+    padding: 1.5rem;
+    /* Tailwind's p-6 */
+}
+
+.privacy-policy-wrapper h1 {
+    font-size: 1.5rem;
+    /* Tailwind's text-2xl */
+    font-weight: 700;
+    /* Tailwind's font-bold */
+    text-align: center;
+    margin-bottom: 1.5rem;
+    /* Tailwind's mb-6 */
+    color: #ffffff;
+}
+
+/* Add similar styles for headings, paragraphs, lists, links, etc. */
+.privacy-policy-wrapper h2 {
+    font-size: 1.125rem;
+    /* Tailwind's text-lg */
+    font-weight: 600;
+    /* Tailwind's font-semibold */
+    margin-top: 1.5rem;
+    /* Tailwind's mt-6 */
+    margin-bottom: 0.5rem;
+    /* Tailwind's mb-2 */
+}
+
+.privacy-policy-wrapper p {
+    margin-bottom: 1rem;
+    /* Tailwind's mb-4 */
+    line-height: 1.5;
+}
+
+.privacy-policy-wrapper ul {
+    list-style-type: disc;
+    /* Tailwind's list-disc */
+    padding-left: 1.5rem;
+    /* Tailwind's pl-6 */
+    margin-bottom: 1rem;
+    /* Tailwind's mb-4 */
+}
+
+.privacy-policy-wrapper a {
+    color: #2563eb;
+    /* Tailwind's text-blue-600 */
+    text-decoration: underline;
+}
+
+.privacy-policy-wrapper .text-sm {
+    font-size: 0.875rem;
+    /* Tailwind's text-sm */
+    color: #9ca3af;
+    /* Tailwind's text-gray-500 */
+    margin-top: 2rem;
+    /* Tailwind's mt-8 */
+}
+
+@media (max-width:1024px) {
+    .texxt {
+        text-align: center !important;
+    }
+
+    .button-main-sel {
+        margin-inline: auto !important;
+    }
+
+}
+
+@media (max-width:768px) {
+    .gradient-novo {
+        display: none;
+    }
+
+}

@@ -2,34 +2,46 @@ import React from 'react';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
 import './avaliacoes.css';
+import { Link } from 'react-router-dom';
 
 
 const Avaliacoes = () => {
   return (
-    <>
+    <div className='its-main'>
       <Header />
-      <main className="lg:pt-[84px] 2xl:pt-[10%] !z-20 pt-[90px] text-white lg:px-16 2xl:px-24  "><div className="flex my-auto w-full flex-col lg:flex-row gap-8 items-center"><div className="lg:max-w-[55%] px-10 md:px-1 2xl:max-w-[60%] flex flex-col my-auto h-full gap-0 sm:gap-5 lg:gap-12 pb-3"><div><h1 className="xl:leading-title montserrat text-2xl font-extrabold md:text-3xl xl:text-7xl xl:tracking-tight">VocêMaisEngajado é confiável? Veja Avaliações</h1><div className="mt-4 flex justify-center text-sm md:mt-6 md:text-lg lg:justify-start xl:text-2xl 2xl:text-3xl" title="Avaliações de clientes"><div className="mr-4 text-yellow-400">★★★★★</div><div className="whitespace-nowrap font-semibold">4960 Avaliações Verificadas</div></div><p className="mt-4 opacity-60 montserrat">VocêMaisEngajado é a solução confiável para impulsionar o engajamento nas redes sociais. Com um compromisso firme com a transparência e a segurança, oferecemos serviços de alta qualidade para aumentar seguidores, curtidas, comentários e compartilhamentos de forma autêntica e eficaz. Nossa abordagem ética garante resultados reais e duradouros, enquanto nossa equipe de especialistas oferece suporte personalizado para atender suas necessidades específicas. Confie na VocêMaisEngajado para fortalecer sua presença online e alcançar seus objetivos de marketing digital com confiança.</p><svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" className="h-6 w-6 mx-auto mt-10 animate-bounce"><path fill="currentColor" d="M441.9 89.7L232.5 299.1c-4.7 4.7-12.3 4.7-17 0L6.1 89.7c-4.7-4.7-4.7-12.3 0-17l19.8-19.8c4.7-4.7 12.3-4.7 17 0L224 233.6 405.1 52.9c4.7-4.7 12.3-4.7 17 0l19.8 19.8c4.7 4.7 4.7 12.3 0 17zm0 143l-19.8-19.8c-4.7-4.7-12.3-4.7-17 0L224 393.6 42.9 212.9c-4.7-4.7-12.3-4.7-17 0L6.1 232.7c-4.7 4.7-4.7 12.3 0 17l209.4 209.4c4.7 4.7 12.3 4.7 17 0l209.4-209.4c4.7-4.7 4.7-12.3 0-17z"></path></svg></div></div><div className="flex my-auto w-full  flex-col lg:flex-row gap-8 items-center"><figure className="w-80 mx-auto rotate-12"><img src="../icon-social.png" className="object-contain h-full w-full" alt="" /></figure></div></div></main>
-      <svg
-        className="waves bg-[#5E05F2] rotate-0 -mt-2 z-40"
-        xmlns="http://www.w3.org/2000/svg"
-        viewBox="0 24 150 28"
-        preserveAspectRatio="none"
-        shapeRendering="auto"
-      >
-        <defs>
-          <path
-            id="gentle-wave"
-            d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z"
-          ></path>
-        </defs>
-        <g className="parallax">
-          <use xlinkHref="#gentle-wave" x="48" y="0" fill="rgba(86,11,131,0.4)" />
-          <use xlinkHref="#gentle-wave" x="48" y="3" fill="rgba(255,255,255,0.05)" />
-          <use xlinkHref="#gentle-wave" x="48" y="5" fill="rgba(255,255,255,0.01)" />
-          <use xlinkHref="#gentle-wave" x="48" y="7" fill="#fff" />
-        </g>
-      </svg>
+      <main className="lg:pt-[84px] 2xl:pt-[10%] !z-20 pt-[90px] text-white lg:px-16 2xl:px-24">
+        <div className="flex my-auto w-full flex-col lg:flex-row gap-8 items-center">
+          <div className="lg:max-w-[55%] px-10 md:px-1 2xl:max-w-[60%] flex flex-col my-auto h-full gap-0 sm:gap-5 lg:gap-12 pb-3">
+            <div>
+              <h1 className="xl:leading-title montserrat text-2xl font-extrabold md:text-3xl xl:text-7xl xl:tracking-tight">
+                EngajamaisVoce é confiável? Veja Avaliações
+              </h1>
+              <div className="mt-4 flex justify-center text-sm md:mt-6 md:text-lg lg:justify-start xl:text-2xl 2xl:text-3xl">
+                <div className="mr-4 text-yellow-400">
+                  ★★★★★
+                </div>
+                <div className="whitespace-nowrap font-semibold">
+                  4960 Avaliações Verificadas
+                </div>
+              </div>
+              <p className="mt-4 opacity-60 montserrat">
+                EngajaMaisVocê é a solução confiável para impulsionar o engajamento nas redes sociais. Com um compromisso firme com a transparência e a segurança, oferecemos serviços de alta qualidade para aumentar seguidores, curtidas, comentários e compartilhamentos de forma autêntica e eficaz. Nossa abordagem ética garante resultados reais e duradouros, enquanto nossa equipe de especialistas oferece suporte personalizado para atender suas necessidades específicas. Confie na EngajaMaisVocê para fortalecer sua presença online e alcançar seus objetivos de marketing digital com confiança.
+              </p>
+              <svg aria-hidden="true" className="h-6 w-6 mx-auto mt-10 animate-bounce" viewBox="0 0 448 512" xmlns="http://www.w3.org/2000/svg">
+                <path d="M441.9 89.7L232.5 299.1c-4.7 4.7-12.3 4.7-17 0L6.1 89.7c-4.7-4.7-4.7-12.3 0-17l19.8-19.8c4.7-4.7 12.3-4.7 17 0L224 233.6 405.1 52.9c4.7-4.7 12.3-4.7 17 0l19.8 19.8c4.7 4.7 4.7 12.3 0 17zm0 143l-19.8-19.8c-4.7-4.7-12.3-4.7-17 0L224 393.6 42.9 212.9c-4.7-4.7-12.3-4.7-17 0L6.1 232.7c-4.7 4.7-4.7 12.3 0 17l209.4 209.4c4.7 4.7 12.3 4.7 17 0l209.4-209.4c4.7-4.7 4.7-12.3 0-17z" fill="currentColor">
+                </path>
+              </svg>
+            </div>
+          </div>
+          <div className="flex my-auto w-full flex-col lg:flex-row gap-8 items-center">
+            <figure className="w-80 mx-auto rotate-12">
+              <img className="object-contain h-full w-full" src="../icon-social.png" />
+            </figure>
+          </div>
+        </div>
+      </main>
 
+      <svg className="waves bg-[#5E05F2] rotate-0 -mt-2 z-40" xmlns="http://www.w3.org/2000/svg" viewBox="0 24 150 28" preserveAspectRatio="none" shapeRendering="auto"><defs><path id="gentle-wave" d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z" /></defs><g className="parallax"><use xlinkHref="#gentle-wave" x={48} y={0} fill="rgba(86,11,131,0.4)" /><use xlinkHref="#gentle-wave" x={48} y={3} fill="rgba(255,255,255,0.05)" /><use xlinkHref="#gentle-wave" x={48} y={5} fill="rgba(255,255,255,0.01)" /><use xlinkHref="#gentle-wave" x={48} y={7} fill="#fff" /></g></svg>
 
       <div className="w-full px-4 pt-8 lg:px-16 2xl:px-24 bg-white py-5 mb-lg-5">
         <div className="mt-8 grid grid-cols-1 items-center gap-8 md:grid-cols-2">
@@ -41,9 +53,9 @@ const Avaliacoes = () => {
             </div>
             <blockquote className="prose text-gray-600">Serviço de qualidade e confiável,atendeu minhas expectativas.</blockquote>
             <div className="mt-2 flex flex-row">
-              <a href="/followers" className="mr-3 flex items-center" title="Comprar Seguidores Instagram | Seguidores Reais e Baratos">
+              <Link to="/followers" className="mr-3 flex items-center" title="Comprar Seguidores Instagram | Seguidores Reais e Baratos">
                 <img className="ls-is-cached lazyloaded" alt="ícone produto" width="44px" height="44px" src="https://seguidores.storage.googleapis.com/images/menu-comprar-seguidores-instagram.svg?v=6" srcSet="https://seguidores.storage.googleapis.com/images/menu-comprar-seguidores-instagram.svg?v=6" />
-              </a>
+              </Link>
               <div className="flex items-center">
                 <div className="flex flex-col justify-start">
                   <div className="flex justify-start text-sm">
@@ -55,7 +67,7 @@ const Avaliacoes = () => {
                   </div>
                   <div className="flex justify-start text-sm">
                     <span className="whitespace-nowrap">após comprar</span>&nbsp;
-                    <a href="/followers" className="font-extrabold" title="Comprar Seguidores Instagram | Seguidores Reais e Baratos">Seguidores Instagram</a>
+                    <Link to="/followers" className="font-extrabold" title="Comprar Seguidores Instagram | Seguidores Reais e Baratos">Seguidores Instagram</Link>
                   </div>
                 </div>
               </div>
@@ -73,9 +85,9 @@ const Avaliacoes = () => {
             </div>
             <blockquote className="prose text-gray-600">Ágil e pratico! Recomendo...</blockquote>
             <div className="mt-2 flex flex-row">
-              <a href="/followers" className="mr-3 flex items-center" title="Comprar Seguidores Instagram | Seguidores Reais e Baratos">
+              <Link to="/followers" className="mr-3 flex items-center" title="Comprar Seguidores Instagram | Seguidores Reais e Baratos">
                 <img className="ls-is-cached lazyloaded" alt="ícone produto" width="44px" height="44px" src="https://seguidores.storage.googleapis.com/images/menu-comprar-seguidores-instagram.svg?v=6" srcSet="https://seguidores.storage.googleapis.com/images/menu-comprar-seguidores-instagram.svg?v=6" />
-              </a>
+              </Link>
               <div className="flex items-center">
                 <div className="flex flex-col justify-start">
                   <div className="flex justify-start text-sm">
@@ -87,7 +99,7 @@ const Avaliacoes = () => {
                   </div>
                   <div className="flex justify-start text-sm">
                     <span className="whitespace-nowrap">após comprar</span>&nbsp;
-                    <a href="/followers" className="font-extrabold" title="Comprar Seguidores Instagram | Seguidores Reais e Baratos">Seguidores Instagram</a>
+                    <Link to="/followers" className="font-extrabold" title="Comprar Seguidores Instagram | Seguidores Reais e Baratos">Seguidores Instagram</Link>
                   </div>
                 </div>
               </div>
@@ -131,7 +143,7 @@ const Avaliacoes = () => {
         </div>
       </div>
       <Footer />
-    </>
+    </div>
   );
 };
 

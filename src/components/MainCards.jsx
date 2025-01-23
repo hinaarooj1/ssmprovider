@@ -35,7 +35,7 @@ const MainCards = () => {
     <section className="main-cards" ref={sectionRef}>
       <div className="container-fluid">
         <div className="row">
-          <div className="col-md-11 m-auto shadow-0 d-flex gap-4 py-3">
+          <div className="col-md-11 m-auto thisd shadow-0 d-flex gap-4 py-3">
             {/* Card 1 */}
             <div className="card d-flex">
               <span>

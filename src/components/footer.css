@@ -1,10 +1,14 @@
-footer.text-white , footer.text-white a{
+footer .text-white,
+footer .khara,
+footer .text-white a {
 	color: gray !important;
 	transition: 0.5s;
 }
-footer.text-white a:hover{
+
+footer .text-white a:hover {
 	color: white !important;
 }
-footer.text-white a.wa{
+
+footer .text-white a.wa {
 	color: green !important;
 }

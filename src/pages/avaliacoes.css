@@ -1,4 +1,4 @@
-main {
+.its-main main {
     display: flex;
     min-height: 80vh;
     width: 100%;
@@ -9,24 +9,24 @@ main {
 }
 
 @media (min-width: 1024px) {
-    main {
-        height:90vh;
+    .its-main main {
+        height: 90vh;
         padding-bottom: 0
     }
 }
 
 @media (min-width: 1536px) {
-    main {
-        height:80vh
+    .its-main main {
+        height: 80vh
     }
 }
 
-main {
+.its-main main {
     background: #1101ff;
-    background: linear-gradient(180deg,#c012d0 45%,#3700ff 120%)
+    background: linear-gradient(180deg, #c012d0 45%, #3700ff 120%)
 }
 
-.waves {
+.its-main .waves {
     position: relative;
     width: 100%;
     height: 15vh;
@@ -34,43 +34,43 @@ main {
     max-height: 150px
 }
 
-svg.waves {
+.its-main svg.waves {
     overflow: hidden;
     vertical-align: middle;
     shape-rendering: auto
 }
 
-.parallax>use {
-    animation: move-forever 25s cubic-bezier(.55,.5,.45,.5) infinite
+.its-main .parallax>use {
+    animation: move-forever 25s cubic-bezier(.55, .5, .45, .5) infinite
 }
 
-.parallax>use:first-child {
+.its-main .parallax>use:first-child {
     animation-delay: -2s;
     animation-duration: 7s
 }
 
-.parallax>use:nth-child(2) {
+.its-main .parallax>use:nth-child(2) {
     animation-delay: -3s;
     animation-duration: 10s
 }
 
-.parallax>use:nth-child(3) {
+.its-main .parallax>use:nth-child(3) {
     animation-delay: -4s;
     animation-duration: 13s
 }
 
-.parallax>use:nth-child(4) {
+.its-main .parallax>use:nth-child(4) {
     animation-delay: -5s;
     animation-duration: 20s
 }
 
 @keyframes move-forever {
     0% {
-        transform: translate3d(-90px,0,0)
+        transform: translate3d(-90px, 0, 0)
     }
 
     to {
-        transform: translate3d(85px,0,0)
+        transform: translate3d(85px, 0, 0)
     }
 }
 
@@ -88,11 +88,11 @@ svg.waves {
     }
 }
 
-.Lottie-player {
-    z-index: 9999!important
+.its-main .Lottie-player {
+    z-index: 9999 !important
 }
 
-.button-main {
+.its-main .button-main {
     animation: bouncy 4s infinite linear;
     position: relative
 }

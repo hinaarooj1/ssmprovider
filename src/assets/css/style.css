@@ -1,0 +1,116 @@
+.card-main {
+    margin-left: auto;
+    margin-right: auto;
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    border-radius: 1rem;
+    border-width: 1px;
+    --tw-border-opacity: 1;
+    border-color: rgb(167 44 206 / var(--tw-border-opacity));
+    background-color: #9634a520;
+    padding: 1.5rem 1.5rem 2rem;
+    font-size: 1.25rem;
+    --tw-text-opacity: 1;
+    color: rgb(214 144 235 / var(--tw-text-opacity));
+    --tw-backdrop-blur: blur(24px);
+    -webkit-backdrop-filter: var(--tw-backdrop-blur) var(--tw-backdrop-brightness) var(--tw-backdrop-contrast) var(--tw-backdrop-grayscale) var(--tw-backdrop-hue-rotate) var(--tw-backdrop-invert) var(--tw-backdrop-opacity) var(--tw-backdrop-saturate) var(--tw-backdrop-sepia);
+    backdrop-filter: var(--tw-backdrop-blur) var(--tw-backdrop-brightness) var(--tw-backdrop-contrast) var(--tw-backdrop-grayscale) var(--tw-backdrop-hue-rotate) var(--tw-backdrop-invert) var(--tw-backdrop-opacity) var(--tw-backdrop-saturate) var(--tw-backdrop-sepia)
+}
+
+.card-main:hover {
+    background-color: #ec4eec20;
+    --tw-shadow: 0 20px 25px -5px rgb(0 0 0 / .1), 0 8px 10px -6px rgb(0 0 0 / .1);
+    --tw-shadow-colored: 0 20px 25px -5px var(--tw-shadow-color), 0 8px 10px -6px var(--tw-shadow-color);
+    box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
+    --tw-shadow-color: #c752d7a0;
+    --tw-shadow: var(--tw-shadow-colored)
+}
+
+@media (min-width: 1024px) {
+    .card-main {
+        width: auto
+    }
+}
+
+.card-main {
+    transition: box-shadow 1s, background-color .3s
+}
+
+.card-instagram {
+    display: flex;
+    align-items: center;
+    gap: .5rem;
+    border-radius: .5rem;
+    --tw-bg-opacity: 1;
+    background-color: rgb(255 255 255 / var(--tw-bg-opacity));
+    padding: .5rem 1.5rem .5rem 1rem;
+    transition-property: all;
+    transition-timing-function: cubic-bezier(.4, 0, .2, 1);
+    transition-duration: .5s
+}
+
+.card-instagram:hover {
+    --tw-bg-opacity: 1;
+    background-color: rgb(233 233 233 / var(--tw-bg-opacity))
+}
+
+@media (min-width: 1024px) {
+    .card-instagram {
+        width: 350px
+    }
+}
+
+.card-svg {
+    border-radius: 9999px;
+    --tw-bg-opacity: 1;
+    background-color: rgb(54 54 54 / var(--tw-bg-opacity));
+    padding: 1rem
+}
+
+.card-text {
+    flex-grow: 1
+}
+
+.card-text h3 {
+    font-size: 1.125rem;
+    font-weight: 700;
+    --tw-text-opacity: 1;
+    color: rgb(37 37 37 / var(--tw-text-opacity))
+}
+
+.card-text p {
+    font-size: .875rem;
+    font-weight: 600;
+    --tw-text-opacity: 1;
+    color: rgb(96 96 96 / var(--tw-text-opacity))
+}
+
+.gradient-novo {
+    background: #38b900;
+    background: linear-gradient(145deg, #d31414, #800707 80%);
+    border: 2px solid #b90000;
+    animation: button-shake 2.5s ease-in-out infinite
+}
+
+.opcion {
+    -webkit-text-stroke-width: 1px;
+    -webkit-text-stroke-color: white
+}
+
+.no-stroke {
+    -webkit-text-stroke-width: 0px;
+    -webkit-text-stroke-color: rgba(114, 19, 19, 0)
+}
+
+.elipse309 {
+    height: 403px;
+    right: 0;
+    flex-shrink: 0;
+    position: absolute;
+    border-radius: 753px;
+    background: #a72cce;
+    filter: blur(150px)
+}

@@ -5,22 +5,22 @@ const FAQSection = () => {
     {
       question: "Adquirir mais seguidores realmente ajuda a crescer nas redes sociais?",
       answer:
-        "Sim! Mais seguidores aumenta rapidamente a visibilidade do seu perl, criando uma imagem de popularidade e atratividade. Isso pode estimular novos seguidores orgânicos, que se sentirão mais inclinados a seguir uma conta já bem-estabelecida.",
+        "Sim! Mais seguidores aumenta rapidamente a visibilidade do seu perfil, criando uma imagem de popularidade e atratividade. Isso pode estimular novos seguidores orgânicos, que se sentirão mais inclinados a seguir uma conta já bem-estabelecida.",
     },
     {
       question: "Os seguidores são reais?",
       answer:
-        "Sim, trabalhamos com serviços que oferecem seguidores reais e ativos, garantindo maior credibilidade para o seu perl e melhorando sua presença digital.",
+        "Sim, trabalhamos com serviços que oferecem seguidores reais e ativos, garantindo maior credibilidade para o seu perfil e melhorando sua presença digital.",
     },
     {
       question: "Preciso fornecer minha senha?",
       answer:
-        "Não! O processo é 100% seguro e não exige a sua senha. Basta informar o nome de usuário ou o link do perl, e nós cuidamos do resto.",
+        "Não! O processo é 100% seguro e não exige a sua senha. Basta informar o nome de usuário ou o link do perfil, e nós cuidamos do resto.",
     },
     {
       question: "Quanto tempo leva para receber os seguidores?",
       answer:
-        "A entrega dos seguidores é rápida e eciente, geralmente começando em até 10 minutos a 2 horas após a conrmação do p@g@mento e sendo concluída dentro do prazo informado no momento da compra.",
+        "A entrega dos seguidores é rápida e eciente, geralmente começando em até 10 minutos a 2 horas após a conrmação do pagamento e sendo concluída dentro do prazo informado no momento da compra.",
     },
     // 
     {
@@ -78,28 +78,37 @@ const FAQSection = () => {
   ];
 
   return (
-    <section className="bg- py-5" id="faq">
-      <div className="container-fluid px-3 py-5 mx-auto">
-        <h3 className="text-2xl fw-bold text-start text-white mb-4 ps-lg-3">
+    <section className="bg-transparent pt-10" id="faq">
+      <div className="container px-6 py-12 mx-auto">
+        <h1 className="text-2xl font-semibold lg:text-3xl text-white">
           Perguntas frequentes.
-        </h3>
-        <div className="row g-4 mt-4">
+        </h1>
+        <div className="grid grid-cols-1 gap-8 mt-8 lg:mt-16 md:grid-cols-2 xl:grid-cols-3">
+
           {faqs.map((faq, index) => (
-            <div key={index} className="col-md-6 col-xl-4">
-              <div className="d-flex align-items-start">
-                <div className="px-3 py-2 text-white bg-purple rounded mx-4" style={{ background: '#8c26db' }}>
-                  <i className="bi bi-question-circle fs-3"></i>
-                </div>
-                <div>
-                  <h5 className="fw-bold text-white">{faq.question}</h5>
-                  <p className="gray mt-2">{faq.answer}</p>
-                </div>
+            <div key={index}>
+              <div className="inline-block p-3 text-white bg-[#8c26db] rounded-lg">
+                <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M8.228 9c.549-1.165 2.03-2 3.772-2 2.21 0 4 1.343 4 3 0 1.4-1.278 2.575-3.006 2.907-.542.104-.994.54-.994 1.093m0 3h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" strokeLinecap="round" strokeLinejoin="round" strokeWidth={2}>
+                  </path>
+                </svg>
+              </div>
+              <div>
+                <h1 className="text-xl font-semibold text-white">
+                  {faq.question}
+                </h1>
+                <p className="mt-2 text-sm text-gray-300">
+                  {faq.answer}
+
+                </p>
               </div>
             </div>
           ))}
         </div>
       </div>
     </section>
+
+
   );
 };
 

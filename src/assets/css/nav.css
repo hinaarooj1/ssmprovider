@@ -11,11 +11,7 @@
     padding-top: .625rem;
     padding-bottom: .625rem;
     --tw-text-opacity: 1;
-    color: rgb(255 255 255 / var(--tw-text-opacity)) z-index: 9999 !important;
-}
-
-nav.navbar-new.lg\:gap-32.gap-2.\!z-40.w-full.md\:\!flex.items-center.justify-between {
-    z-index: 9;
+    color: rgb(255 255 255 / var(--tw-text-opacity))
 }
 
 @media (min-width: 1024px) {
@@ -29,29 +25,7 @@ nav.navbar-new.lg\:gap-32.gap-2.\!z-40.w-full.md\:\!flex.items-center.justify-be
     transition: background-color .3s, width 1s, border-radius 1s, margin-top .3s, box-shadow .5s
 }
 
-@media (min-width:768px) {
-    .navbar-center {
-        margin-left: auto;
-        margin-right: auto;
-        margin-top: -.75rem;
-        display: flex;
-        height: 3.5rem;
-        align-items: center;
-        justify-content: center;
-        border-radius: 9999px;
-        background-color: #4a4a4a57;
-        padding-left: 1rem;
-        padding-right: 1rem;
-        --tw-shadow: 0 25px 50px -12px rgb(0 0 0 / .25);
-        --tw-shadow-colored: 0 25px 50px -12px var(--tw-shadow-color);
-        box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
-        --tw-backdrop-blur: blur(4px);
-        --tw-backdrop-brightness: brightness(1);
-        -webkit-backdrop-filter: var(--tw-backdrop-blur) var(--tw-backdrop-brightness) var(--tw-backdrop-contrast) var(--tw-backdrop-grayscale) var(--tw-backdrop-hue-rotate) var(--tw-backdrop-invert) var(--tw-backdrop-opacity) var(--tw-backdrop-saturate) var(--tw-backdrop-sepia);
-        backdrop-filter: var(--tw-backdrop-blur) var(--tw-backdrop-brightness) var(--tw-backdrop-contrast) var(--tw-backdrop-grayscale) var(--tw-backdrop-hue-rotate) var(--tw-backdrop-invert) var(--tw-backdrop-opacity) var(--tw-backdrop-saturate) var(--tw-backdrop-sepia)
-    }
 
-}
 
 @media (min-width: 1024px) {
     .navbar-center {
@@ -120,7 +94,7 @@ nav.navbar-new.lg\:gap-32.gap-2.\!z-40.w-full.md\:\!flex.items-center.justify-be
     font-weight: 500;
     letter-spacing: .025em;
     --tw-text-opacity: 1;
-    color: rgb(199 134 225 / var(--tw-text-opacity));
+    color: rgb(199 134 225 / var(--tw-text-opacity))
 }
 
 @media (min-width: 1360px) {
@@ -130,7 +104,7 @@ nav.navbar-new.lg\:gap-32.gap-2.\!z-40.w-full.md\:\!flex.items-center.justify-be
 }
 
 .navlink-button {
-    font-family: Quicksand, sans-serif;
+    font-family: Montserrat, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Open Sans, Helvetica Neue, sans-serif
 }
 
 .btn-log-ext {
@@ -143,8 +117,7 @@ nav.navbar-new.lg\:gap-32.gap-2.\!z-40.w-full.md\:\!flex.items-center.justify-be
     --tw-backdrop-blur: blur(4px);
     -webkit-backdrop-filter: var(--tw-backdrop-blur) var(--tw-backdrop-brightness) var(--tw-backdrop-contrast) var(--tw-backdrop-grayscale) var(--tw-backdrop-hue-rotate) var(--tw-backdrop-invert) var(--tw-backdrop-opacity) var(--tw-backdrop-saturate) var(--tw-backdrop-sepia);
     backdrop-filter: var(--tw-backdrop-blur) var(--tw-backdrop-brightness) var(--tw-backdrop-contrast) var(--tw-backdrop-grayscale) var(--tw-backdrop-hue-rotate) var(--tw-backdrop-invert) var(--tw-backdrop-opacity) var(--tw-backdrop-saturate) var(--tw-backdrop-sepia);
-    font-family: Quicksand, sans-serif;
-    ;
+    font-family: Montserrat, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Open Sans, Helvetica Neue, sans-serif;
     transition: background 1.5s, color 1.5s
 }
 
@@ -162,8 +135,7 @@ nav.navbar-new.lg\:gap-32.gap-2.\!z-40.w-full.md\:\!flex.items-center.justify-be
     --tw-backdrop-blur: blur(4px);
     -webkit-backdrop-filter: var(--tw-backdrop-blur) var(--tw-backdrop-brightness) var(--tw-backdrop-contrast) var(--tw-backdrop-grayscale) var(--tw-backdrop-hue-rotate) var(--tw-backdrop-invert) var(--tw-backdrop-opacity) var(--tw-backdrop-saturate) var(--tw-backdrop-sepia);
     backdrop-filter: var(--tw-backdrop-blur) var(--tw-backdrop-brightness) var(--tw-backdrop-contrast) var(--tw-backdrop-grayscale) var(--tw-backdrop-hue-rotate) var(--tw-backdrop-invert) var(--tw-backdrop-opacity) var(--tw-backdrop-saturate) var(--tw-backdrop-sepia);
-    font-family: Quicksand, sans-serif;
-    ;
+    font-family: Montserrat, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Open Sans, Helvetica Neue, sans-serif;
     transition: background 1.5s, color 1.5s
 }
 
@@ -175,7 +147,7 @@ nav.navbar-new.lg\:gap-32.gap-2.\!z-40.w-full.md\:\!flex.items-center.justify-be
     background-color: #00000037;
     --tw-text-opacity: 1;
     color: rgb(255 255 255 / var(--tw-text-opacity));
-    font-family: Quicksand, sans-serif;
+    font-family: Montserrat, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Open Sans, Helvetica Neue, sans-serif
 }
 
 .navlink-button:hover {
@@ -276,10 +248,6 @@ nav.navbar-new.lg\:gap-32.gap-2.\!z-40.w-full.md\:\!flex.items-center.justify-be
     transition-duration: .5s
 }
 
-.hidden-oon {
-    display: none !important;
-}
-
 @media (min-width: 1024px) {
     .selected {
         width: -moz-fit-content;
@@ -288,51 +256,4 @@ nav.navbar-new.lg\:gap-32.gap-2.\!z-40.w-full.md\:\!flex.items-center.justify-be
         padding-top: 0;
         padding-bottom: 0
     }
-
-    .hidden-oon {
-        display: flex !important;
-    }
-}
-
-
-@media (max-width:768px) {
-    .no-nab a {
-        color: black;
-    }
-
-    .navbar-old {
-        transition: all 0.3s ease-in-out !important;
-
-    }
-
-    .navact {
-        background: white !important;
-        border-radius: 20px 20px 0 0 !important;
-        transition: all 0.3s ease-in-out !important;
-    }
-
-    .nab-act {
-        transition: all 0.3s ease-in-out !important;
-        top: 69px !important;
-
-    }
-
-    .no-nab {
-        transition: all 0.3s ease-in-out !important;
-        border-radius: 0 0 20px 20px !important;
-        /* border-bottom-right-radius: 9999px;
-        border-bottom-left-radius: 9999px; */
-        width: 98% !important;
-        margin: auto;
-        position: absolute;
-        left: 0;
-        top: -699px;
-        right: 0;
-        margin: auto;
-        background-color: white !important;
-        box-shadow: none !important;
-        backdrop-filter: none !important;
-        padding-block: 20px;
-    }
-
 }
