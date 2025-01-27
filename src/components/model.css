@@ -1,17 +1,18 @@
 .backdrop-blur-xl {
-    --tw-backdrop-blur: blur(24px);
-    -webkit-backdrop-filter: var(--tw-backdrop-blur) var(--tw-backdrop-brightness) var(--tw-backdrop-contrast) var(--tw-backdrop-grayscale) var(--tw-backdrop-hue-rotate) var(--tw-backdrop-invert) var(--tw-backdrop-opacity) var(--tw-backdrop-saturate) var(--tw-backdrop-sepia);
-    backdrop-filter: var(--tw-backdrop-blur) var(--tw-backdrop-brightness) var(--tw-backdrop-contrast) var(--tw-backdrop-grayscale) var(--tw-backdrop-hue-rotate) var(--tw-backdrop-invert) var(--tw-backdrop-opacity) var(--tw-backdrop-saturate) var(--tw-backdrop-sepia)
+  --tw-backdrop-blur: blur(24px);
+  -webkit-backdrop-filter: var(--tw-backdrop-blur) var(--tw-backdrop-brightness) var(--tw-backdrop-contrast) var(--tw-backdrop-grayscale) var(--tw-backdrop-hue-rotate) var(--tw-backdrop-invert) var(--tw-backdrop-opacity) var(--tw-backdrop-saturate) var(--tw-backdrop-sepia);
+  backdrop-filter: var(--tw-backdrop-blur) var(--tw-backdrop-brightness) var(--tw-backdrop-contrast) var(--tw-backdrop-grayscale) var(--tw-backdrop-hue-rotate) var(--tw-backdrop-invert) var(--tw-backdrop-opacity) var(--tw-backdrop-saturate) var(--tw-backdrop-sepia)
 }
 
 .modal1 {
-    background: #f3f6fe;
-    background: #fc2567;
-    background: linear-gradient(0deg, #fc2567 0, #fa2697 41%, #ba08b5);
-    transition: all .5s ease-in-out;
-    box-shadow: 0 0 0 6px #ffffff4d;
+  background: #f3f6fe;
+  background: #fc2567;
+  background: linear-gradient(0deg, #fc2567 0, #fa2697 41%, #ba08b5);
+  transition: all .5s ease-in-out;
+  box-shadow: 0 0 0 6px #ffffff4d;
 }
-.backdrop-blur-xl {
+
+.modall .backdrop-blur-xl {
   position: fixed;
   display: flex !important;
   align-items: center;
@@ -21,39 +22,45 @@
   width: 100%;
   height: 100%;
   min-height: 100vh;
-  backdrop-filter: blur(10px); /* Adjust blur intensity */
-  z-index: 1040; /* High enough to overlay other content */
+  backdrop-filter: blur(10px);
+  /* Adjust blur intensity */
+  z-index: 1040;
+  /* High enough to overlay other content */
 }
 
 
 .modal1 {
-  width: 400px;
+  min-width: 400px;
   padding: 50px 50px !important;
 }
+
 .popup-icon {
-    position: absolute;
-    width: 80px;
-    left: 50%;
-    right: 50%;
-    top: 5px;
-    transform: translate(-50%, -50%);
-    z-index: 1000;
+  position: absolute;
+  width: 80px;
+  left: 50%;
+  right: 50%;
+  top: 5px;
+  transform: translate(-50%, -50%);
+  z-index: 1000;
 }
 
 @media (min-width: 1024px) {
   .custom-modal {
-    padding-bottom: 3rem; /* Adds padding on larger screens */
-    padding-top: 3rem; /* Equivalent to `lg:pt-12` */
+    padding-bottom: 3rem;
+    /* Adds padding on larger screens */
+    padding-top: 3rem;
+    /* Equivalent to `lg:pt-12` */
   }
 }
 
 @media (min-width: 1024px) {
-    .lg\:pt-12 {
-        padding-top: 3rem;
-    }
+  .lg\:pt-12 {
+    padding-top: 3rem;
+  }
 }
+
 @media (min-width: 1024px) {
-    .lg\:pb-12 {
-        padding-bottom: 3rem;
-    }
+  .lg\:pb-12 {
+    padding-bottom: 3rem;
+  }
 }

@@ -23,6 +23,7 @@ import './assets/css/index.css'
 import './assets/css/nav.css'
 import './assets/css/style.css'
 import './assets/css/styles.css'
+import Form from './pages/Form.jsx';
 
 
 
@@ -47,6 +48,7 @@ function App() {
         <Route path="/instagram/reels" element={<Reels />} />
         <Route path="/instagram/comentarios" element={<Comentarios />} />
         <Route path="/pay/checkout" element={<Checkout />} />
+        <Route path="/pay/form" element={<Form />} />
 
       </Routes>
     </Router>

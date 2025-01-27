@@ -1,6 +1,7 @@
-#form{
+#form {
     border: 1px solid #ec4899 !important;
 }
+
 #form span.span-input img {
     position: absolute;
     width: 18px;
@@ -9,14 +10,15 @@
     filter: invert(27%) sepia(44%) saturate(3806%) hue-rotate(326deg) brightness(95%) contrast(100%);
 }
 
-#form span.span-input input{
+#form span.span-input input {
     border: none;
     border: 1px solid #80808036;
     padding: 14px;
     border-radius: 5px;
     padding-left: 40px;
 }
-#form span.span-input input:focus{
+
+#form span.span-input input:focus {
     border: 2px solid #bb86fc;
 }
 
@@ -25,7 +27,7 @@
 }
 
 .rs-modal-content {
-    background-color: #020202!important
+    background-color: #020202 !important
 }
 
 .checked-bg {
@@ -77,4 +79,55 @@ input[type=checkbox] {
         transform: scale(1);
         transform: translateZ(0)
     }
+}
+
+#disable_analise.w-16 {
+    width: 16px !important;
+}
+
+#disable_analise.h-16 {
+    height: 16px !important;
+}
+
+.my-2q.ajs {
+    margin-bottom: 10px !important;
+}
+
+.phone:before {
+    background-image: url(../phone.svg);
+}
+
+.email:before {
+    background-image: url(../gmail.svg);
+}
+
+.name:before {
+    background-image: url(../name.svg);
+}
+
+.innna:before {
+    background-image: url(../instagram.svg);
+}
+
+.my-2q {
+    margin-block: 0px !important;
+    position: relative;
+    /* display: none; */
+    align-items: start;
+    justify-content: start;
+    margin-left: 0 !important;
+    text-align: left;
+
+}
+
+.input-data {
+    margin-block: 7px;
+}
+
+.akjk .span-input {
+    display: flex
+}
+
+.akjk .input-data {
+    height: auto !important;
 }

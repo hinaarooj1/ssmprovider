@@ -1,10 +1,34 @@
 import React, { useState, useEffect } from "react";
+import { useCheckout } from "../context/CheckoutContext";
+import { toast } from "react-toastify";
+import { useNavigate } from "react-router-dom";
 
 const ModalComponent = ({ onClose }) => {
+  const [username, setusername] = useState("");
   const [isModalVisible, setIsModalVisible] = useState(true);
-
+  let navigate = useNavigate()
+  const [isChecked, setIsChecked] = useState(false);
+  const { updateCheckoutData } = useCheckout();
+  const handleCheckboxChange = (e) => {
+    setIsChecked(e.target.checked);
+  };
   const handleClose = () => {
     setIsModalVisible(false);
+    onClose();  // Calling the onClose prop when closing the modal
+  };
+  const addUsername = () => {
+    if (username === "") {
+      toast.error("Por favor, digite o seu @usuario");
+      return;
+    }
+    if (isChecked === false) {
+      toast.error("Por favor, concorde com os termos de serviço.");
+      return;
+    }
+    updateCheckoutData("username", username);
+    navigate("/pay/checkout")
+    setIsModalVisible(false);
+
     onClose();  // Calling the onClose prop when closing the modal
   };
 
@@ -23,7 +47,7 @@ const ModalComponent = ({ onClose }) => {
 
   return (
     <>
-      <div className="fixed flex items-center justify-center top-0 left-0 w-screen h-full min-h-screen backdrop-blur-xl z-40">
+      <div className="fixed modall flex items-center justify-center top-0 left-0 w-screen h-full min-h-screen backdrop-blur-xl z-40">
         <div className="modal1 position-relative h-fit lg:pb-12 bg-purple-700 px-12 py-2 pt-8 lg:pt-12 flex-col flex rounded-lg">
           <img
             loading="lazy"
@@ -45,6 +69,8 @@ const ModalComponent = ({ onClose }) => {
                 autoComplete="off"
                 placeholder="Digite o seu @usuario"
                 name="username"
+                value={username}
+                onChange={(e) => setusername(e.target.value)}
                 className="input-username"
               />
             </div>
@@ -55,7 +81,8 @@ const ModalComponent = ({ onClose }) => {
             </div>
             <div className="flex mt-2 items-center justify-between">
               <label className="checkbox">
-                <input type="checkbox" className="checkbox__input" />
+                <input checked={isChecked}
+                  onChange={handleCheckboxChange} type="checkbox" className="checkbox__input" />
                 <span className="checkbox__inner"></span>
               </label>
               <span className="text-white [&>a]:text-[#ffffffde] [&>a]:underline [&>a]:italic [&>a]:hover:text-[#ffffffc4]">
@@ -73,7 +100,7 @@ const ModalComponent = ({ onClose }) => {
             <div className="flex flex-col items-center">
               <h3 className="text-4xl pagamento font-extrabold">Pagamento</h3>
             </div>
-            <button className="payment">
+            <button onClick={addUsername} className="payment">
               <img
                 loading="lazy"
                 src="../icon-billet.svg"

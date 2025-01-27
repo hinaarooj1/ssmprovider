@@ -78,16 +78,16 @@ const Followers = () => {
 
   return (
     <>
-    <a href="/" className="flex items-center fixed text-white text-sm font-medium top-20 left-[20px] z-20 px-4 py-2 mt-2 back !w-fit h-min"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M9.57 5.92999L3.5 12L9.57 18.07" stroke="white" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"></path><path d="M20.4999 12H3.66992" stroke="white" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"></path></svg>Back to home</a>
-    <Header/>
-    <div className="pb-5 w-full lg:px-28 pt-28 grid grid grid-flow-cols grid-cols-1 lg:grid-cols-3 gap-y-8 justify-center items-end">
-      {packages.map((pkg, index) => (
-        <Pacote key={index} {...pkg} />
-      ))}
-    </div>
-    <PacotesSection/>
-    <Iphone/>
-    <Footer/>
+      <a href="/" className="flex items-center fixed text-white text-sm font-medium top-20 left-[20px] z-20 px-4 py-2 mt-2 back !w-fit h-min"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M9.57 5.92999L3.5 12L9.57 18.07" stroke="white" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"></path><path d="M20.4999 12H3.66992" stroke="white" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"></path></svg>Back to home</a>
+      <Header />
+      <div className="pb-5 w-full lg:px-28 pt-28 grid grid grid-flow-cols grid-cols-1 lg:grid-cols-3 gap-y-8 justify-center items-end">
+        {packages.map((pkg, index) => (
+          <Pacote key={index} {...pkg} />
+        ))}
+      </div>
+      <PacotesSection />
+      <Iphone />
+      <Footer />
     </>
   );
 };

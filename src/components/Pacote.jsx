@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 import "./pacote.css";
 import ModalComponent from "./model";
 import './model.css';
-
+import { useCheckout } from "../context/CheckoutContext";
 const Pacote = ({
   title,
   followers,
@@ -14,9 +14,18 @@ const Pacote = ({
   isBestSeller,
 }) => {
   const [isModalVisible, setIsModalVisible] = useState(false);
-
-  const handleOpenModal = () => {
+  const { addPackage } = useCheckout();
+  const handleOpenModal = (followers) => {
     setIsModalVisible(true);
+    console.log('followers: ', followers, title);
+    addPackage({
+      title,
+      followers,
+      bonusLikes,
+      originalPrice,
+      discountedPrice,
+      availablePackages,
+    });
   };
 
   const handleCloseModal = () => {
@@ -98,13 +107,13 @@ const Pacote = ({
           </li>
         </ul>
       </div>
-      <button className="button-buy" onClick={handleOpenModal}>
+      <button className="button-buy" onClick={() => handleOpenModal(followers)}>
         Comprar Agora
       </button>
 
       {isModalVisible && (
         <ModalComponent onClose={handleCloseModal} />
-        )}
+      )}
     </div>
   );
 };

@@ -120,6 +120,134 @@
     /* Tailwind's mt-8 */
 }
 
+.Title_module_header__c87a7c0c {
+    display: none !important;
+}
+
+.this-ifrm {
+    border-radius: 10px;
+    box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
+    ;
+}
+
+.sidebar-list {
+    margin-left: 0;
+    margin-right: auto;
+    margin-top: 2rem;
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.sidebar-list li {
+    margin-left: 0;
+    margin-right: auto;
+    display: flex;
+    width: 100%;
+    align-items: center;
+    gap: 1rem;
+}
+
+.icon-list {
+    color: #979797;
+    font-family: Flaticon;
+    font-size: 14px;
+    font-style: normal;
+    display: inline-block;
+}
+
+.loop_head_sec {
+    color: #666;
+}
+
+.position-relative {
+    position: relative;
+}
+
+.text-purple-700 {
+    --tw-text-opacity: 1;
+    color: rgb(126 34 206 / var(--tw-text-opacity));
+}
+
+.font-bold {
+    font-weight: 700;
+}
+
+.insta-ci:before {
+    background-image: url(../instagram.svg);
+}
+
+.noaa {
+    height: auto !important;
+    margin: 0 !important;
+}
+
+.input-field {
+    font-weight: 500 !important;
+    padding: 10px 10px 10px 46px;
+    color: #404040;
+    font-size: 18px;
+    border-radius: 6px;
+    min-height: 50px;
+    border-color: #e0e0e0;
+    border-width: 1px;
+    border-style: solid;
+    transition: all 1s;
+}
+
+:disabled {
+    cursor: default;
+}
+
+.d-flex.text-\[\#FF0000\] {
+    gap: 3px;
+}
+
+.d-flex {
+    display: flex
+}
+
+.input-data:before {
+    content: "";
+    width: 20px;
+    height: 20px;
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+    display: block;
+    z-index: 99;
+    filter: invert(27%) sepia(44%) saturate(3806%) hue-rotate(326deg) brightness(95%) contrast(100%);
+}
+
+.cnpj:before {
+    background-image: url(../icon-document-id.svg);
+}
+
+.input-data:before {
+    content: "";
+    width: 20px;
+    height: 20px;
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+    display: block;
+    z-index: 99;
+    filter: invert(27%) sepia(44%) saturate(3806%) hue-rotate(326deg) brightness(95%) contrast(100%);
+}
+
+@media (min-width: 768px) {
+    .md\:text-base {
+        font-size: 1rem;
+    }
+}
+
 @media (max-width:1024px) {
     .texxt {
         text-align: center !important;
