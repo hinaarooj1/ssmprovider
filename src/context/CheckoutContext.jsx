@@ -4,14 +4,22 @@ export const CheckoutContext = createContext();
 
 export const CheckoutProvider = ({ children }) => {
     const [checkoutData, setCheckoutData] = useState({
+        selected: "",
         username: "",
         name: "",
         email: "",
         phone: "",
         cpf: "",
-        packages: [], // Stores selected packages
+        packages: [],
+        userInfo: [],
+        paymentInfo: [],
+        userProfile: "",
+        totalPrice: "",
+
+        // Stores selected packages
     });
     const [time, setTime] = useState(300); // 5 minutes in seconds
+    console.log('checkoutData: ', checkoutData);
 
     // Function to update checkout data
     const updateCheckoutData = (field, value) => {
@@ -59,6 +67,18 @@ export const CheckoutProvider = ({ children }) => {
             packages: [newPackage], // Overwrite the packages array with the new package
         }));
     };
+    const addInfo = (newPackage) => {
+        setCheckoutData((prev) => ({
+            ...prev,
+            userInfo: [newPackage], // Overwrite the packages array with the new package
+        }));
+    };
+    const addPaymentInfo = (newPackage) => {
+        setCheckoutData((prev) => ({
+            ...prev,
+            paymentInfo: [newPackage], // Overwrite the packages array with the new package
+        }));
+    };
 
     return (
         <CheckoutContext.Provider
@@ -66,6 +86,8 @@ export const CheckoutProvider = ({ children }) => {
                 checkoutData,
                 updateCheckoutData,
                 addPackage,
+                addInfo,
+                addPaymentInfo,
                 time: formatTime(time), // Provide formatted time
             }}
         >

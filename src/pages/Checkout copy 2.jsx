@@ -57,23 +57,7 @@ const Checkout = () => {// Starting time in seconds
     updateCheckoutData("phone", phone);
     updateCheckoutData("link", instagram);
     navigate("/pay/form")
-    // will be moved
-    // let formData = {
-    //   name: name,
-    //   email: email,
-    //   phone: phone,
-    //   taxID: '09065645306',
-    // }
-    // try {
-    //   const res = await axios.post(`http://localhost:4000/api/openpix/create-charge`, formData);
-    //   console.log('res: ', res);
-    //   // setResponse(res.data); // Display the response to the user
-    //   // setError(null);
-    // } catch (err) {
-    //   console.log('err: ', err);
-    //   // setError(err.response?.data || 'An error occurred');
-    //   // setResponse(null);
-    // }
+
   };
   const fetchInstagramData = async () => {
     const options = {
@@ -91,7 +75,7 @@ const Checkout = () => {// Starting time in seconds
 
     try {
       const response = await axios.request(options);
-      console.log('response: ', response);
+
       if (checkoutData.username) {
 
         setuserInsta(response.data.user)

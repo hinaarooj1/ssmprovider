@@ -14,10 +14,9 @@ const Pacote = ({
   isBestSeller,
 }) => {
   const [isModalVisible, setIsModalVisible] = useState(false);
-  const { addPackage } = useCheckout();
+  const { addPackage, updateCheckoutData } = useCheckout();
   const handleOpenModal = (followers) => {
     setIsModalVisible(true);
-    console.log('followers: ', followers, title);
     addPackage({
       title,
       followers,
@@ -26,6 +25,8 @@ const Pacote = ({
       discountedPrice,
       availablePackages,
     });
+
+    updateCheckoutData("selected", "followers")
   };
 
   const handleCloseModal = () => {
@@ -57,10 +58,10 @@ const Pacote = ({
         <div className="divider"></div>
         <div className="flex items-end gap-2 h-min">
           <h2 className="text-[#999999] text-base font-semibold line-through mb-[7px]">
-            R${originalPrice.toFixed(2)}
+            R${originalPrice}
           </h2>
           <h2 className="text-[#1E1127] text-3xl font-bold">
-            R${discountedPrice.toFixed(2)}
+            R${discountedPrice}
           </h2>
         </div>
       </div>

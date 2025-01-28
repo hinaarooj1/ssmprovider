@@ -24,6 +24,7 @@ import './assets/css/nav.css'
 import './assets/css/style.css'
 import './assets/css/styles.css'
 import Form from './pages/Form.jsx';
+import Pending from './pages/Pending.jsx';
 
 
 
@@ -49,6 +50,7 @@ function App() {
         <Route path="/instagram/comentarios" element={<Comentarios />} />
         <Route path="/pay/checkout" element={<Checkout />} />
         <Route path="/pay/form" element={<Form />} />
+        <Route path="/pay/pending" element={<Pending />} />
 
       </Routes>
     </Router>

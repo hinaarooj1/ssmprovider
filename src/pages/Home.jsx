@@ -94,7 +94,7 @@ function Home() {
                 <div className="video-js vjs-16-9 !w-full vjs-big-play-centered vjs-paused vjs-controls-enabled vjs-touch-enabled vjs-workinghover vjs-v8 vjs-user-active vjs_video_554-dimensions" id="vjs_video_554">
                   <iframe className="this-ifrm"
                     ref={iframeRef}
-                    src="https://player.vimeo.com/video/1050166247?byline=0&amp;portrait=0&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479"
+                    src="https://player.vimeo.com/video/1051005378?byline=0&amp;portrait=0&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479"
                     frameBorder="0"
                     allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media"
                     style={{
@@ -180,7 +180,7 @@ function Home() {
               <div className="video-js vjs-16-9 !w-full vjs-big-play-centered vjs-paused vjs-controls-enabled vjs-touch-enabled vjs-workinghover vjs-v8 vjs-user-active vjs_video_554-dimensions" id="vjs_video_554">
                 <iframe className="this-ifrm"
                   ref={iframeRef}
-                  src="https://player.vimeo.com/video/1050166247?byline=0&amp;portrait=0&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479"
+                  src="https://player.vimeo.com/video/1051005378?byline=0&amp;portrait=0&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479"
                   frameBorder="0"
                   allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media"
                   style={{

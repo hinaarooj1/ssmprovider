@@ -1,0 +1,222 @@
+.input-data {
+    position: relative;
+    width: 100%
+}
+
+.input-data:before {
+    content: "";
+    width: 20px;
+    height: 20px;
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+    display: block;
+    z-index: 99;
+    filter: invert(27%) sepia(44%) saturate(3806%) hue-rotate(326deg) brightness(95%) contrast(100%)
+}
+
+
+
+.span-input {
+    margin: 0 auto;
+    padding: 0;
+    border: 0;
+    outline: 0;
+    font-size: 100%
+}
+
+.input-field {
+    font-weight: 500 !important;
+    padding: 10px 10px 10px 46px;
+    color: #404040;
+    font-size: 18px;
+    border-radius: 6px;
+    min-height: 50px;
+    border-color: #e0e0e0;
+    border-width: 1px;
+    border-style: solid;
+    transition: all 1s
+}
+
+.input-field:focus {
+    border-color: #af12ed;
+    border-width: 2px;
+    border-style: solid;
+    outline: 0 !important
+}
+
+.icon-circle {
+    padding: 8px !important;
+    background: #3084c6;
+    display: inline-flex !important;
+    border-radius: 100%;
+    align-items: center !important;
+    justify-content: center !important;
+    text-align: center !important;
+    margin: 6px 10px 6px 0 !important;
+    line-height: normal !important
+}
+
+.icon-circle svg {
+    fill: #fff;
+    width: 14px !important;
+    height: 14px !important
+}
+
+.sidebar-list {
+    margin-left: 0;
+    margin-right: auto;
+    margin-top: 2rem;
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    gap: 1rem
+}
+
+.sidebar-list li {
+    margin-left: 0;
+    margin-right: auto;
+    display: flex;
+    width: 100%;
+    align-items: center;
+    gap: 1rem
+}
+
+.icon-list {
+    color: #979797;
+    font-family: Flaticon;
+    font-size: 14px;
+    font-style: normal;
+    display: inline-block
+}
+
+.icon-list svg path {
+    stroke: #979797 !important
+}
+
+.loop_head_sec {
+    color: #666
+}
+
+.input_pix {
+    border: 0;
+    clip: rect(0 0 0 0);
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+    padding: 0;
+    position: absolute;
+    width: 1px
+}
+
+.scene {
+    width: 550px;
+    height: 760px;
+    min-height: -moz-fit-content;
+    min-height: fit-content;
+    perspective: 1000px;
+    position: relative
+}
+
+.card-3d {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    transition: transform 1s;
+    transform-style: preserve-3d
+}
+
+.face {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    backface-visibility: hidden
+}
+
+.face--front {
+    background: red
+}
+
+.face--back {
+    background: #00f;
+    transform: rotateY(180deg)
+}
+
+.card-3d.flipped {
+    transform: rotateY(180deg)
+}
+
+.list-numbered {
+    list-style: none;
+    margin-left: 0;
+    counter-reset: line;
+    text-align: left
+}
+
+.list-numbered>li:before {
+    display: inline-block;
+    width: 24px;
+    height: 24px;
+    margin-right: .5em;
+    background-color: #6c18cd;
+    border-radius: 50%;
+    color: #fff;
+    text-align: center;
+    line-height: 1.7em;
+    counter-increment: line;
+    content: counter(line);
+    font-weight: 900;
+    font-size: 14px
+}
+
+.qr-code {
+    max-width: 250px;
+    display: block;
+    word-break: break-all;
+    margin: 0px auto;
+    font-size: 13px;
+    font-family: monospace;
+    padding-top: 10px;
+    color: rgb(30, 116, 253);
+}
+
+.list-numbered>li {
+    font-weight: 500;
+    position: relative;
+    margin-bottom: .5em
+}
+
+.pix-code {
+    background-color: #44c767;
+    border-radius: 28px;
+    border: 1px solid #18ab29;
+    display: flex;
+    gap: 10px;
+    cursor: pointer;
+    color: #fff;
+    font-family: inherit;
+    font-size: 17px;
+    font-weight: 700;
+    padding: 15px 30px;
+    text-decoration: none;
+    text-shadow: 0px 1px 0px #2f6627;
+    position: relative;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    user-select: none
+}
+
+.pix-code:hover {
+    background-color: #5cbf2a
+}
+
+.modal-pay {
+    background: #f3f6fe;
+    background: #fc2567;
+    background: linear-gradient(0deg, #fc2567 0, #fa2697 41%, #ba08b5);
+    transition: all .5s ease-in-out;
+    box-shadow: 0 0 0 6px #ffffff4d
+}

@@ -76,7 +76,7 @@ export default function Header() {
       </nav>
       <nav className={` ${isActive ? 'navact' : ""} md:!hidden navbar-old ubuntu flex flex-[1] false mt-2 items-center overflow-hidden !z-30 w-[98%] rounded-full -mt-3 lg:px-4 lg:w-[90%] mx-auto lg:mt-2 lg:border-[#a6ddd293] lg:border lg:rounded-[120px] lg:shadow-[#06D1A9] lg:shadow-nav`}>
         <div className="max-h-[40px] gap-2 !z-20 px-6 flex items-center">
-          <figure className="h-[54px] w-[54px] rotate-45 ml-0 mr-auto">
+          <figure className="h-[54px] w-[54px]  ml-0 mr-auto">
             <img className="w-full h-full object-contain" src="../rocket-3.png" />
           </figure>
         </div>

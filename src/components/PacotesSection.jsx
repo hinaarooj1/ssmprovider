@@ -1,6 +1,7 @@
 import React from "react";
 // import 'bootstrap/dist/css/bootstrap.min.css';
 import './pacotesSection.css';
+import { Link } from "react-router-dom";
 
 const PacotesSection = () => {
   return (
@@ -76,7 +77,7 @@ const PacotesSection = () => {
             </svg>
           </span>
           <div className="gap-2 flex flex-col">
-            <a className="card-instagram" id="follow">
+            <Link to='/followers' className="card-instagram" id="follow">
               <div className="card-svg">
                 <svg aria-hidden="true" fill="#fff" height="32px" viewBox="0 0 640 512" width="32px" xmlns="http://www.w3.org/2000/svg">
                   <path d="M96 224c35.3 0 64-28.7 64-64s-28.7-64-64-64-64 28.7-64 64 28.7 64 64 64zm448 0c35.3 0 64-28.7 64-64s-28.7-64-64-64-64 28.7-64 64 28.7 64 64 64zm32 32h-64c-17.6 0-33.5 7.1-45.1 18.6 40.3 22.1 68.9 62 75.1 109.4h66c17.7 0 32-14.3 32-32v-32c0-35.3-28.7-64-64-64zm-256 0c61.9 0 112-50.1 112-112S381.9 32 320 32 208 82.1 208 144s50.1 112 112 112zm76.8 32h-8.3c-20.8 10-43.9 16-68.5 16s-47.6-6-68.5-16h-8.3C179.6 288 128 339.6 128 403.2V432c0 26.5 21.5 48 48 48h288c26.5 0 48-21.5 48-48v-28.8c0-63.6-51.6-115.2-115.2-115.2zm-223.7-13.4C161.5 263.1 145.6 256 128 256H64c-35.3 0-64 28.7-64 64v32c0 17.7 14.3 32 32 32h65.9c6.3-47.4 34.9-87.3 75.2-109.4z">
@@ -87,15 +88,15 @@ const PacotesSection = () => {
                 <h3 className="outfit">
                   Seguidores Instagram
                 </h3>
-                <p className="outfit">
+                <p className="outfit" style={{ flexDirection: 'column' }}>
                   Serviços em promoção, clique aqui
-                  <span className="bg-[#c339ff] rounded-[20px] text-white py-0.5 px-1.5">
+                  <span style={{ width: "max-content", display: 'flex' }} className="bg-[#c339ff] rounded-[20px] text-white py-0.5 px-1.5">
                     45% OFF
                   </span>
                 </p>
               </div>
-            </a>
-            <a className="card-instagram">
+            </Link>
+            <Link to="/instagram/curtidas" className="card-instagram">
               <div className="card-svg">
                 <svg aria-hidden="true" fill="#fff" height="32px" viewBox="0 0 512 512" width="32px" xmlns="http://www.w3.org/2000/svg">
                   <path d="M462.3 62.6C407.5 15.9 326 24.3 275.7 76.2L256 96.5l-19.7-20.3C186.1 24.3 104.5 15.9 49.7 62.6c-62.8 53.6-66.1 149.8-9.9 207.9l193.5 199.8c12.5 12.9 32.8 12.9 45.3 0l193.5-199.8c56.3-58.1 53-154.3-9.8-207.9z">
@@ -113,8 +114,8 @@ const PacotesSection = () => {
                   </span>
                 </p>
               </div>
-            </a>
-            <a className="card-instagram">
+            </Link>
+            <Link to="/instagram/views" className="card-instagram">
               <div className="card-svg">
                 <svg aria-hidden="true" fill="#fff" height="32px" viewBox="0 0 512 512" width="32px" xmlns="http://www.w3.org/2000/svg">
                   <path d="M256 8C119 8 8 119 8 256s111 248 248 248 248-111 248-248S393 8 256 8zm144 276c0 6.6-5.4 12-12 12h-92v92c0 6.6-5.4 12-12 12h-56c-6.6 0-12-5.4-12-12v-92h-92c-6.6 0-12-5.4-12-12v-56c0-6.6 5.4-12 12-12h92v-92c0-6.6 5.4-12 12-12h56c6.6 0 12 5.4 12 12v92h92c6.6 0 12 5.4 12 12v56z">
@@ -132,8 +133,8 @@ const PacotesSection = () => {
                   </span>
                 </p>
               </div>
-            </a>
-            <a className="card-instagram" id="reels">
+            </Link>
+            <Link to="/instagram/reels" className="card-instagram" id="reels">
               <div className="card-svg">
                 <svg aria-hidden="true" fill="#fff" height="32px" viewBox="0 0 576 512" width="32px" xmlns="http://www.w3.org/2000/svg">
                   <path d="M336.2 64H47.8C21.4 64 0 85.4 0 111.8v288.4C0 426.6 21.4 448 47.8 448h288.4c26.4 0 47.8-21.4 47.8-47.8V111.8c0-26.4-21.4-47.8-47.8-47.8zm189.4 37.7L416 177.3v157.4l109.6 75.5c21.2 14.6 50.4-.3 50.4-25.8V127.5c0-25.4-29.1-40.4-50.4-25.8z">
@@ -151,8 +152,8 @@ const PacotesSection = () => {
                   </span>
                 </p>
               </div>
-            </a>
-            <a className="card-instagram">
+            </Link>
+            <Link to='/instagram/comentarios' className="card-instagram">
               <div className="card-svg">
                 <svg enableBackground="new 796 796 200 200" fill="#fff" height="32px" id="Layer_1" version="1.1" viewBox="796 796 200 200" width="32px" xmlns="http://www.w3.org/2000/svg">
                   <path d="M896.001,812.517c-55.23,0-100.001,31.369-100.001,70.071c0,18.018,9.72,34.439,25.67,46.851  c3.721,2.895,5.446,7.685,4.424,12.286l-6.872,30.926c-0.498,2.242,0.419,4.561,2.316,5.855c1.896,1.295,4.391,1.304,6.297,0.022  l36.909-24.804c3.238-2.176,7.17-3.074,11.032-2.516c6.532,0.945,13.294,1.448,20.226,1.448c55.227,0,99.999-31.37,99.999-70.069  C996,843.886,951.229,812.517,896.001,812.517z">
@@ -170,7 +171,7 @@ const PacotesSection = () => {
                   </span>
                 </p>
               </div>
-            </a>
+            </Link>
           </div>
         </div>
         <div className="!w-fit card-main tiktok-new">

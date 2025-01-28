@@ -5,7 +5,6 @@ import axios from 'axios'
 import { useCheckout } from "../context/CheckoutContext";
 import TimerHead from "../components/TimerHead";
 import { toast } from "react-toastify";
-import { useNavigate } from "react-router-dom";
 
 
 const Form = () => {// Starting time in seconds
@@ -19,13 +18,7 @@ const Form = () => {// Starting time in seconds
   const [moreViews, setmoreViews] = useState(false);
   const [moreComments, setmoreComments] = useState(false);
   const [totalPrice, settotalPrice] = useState(0);
-  const [orderData, setOrderData] = useState({
-    serviceID: "",
-    link: "",
-    quantity: "",
-  });
 
-  let navigate = useNavigate()
   const [cpf, setCpf] = useState("");
   const [isValid, setIsValid] = useState(true);
   const isValidCPF = (cpf) => {
@@ -75,9 +68,7 @@ const Form = () => {// Starting time in seconds
       return
     }
     updateCheckoutData("cpf", cpf)
-    updateCheckoutData("totalPrice", totalPrice)
     // will be moved
-
     let formData = {
       username: checkoutData.username,
       name: checkoutData.name,
@@ -87,33 +78,32 @@ const Form = () => {// Starting time in seconds
       selectedPackage: checkoutData.packages[0],
       price: totalPrice,
       extra: {},
-      selected: checkoutData.selected,
-      link: checkoutData.link
+      selected: checkoutData.selected
 
     }
     if (moreFollow) {
-      formData.extra = {
+      formData.extra.followers = {
         description: "100 Seguidores - Instagram",
         price: 600
       };
     }
 
     if (moreLikes) {
-      formData.extra = {
+      formData.extra.likes = {
         description: "100 Curtidas - Instagram",
         price: 400
       };
     }
 
     if (moreViews) {
-      formData.extra = {
+      formData.extra.views = {
         description: "100 visualizações em vídeos - Instagram",
         price: 400
       };
     }
 
     if (moreComments) {
-      formData.extra = {
+      formData.extra.comments = {
         description: "2 Comentarios - Instagram",
         price: 400
       };
@@ -123,80 +113,12 @@ const Form = () => {// Starting time in seconds
       const res = await axios.post(`http://localhost:4000/api/openpix/create-charge`, formData);
 
 
+      console.log('res.data: ', res.data);
+      console.log('res.data: ', res.data.resposne.charge.paymentMethods.pix);
       if (res.data.success === true) {
         addPaymentInfo(res.data.resposne.charge.paymentMethods.pix)
         toast.success("Pedido realizado com sucesso!");
-        let serviceID = ""
-        let quantity = ""
-        let link = ""
-        if (checkoutData.selected === "followers") {
-          link = checkoutData.username
-          if (checkoutData.packages[0].followers === 100) {
-
-            serviceID = 3878
-            quantity = "quantity=110"
-
-          } else if (checkoutData.packages[0].followers === 600) {
-            serviceID = 4112
-            quantity = "quantity=660"
-
-
-
-          } else if (checkoutData.packages[0].followers === 3000) {
-            serviceID = 6178
-            quantity = "quantity=3000"
-
-
-
-          } else {
-            serviceID = 6178
-            quantity = `quantity=${checkoutData.packages[0].followers}`
-
-          }
-        } else if (checkoutData.selected === "likes") {
-          link = checkoutData.link
-          serviceID = 4379
-          quantity = `quantity=${checkoutData.packages[0].likes}`
-
-        } else if (checkoutData.selected === "story views") {
-          link = checkoutData.link
-
-          serviceID = 1339
-          quantity = `quantity=${checkoutData.packages[0].likes}`
-
-        } else if (checkoutData.selected === "reel views") {
-          link = checkoutData.link
-
-          serviceID = 5528
-          quantity = `quantity=${checkoutData.packages[0].likes}`
-
-        } else if (checkoutData.selected === "comments") {
-          link = checkoutData.link
-          serviceID = 5502
-          quantity = `comments=Comments`
-
-        }
-        const orderData = {
-          serviceID,
-          link,
-          quantity
-
-        };
-
-        // Call the second API to create the order
-        const orderRes = await axios.post(
-          "http://localhost:4000/api/raja/create-order",
-          orderData
-        );
-        console.log(orderRes);
-        if (orderRes.data.success) {
-          navigate('/pay/pending')
-
-          console.log("Order created:", orderRes.data);
-        } else {
-          toast.error("Falha ao criar ordem.");
-          console.error("Order API error:", orderRes.data.error);
-        }
+        // window.location.href = res.data.link
       } else {
         toast.error("Ocorreu um erro ao realizar o pedido.");
       }
@@ -278,7 +200,7 @@ const Form = () => {// Starting time in seconds
                     As ofertas abaixo são EXCLUSIVAS para essa compra!
                   </p>
                 </div>
-                {checkoutData.selected === "followers" ? <div className="flex flex-col justify-between border w-full border-gray-300 border-t-0 bg-yellow-100 py-4 px-4 items-center border-dotted">
+                <div className="flex flex-col justify-between border w-full border-gray-300 border-t-0 bg-yellow-100 py-4 px-4 items-center border-dotted">
                   <div className="flex sm:flex-row items-center w-full">
                     <img className="mr-5 w-13 h-13 md:h-20 md:w-20" src="../ig-follow.svg" />
                     <div className="flex flex-col lg:flex-row items-start justify-start w-full">
@@ -312,8 +234,8 @@ const Form = () => {// Starting time in seconds
                       </div>
                     </div>
                   </div>
-                </div> : ""}
-                {checkoutData.selected === "likes" ? <div className="flex flex-col justify-between border w-full border-gray-300 border-t-0 bg-yellow-100 py-4 px-4 items-center border-dotted">
+                </div>
+                <div className="flex flex-col justify-between border w-full border-gray-300 border-t-0 bg-yellow-100 py-4 px-4 items-center border-dotted">
                   <div className="flex sm:flex-row items-center w-full">
                     <img className="mr-5 w-13 h-13 md:h-20 md:w-20" src="../ig-likes.svg" />
                     <div className="flex flex-col lg:flex-row items-start justify-start w-full">
@@ -348,8 +270,8 @@ const Form = () => {// Starting time in seconds
                       </div>
                     </div>
                   </div>
-                </div> : ''}
-                {checkoutData.selected === "reel views" || checkoutData.selected === "story views" ? <div className="flex flex-col justify-between border w-full border-gray-300 border-t-0 bg-yellow-100 py-4 px-4 items-center border-dotted">
+                </div>
+                <div className="flex flex-col justify-between border w-full border-gray-300 border-t-0 bg-yellow-100 py-4 px-4 items-center border-dotted">
                   <div className="flex sm:flex-row items-center w-full">
                     <img className="mr-5 w-13 h-13 md:h-20 md:w-20" src="../ig-video-views.svg" />
                     <div className="flex flex-col lg:flex-row items-start justify-start w-full">
@@ -384,8 +306,8 @@ const Form = () => {// Starting time in seconds
                       </div>
                     </div>
                   </div>
-                </div> : ""}
-                {checkoutData.selected === "comments" ? <div className="flex flex-col justify-between border w-full border-gray-300 border-t-0 bg-yellow-100 py-4 px-4 items-center border-dotted">
+                </div>
+                <div className="flex flex-col justify-between border w-full border-gray-300 border-t-0 bg-yellow-100 py-4 px-4 items-center border-dotted">
                   <div className="flex sm:flex-row items-center w-full">
                     <img className="mr-5 w-13 h-13 md:h-20 md:w-20" src="../ig-comments.svg" />
                     <div className="flex flex-col lg:flex-row items-start justify-start w-full">
@@ -419,7 +341,7 @@ const Form = () => {// Starting time in seconds
                       </div>
                     </div>
                   </div>
-                </div> : ""}
+                </div>
               </div>
               <button onClick={handleSubmit} disabled={isDisable} style={{ opacity: isDisable ? 0.6 : 1 }} type="button" className="bg-green-500 text-white mx-auto w-fit hover:bg-green-700 transition-all duration-150 mt-4 px-4 py-2 rounded-md">
                 Pagar

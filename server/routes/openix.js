@@ -3,27 +3,53 @@ const axios = require('axios');
 require('dotenv').config();
 // const uuidv4 = require('uuid');
 const router = express.Router();
+const { v4: uuidv4 } = require('uuid');
+const { parse } = require('dotenv');
 
 // Create Charge
 router.post('/create-charge', async (req, res) => {
-    console.log("aja");
-    const { name, taxID, email, phone } = req.body;
 
+    const { username, name, taxID, email, phone, selectedPackage, extra, link, selected, price } = req.body;
+    console.log('link: ', link);
 
-    // let correlationID = uuidv4();
-    const correlationID = `550e8400-e29b-41d4-a716-446655440000-${Date.now()}`
-    console.log(' req.body: ', req.body);
+    const correlationID = uuidv4();
+    let totalPrice = price * 100
+    let comment;
+
+    if (selected === "followers") {
+        comment = `${selectedPackage.title} - ${selectedPackage.followers} Seguidores do Instagram`;
+    } else if (selected === "comments") {
+        comment = `${selectedPackage.title} - ${selectedPackage.comments} Comentários no Instagram`;
+    } else if (selected === "likes") {
+        comment = `${selectedPackage.title} - ${selectedPackage.likes} Curtidas no Instagram`;
+    } else if (selected === "reel views" || selected === "story views") {
+        comment = `${selectedPackage.title} - ${selectedPackage.likes} Visualizações no Instagram`;
+    } else {
+        comment = `${selectedPackage.title} - Pacote do Instagram`;
+    }
+    if (extra && extra.description) {
+        comment += ` + ${extra.description}`;
+    }
+    console.log(comment);
+    console.log('totalPrice: ', totalPrice);
+    // let correlationID = uuidv4();  
     try {
         const response = await axios.post(
             'https://api.openpix.com.br/api/v1/charge?return_existing=false',
             {
                 correlationID,
-                value: 990, // Amount in cents
+                value: totalPrice, // Amount in cents
                 type: 'DYNAMIC',
-                comment: 'Pacote Iniciante - 100 Seguidores do Instagram',
+                comment,
                 identifier: `order-${Date.now()}`,
                 expiresIn: 3600, // 1 hour
                 customer: { name, taxID, email, phone },
+                additionalInfo: [
+                    { key: 'InstagramProfile', value: username },
+                    { key: 'video Link ', value: link },
+
+                ],
+
             },
             {
                 headers: {
@@ -33,11 +59,10 @@ router.post('/create-charge', async (req, res) => {
                 },
             }
         );
-        res.status(200).json(response.data);
+        res.status(200).json({ resposne: response.data, success: true });
     } catch (error) {
         console.log('error: ', error);
-        console.log(process.env.OPENPIX_API_KEY);
-        res.status(500).json({ error: error.response.data });
+        res.status(500).json({ error: error.response.data, success: false });
     }
 });
 
