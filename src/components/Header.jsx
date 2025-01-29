@@ -119,7 +119,7 @@ export default function Header() {
           </div>
         </div>
         <div className="flex w-[75px] gap-6 justify-end mr-6 items-center lg:hidden !z-20">
-          <a className>
+          <a href="https://wa.me/5591989905821" target='_blank' className>
             <img className="h-4 w-4 lazyloaded" src="https://seguidores.storage.googleapis.com/images/whatsapp.svg" />
           </a>
           <button className={`${isActive ? "text-black" : 'text-white '}`} onClick={toggleNav}>

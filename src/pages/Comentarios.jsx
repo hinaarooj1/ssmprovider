@@ -64,10 +64,7 @@ const PackageCard = ({ title, comments, oldPrice, newPrice, availablePackages, i
               <CheckIcon />
               <span className="text-md outfit font-semibold text-[#525252]">Personalize os comentários</span>
             </li>
-            <li className="flex items-center gap-2">
-              <CheckIcon />
-              <span className="text-md outfit font-semibold text-[#525252]">Envie para vários posts</span>
-            </li>
+
             <li className="flex items-center gap-2">
               <CheckIcon />
               <span className="text-md outfit font-semibold text-[#525252]">100% Seguro e Confidencial</span>

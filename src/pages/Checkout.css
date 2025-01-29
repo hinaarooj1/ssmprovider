@@ -131,3 +131,16 @@ input[type=checkbox] {
 .akjk .input-data {
     height: auto !important;
 }
+
+.thweh {
+    width: 4rem !important;
+    height: 4rem !important;
+}
+
+@media (min-width:1024px) {
+    .thweh {
+        width: 1.25rem !important;
+        height: 1.25rem !important;
+    }
+
+}

@@ -19,19 +19,22 @@ export const CheckoutProvider = ({ children }) => {
 
         // Stores selected packages
     });
-    const [time, setTime] = useState(300); // 5 minutes in seconds
+    const [time, setTime] = useState(900); // 5 minutes in seconds
     console.log('checkoutData: ', checkoutData);
 
     // Function to update checkout data
     const updateCheckoutData = (field, value) => {
         setCheckoutData((prev) => ({ ...prev, [field]: value }));
     };
-
     // Timer logic - starts when username is set and continues until it reaches 0
     useEffect(() => {
         let interval;
-
         if (checkoutData.username) {
+            setTime(900);
+
+            // Clear existing interval before starting a new one
+            clearInterval(interval);
+
             interval = setInterval(() => {
                 setTime((prevTime) => {
                     if (prevTime > 0) {
@@ -43,13 +46,11 @@ export const CheckoutProvider = ({ children }) => {
                 });
             }, 1000);
         } else {
-            setTime(0); // Reset the timer to 5 minutes if username is empty
+            setTime(0); // Reset timer if username is empty
         }
 
-        // Cleanup the interval when username is empty or on component unmount
-        return () => {
-            clearInterval(interval);
-        };
+        // Cleanup on unmount or username change
+        return () => clearInterval(interval);
     }, [checkoutData.username]);
 
     // Format time as MM:SS
