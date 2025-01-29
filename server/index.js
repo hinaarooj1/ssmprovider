@@ -73,7 +73,7 @@ app.get('/api/proxy-image', async (req, res) => {
     }
 });
 
-app.use("/test", (req, res) => {
+app.get("/test", (req, res) => {
     res.send("Working")
 })
 // Middleware
