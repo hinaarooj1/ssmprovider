@@ -3,75 +3,148 @@ import './Checkout.css';
 import Footer from '../components/Footer';
 import axios from 'axios'
 import { useCheckout } from "../context/CheckoutContext";
+import TimerHead from "../components/TimerHead";
+import { useNavigate } from "react-router-dom";
 
-const Checkout = () => {
-  const [time, setTime] = useState(5.00); // Starting time in seconds
-  const [userInsta, setuserInsta] = useState(null); // Starting time in seconds
 
-  const { checkoutData } = useCheckout();
-  useEffect(() => {
-    // Set an interval to decrease time every 10 milliseconds
-    const interval = setInterval(() => {
-      setTime((prevTime) => {
-        if (prevTime > 0) {
-          return (prevTime - 0.01).toFixed(2); // Decrease time by 0.01 seconds
-        } else {
-          clearInterval(interval); // Clear the interval when time reaches 0
-          return "0.00";
-        }
-      });
-    }, 1000); // Update every 10ms to simulate the countdown in 0.01 second intervals
+const Checkout = () => {// Starting time in seconds
+  const [userInsta, setuserInsta] = useState(
+    null
 
-    return () => clearInterval(interval); // Cleanup the interval when component is unmounted
-  }, []);
+  ); // Starting time in seconds
+
+  const [userImg, setuserImg] = useState(null); // Starting time in seconds
+  const [isUser, setisUser] = useState(true); // Starting time in seconds
+  const [isTour, setisTour] = useState(false); // Starting time in seconds
+  const [isChecked, setIsChecked] = useState(false);
+  const [isDisable, setisDisable] = useState(true);
+  let navigate = useNavigate()
+  const [errors, setErrors] = useState({
+    name: false,
+    email: false,
+    phone: false,
+    instagram: false,
+    tutorial: false,
+  });
+  // Handle change of checkbox
+  const handleCheckboxChange = () => {
+    setIsChecked(!isChecked);
+  };
+  const { updateCheckoutData, checkoutData, addInfo } = useCheckout();
+
 
   const [email, setEmail] = useState("");
   const [phone, setPhone] = useState("");
   const [instagram, setInstagram] = useState("");
   const [name, setName] = useState("");
 
-  const handleSubmit = (event) => {
+  const handleSubmit = async (event) => {
     event.preventDefault();
+
+    const newErrors = {};
+    if (!name) newErrors.name = true;
+    if (!email) newErrors.email = true;
+    else if (!/\S+@\S+\.\S+/.test(email)) newErrors.email = 'Email is invalid';
+    if (!phone) newErrors.phone = true;
+    if (checkoutData.selected === "followers") {
+
+      updateCheckoutData("link", checkoutData.username);
+      setInstagram(checkoutData.username)
+    } else {
+
+      updateCheckoutData("link", instagram);
+      if (!instagram) newErrors.instagram = true;
+    }
+    if (!isChecked) newErrors.tutorial = true;
+
+    if (Object.keys(newErrors).length > 0) {
+      setErrors(newErrors);
+      return; // Stop further processing if validation fails
+    }
+
+    // Reset errors if validation passed
+    setErrors({});
     // Handle form submission logic here
+
+    updateCheckoutData("name", name);
+    updateCheckoutData("email", email);
+
+    updateCheckoutData("phone", phone);
+    navigate("/pay/form")
+
   };
   const fetchInstagramData = async () => {
-    const options = {
-      method: 'GET',
-      url: 'https://instagram-scraper-api2.p.rapidapi.com/v1.2/search',
-      params: {
-        search_query: checkoutData.username, // Replace 'beast' with your desired search term
-      },
-      headers: {
-        'x-rapidapi-key': 'a208880cbamshf25da64da039948p1a4dbejsn03117cfa62b8', // Replace with your RapidAPI key
-        'x-rapidapi-host': 'instagram-scraper-api2.p.rapidapi.com',
-      },
+    const headers = {
+      'x-rapidapi-key': 'a208880cbamshf25da64da039948p1a4dbejsn03117cfa62b8',
+      'x-rapidapi-host': 'instagram-scraper-api2.p.rapidapi.com',
     };
 
+
+
+    const infoRequest = axios.get(
+      'https://instagram-scraper-api2.p.rapidapi.com/v1/info',
+      { params: { url_embed_safe: true, username_or_id_or_url: checkoutData.username }, headers }
+    );
+
+
+
     try {
-      const response = await axios.request(options);
+      const info = await infoRequest;
+
       if (checkoutData.username) {
-        // Trim the username for safety
-        const trimmedUsername = checkoutData.username.trim();
+        setuserInsta(
+          info.data.data
+        )
+        addInfo(info.data.data)
+        //  removeable
+        const proxyUrl = "https://cors-anywhere.herokuapp.com/"; // Public proxy
+        const imageUrl = info.data.data.profile_pic_url; // Replace this with the actual image URL from Instagram
 
-        // Perform validation
-        const matchedUser = response.data.data.users.find(
-          (user) => user.username.toLowerCase() === trimmedUsername.toLowerCase()
-        );
+        // Combine proxy URL with image URL
+        const proxiedImageUrl = proxyUrl + imageUrl;
 
-        if (matchedUser) {
-          setuserInsta(matchedUser)
-          // Do something with the matched user
-        } else {
-          console.error("No user found with the provided username.");
-        }
+        // Fetch the image using the proxied URL
+        fetch(proxiedImageUrl, {
+          method: 'GET', // Specify the method (GET is default)
+          headers: {
+            'Origin': 'https://vocemaisengajado.com.br', // Replace with your actual website's origin
+            'X-Requested-With': 'XMLHttpRequest', // Required for CORS request
+          },
+        })
+          .then(response => response.blob()) // Get the image as a Blob (binary data)
+          .then(blob => {
+            const reader = new FileReader();
+
+            reader.onloadend = () => {
+              // This is the Base64 encoded image data
+              const base64Image = reader.result;
+              setuserImg(base64Image)
+              updateCheckoutData("userProfile", base64Image);
+
+            };
+
+            // Read the Blob as a Data URL (Base64)
+            reader.readAsDataURL(blob);
+          })
+          .catch(err => {
+            console.error("Error fetching image:", err);
+          });
+        //  removeable
+        // setuserInsta(response.data.user)
+        setisDisable(false)
 
       } else {
         console.error("Username not found.");
+        setisUser(false)
       }
     } catch (error) {
       console.error('Error fetching Instagram data:', error);
+      setisUser(false)
+
     }
   };
+
+
 
   useEffect(() => {
     if (checkoutData.username) {
@@ -82,34 +155,17 @@ const Checkout = () => {
   return (
     <>
       <div className="min-h-screen w-screen overflow-hidden relative">
-        <div className="bg-green-400 py-2 gap-2 w-full flex items-center justify-center">
-          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" className="fill-white">
-            <path d="M12 0c-3.371 2.866-5.484 3-9 3v11.535c0 4.603 3.203 5.804 9 9.465 5.797-3.661 9-4.862 9-9.465v-11.535c-3.516 0-5.629-.134-9-3zm-.548 15l-3.452-3.362 1.237-1.239 2.215 2.123 4.382-4.475 1.238 1.238-5.62 5.715z"></path>
-          </svg>
-          <span className="text-white font-extrabold text-base">COMPRA 100% SEGURA</span>
-        </div>
-        <div className="bg-red-700 text-yellow-300 py-2 px-4 gap-2 w-full items-center flex justify-center">
-          <div className="flex gap-1 items-center">
-            <span className="time text-lg font-semibold">{parseFloat(time).toFixed(2)}</span>
-            <figure className="w-6">
-              <img src="../wait.gif" alt="" className="w-full h-full" />
-            </figure>
-          </div>
-          <span className="font-normal text-base">Estamos aguardando sua confirmação... Não perca essa oferta!</span>
-        </div>
-        <ul className="w-full flex h-1 bg-[#b5b5b58e]">
-          <li className="w-1/3 h-full bg-green-400 ml-0 mr-auto"></li>
-        </ul>
+        <TimerHead />
         <div className="flex lg:items-start mx-auto items-center gap-14 w-screen overflow-hidden flex-col lg:flex-row justify-center h-full">
           <div className="react-card-flip lg:mt-12 mt-10" style={{ zIndex: "auto" }}>
             <div className="react-card-flipper" style={{ height: "100%", perspective: "1000px", position: "relative", width: "100%" }}>
               <div className="react-card-front" style={{ backfaceVisibility: "hidden", height: "100%", position: "relative", transform: "rotateY(0deg)", transition: "0.25s", width: "100%", zIndex: 2 }}>
                 <div className="lg:w-[550px] w-[90%] flex-col mx-auto rounded-2xl py-4 border-purple-400 border  px-4 items-center flex bg-[#f4f4f4] gap-2" id="form">
                   <h1 className="font-bold text-black text-xl">Finalizar Compra</h1>
-                  <form onSubmit={handleSubmit} className="flex flex-col items-center gap-4 w-full">
+                  <form onSubmit={handleSubmit} className="flex akjk flex-col items-cente gap- w-full">
                     <div className="input-data name">
                       <span className="span-input">
-                        <img src="../name.svg" />
+                        {/* <img src="../name.svg" /> */}
                         <input
                           name="name"
                           type="text"
@@ -120,10 +176,12 @@ const Checkout = () => {
                           onChange={(e) => setName(e.target.value)}
                         />
                       </span>
+
                     </div>
+                    {errors.name && <span className="text-red-500 my-2q"><font style={{ verticalAlign: 'inherit' }}><font style={{ verticalAlign: 'inherit' }}>Campo requerido</font></font></span>}
                     <div className="input-data email">
                       <span className="span-input">
-                        <img src="../gmail.svg" />
+                        {/* <img src="../gmail.svg" /> */}
                         <input
                           name="email"
                           type="email"
@@ -134,10 +192,13 @@ const Checkout = () => {
                           onChange={(e) => setEmail(e.target.value)}
                         />
                       </span>
+
                     </div>
+                    {errors.email && <span className="text-red-500 my-2q"><font style={{ verticalAlign: 'inherit' }}><font style={{ verticalAlign: 'inherit' }}>O e-mail é inválido</font></font></span>}
+
                     <div className="input-data phone">
                       <span className="span-input">
-                        <img src="../phone.svg" />
+                        {/* <img src="../phone.svg" /> */}
                         <input
                           name="phone"
                           type="text"
@@ -148,23 +209,62 @@ const Checkout = () => {
                           onChange={(e) => setPhone(e.target.value)}
                         />
                       </span>
+
                     </div>
-                    <div className="input-data instagram">
+                    {errors.phone && <span className="text-red-500 my-2q"><font style={{ verticalAlign: 'inherit' }}><font style={{ verticalAlign: 'inherit' }}>Campo requerido</font></font></span>}
+
+                    <div className="input-data instagram innna">
                       <span className="span-input">
-                        <img src="../instagram.svg" />
-                        <input
-                          name="instagram"
-                          type="text"
-                          id="instagram"
-                          placeholder="Link"
-                          className="w-full input-field"
-                          value={instagram}
-                          onChange={(e) => setInstagram(e.target.value)}
-                        />
+                        {/* <img src="../instagram.svg" /> */}
+
+                        {checkoutData.selected === "followers" ?
+                          <input
+                            name="instagram"
+                            type="text"
+                            id="instagram"
+                            placeholder="Link"
+                            className="w-full input-field"
+                            value={checkoutData.username}
+                            disabled={true}
+                            style={{ opacity: 0.7 }}
+                          /> : <input
+                            name="instagram"
+                            type="text"
+                            id="instagram"
+                            placeholder="Link"
+                            className="w-full input-field"
+                            value={instagram}
+                            onChange={(e) => setInstagram(e.target.value)}
+                          />
+                        }
                       </span>
                     </div>
+                    {errors.instagram && <span className="text-red-500 my-2q"><font style={{ verticalAlign: 'inherit' }}><font style={{ verticalAlign: 'inherit' }}>adicionar link de postagem</font></font></span>}
+
+
+                    <div className="input-data pl-2 gap-1.5 flex items-center justify-start w-full">
+                      <input checked={isChecked}
+                        onChange={handleCheckboxChange} className="lg:w-5 w-16 h-16 lg:h-5" id="disable_analise" type="checkbox" />
+                      <button type="button" onClick={() => setisTour(true)} className="text-left text-blue-400 hover:text-blue-600 font-medium text-xs justify-start">
+                        Para alcançar seus seguidores, desmarque a opção:
+                        <span className="text-blue-600">
+                          “🚨 Desative o Sinalizar para Análise”.
+                        </span>
+                      </button>
+                      <button type="button" onClick={() => setisTour(true)} className="bg-red-600 min-w-fit nunito font-medium text-white ring ring-red-600 border-white rounded-full shadow-lg transition-all duration-300 shadow-red-400">
+                        <div className="min-w-fit bg-red-600 h-full rounded-full px-2 py-1 border-white border-2">
+                          Veja o tutorial
+                        </div>
+                      </button>
+                    </div>
+                    {errors.tutorial && <span className="text-red-500 my-2q ajs" style={{ marginBottom: '30px' }}><font style={{ verticalAlign: 'inherit' }}><font style={{ verticalAlign: 'inherit' }}>Campo requerido</font></font></span>}
+
+
+
                     <button
                       type="submit"
+                      style={{ opacity: isDisable ? 0.5 : 1 }}
+                      disabled={isDisable}
                       className="px-5 py-4 bg-gradient-to-r from-orange-500 to-pink-500 rounded-full text-white font-bold text-2xl w-full hover:bg-gradient-to-r hover:from-orange-600 hover:to-pink-600 transition ease-in-out animation-finally mt-1"
                     >
                       Continuar
@@ -173,33 +273,37 @@ const Checkout = () => {
                       <div className="flex items-center gap-4">
                         <figure>
                           <img className="rounded-full w-16 h-16 object-contain" crossOrigin="anonymous"
-                            alt="Profile Picture" src={userInsta.profile_pic_url} />
+                            alt="Profile Picture" src={userImg} />
                         </figure>
                         <span className="text-[#40474f] font-bold text-lg">
-                          @{checkoutData.username}
+                          @{userInsta.username}
                         </span>
                       </div>
                       <div className="flex items-center gap-4">
                         <span className="flex flex-col text-lg text-[#969696] font-bold items-center">
                           <b className="text-lg font-bold text-[#5d5d5d]">
-                            20
+                            {userInsta.media_count}
                           </b>
                           Posts
                         </span>
                         <span className="flex flex-col text-lg text-[#969696] font-bold items-center">
                           <b className="text-lg font-bold text-[#5d5d5d]">
-                            186
+                            {userInsta.follower_count}
                           </b>
                           Seguidores
                         </span>
                         <span className="flex flex-col text-lg text-[#969696] font-bold items-center">
                           <b className="text-lg font-bold text-[#5d5d5d]">
-                            322
+                            {userInsta.following_count}
+
                           </b>
                           Seguindo
                         </span>
                       </div>
-                    </div> : ""}
+                    </div> : <div>
+
+                      {isUser ? "" : <p style={{ textAlign: 'center', marginBlock: '10px' }}>User Fetching failed</p>}
+                    </div>}
 
 
                   </form>
@@ -259,6 +363,55 @@ const Checkout = () => {
         </div>
       </div>
       <Footer />
+
+      {/* modal */}
+      {isTour ? <>
+        <div onClick={() => setisTour(false)} aria-hidden="true" className="rs-modal-backdrop rs-anim-fade rs-anim-in" />
+
+        <div className="rs-modal-wrapper">
+          <div className="!bg-[#020202] text-center lg:w-[90%] xl:w-[70%] rs-modal-sm rs-anim-bounce-in rs-modal" id="dialog-:r0:" style={{ display: 'block' }}>
+            <div className="rs-modal-dialog">
+              <div className="rs-modal-content">
+                <div className="rs-modal-header">
+                  <button onClick={() => setisTour(false)} className="rs-modal-header-close rs-btn-close">
+                    <svg aria-hidden="true" aria-label="close" className="rs-icon" data-category="application" fill="currentColor" focusable="false" height="1em" viewBox="0 0 16 16" width="1em">
+                      <path d="M2.784 2.089l.069.058 5.146 5.147 5.146-5.147a.5.5 0 01.765.638l-.058.069L8.705 8l5.147 5.146a.5.5 0 01-.638.765l-.069-.058-5.146-5.147-5.146 5.147a.5.5 0 01-.765-.638l.058-.069L7.293 8 2.146 2.854a.5.5 0 01.638-.765z">
+                      </path>
+                    </svg>
+                  </button>
+                  <h4 className="text-white font-bold text-2xl nunito rs-modal-title" id="dialog-:r0:-title">
+                    Sinalizar para análise.
+                  </h4>
+                </div>
+                <span className="text-[#c3c3c3] my-2 text-lg">
+                  Necessário desativar essa função no perfil antes da compra para garantir a entrega do pedido.
+                </span>
+                <div className="flex lg:flex-row justify-around my-4 lg:gap-2 xl:gap-8 gap-8 flex-col">
+                  <figure className="lg:h-[400px] w-full">
+                    <img className="object-cover w-full h-full" src="../1.png" />
+                  </figure>
+                  <figure className="lg:h-[400px] w-full">
+                    <img className="object-cover w-full h-full" src="../rsv2.png" />
+                  </figure>
+                  <figure className="lg:h-[400px] w-full">
+                    <img className="object-cover w-full h-full" src="../rsv3.png" />
+                  </figure>
+                </div>
+                <div className="flex justify-center rs-modal-footer">
+                  <button onClick={() => setisTour(false)} className="w-[80%] !mx-auto hover:!bg-[#C114B0] transition-all duration-500 rs-btn rs-btn-primary">
+                    Já desativei
+                    <span className="rs-ripple-pond">
+                      <span className="rs-ripple">
+                      </span>
+                    </span>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div></> : ""}
+
+
     </>
   );
 };

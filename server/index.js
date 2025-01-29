@@ -2,7 +2,7 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const openPixRoutes = require('./routes/openix');
 const rajaRoutes = require('./routes/raja');
-
+const axios = require('axios');
 const dotnet = require("dotenv");
 dotnet.config({ path: ".env" });
 const app = express();
@@ -32,6 +32,47 @@ app.use((req, res, next) => {
     );
     next();
 });
+app.get('/api/instagram-info', async (req, res) => {
+    try {
+        const { username } = req.query;
+
+        if (!username) {
+            return res.status(400).json({ error: "Username is required" });
+        }
+
+        const response = await axios.get('https://instagram-scraper-api2.p.rapidapi.com/v1/info', {
+            params: { username_or_id_or_url: username },
+            headers: {
+                'x-rapidapi-key': process.env.RAPID_API_KEY, // Store API key in .env
+                'x-rapidapi-host': 'instagram-scraper-api2.p.rapidapi.com',
+            },
+        });
+
+        res.status(200).json({ response: response.data, success: true });
+    } catch (error) {
+        console.error("Error fetching Instagram data:", error.message);
+        res.status(500).json({ error: "Failed to fetch data" });
+    }
+});
+app.get('/api/proxy-image', async (req, res) => {
+    try {
+        const { imageUrl } = req.query;
+        if (!imageUrl) {
+            return res.status(400).json({ error: "Image URL is required" });
+        }
+
+        // Fetch the image from Instagram's CDN
+        const response = await axios.get(imageUrl, { responseType: 'arraybuffer' });
+
+        // Set the correct content type for the image
+        res.setHeader('Content-Type', response.headers['content-type']);
+        res.send(response.data);
+    } catch (error) {
+        console.error("Error fetching image:", error.message);
+        res.status(500).json({ error: "Failed to fetch image" });
+    }
+});
+
 app.use("/", (req, res) => {
     res.send("Working")
 })

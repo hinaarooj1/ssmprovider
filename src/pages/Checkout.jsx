@@ -5,6 +5,7 @@ import axios from 'axios'
 import { useCheckout } from "../context/CheckoutContext";
 import TimerHead from "../components/TimerHead";
 import { useNavigate } from "react-router-dom";
+import { baseUrl } from "../utils/constant";
 
 
 const Checkout = () => {// Starting time in seconds
@@ -13,7 +14,7 @@ const Checkout = () => {// Starting time in seconds
 
   ); // Starting time in seconds
 
-  const [userImg, setuserImg] = useState(null); // Starting time in seconds
+  const [userImg, setuserImg] = useState('../placeholder.png'); // Starting time in seconds
   const [isUser, setisUser] = useState(true); // Starting time in seconds
   const [isTour, setisTour] = useState(false); // Starting time in seconds
   const [isChecked, setIsChecked] = useState(false);
@@ -74,64 +75,37 @@ const Checkout = () => {// Starting time in seconds
 
   };
   const fetchInstagramData = async () => {
-    const headers = {
-      'x-rapidapi-key': 'a208880cbamshf25da64da039948p1a4dbejsn03117cfa62b8',
-      'x-rapidapi-host': 'instagram-scraper-api2.p.rapidapi.com',
-    };
 
 
-
-    const infoRequest = axios.get(
-      'https://instagram-scraper-api2.p.rapidapi.com/v1/info',
-      { params: { url_embed_safe: true, username_or_id_or_url: checkoutData.username }, headers }
-    );
-
+    const response = await axios.get(`${baseUrl}/instagram-info`, {
+      params: { username: checkoutData.username },
+    });
 
 
     try {
-      const info = await infoRequest;
+      // const info = await infoRequest;
 
-      if (checkoutData.username) {
+      if (response.data.success) {
         setuserInsta(
-          info.data.data
+          response.data.response.data
         )
-        addInfo(info.data.data)
-        //  removeable
-        const proxyUrl = "https://cors-anywhere.herokuapp.com/"; // Public proxy
-        const imageUrl = info.data.data.profile_pic_url; // Replace this with the actual image URL from Instagram
-
-        // Combine proxy URL with image URL
-        const proxiedImageUrl = proxyUrl + imageUrl;
-
-        // Fetch the image using the proxied URL
-        fetch(proxiedImageUrl, {
-          method: 'GET', // Specify the method (GET is default)
-          headers: {
-            'Origin': 'https://vocemaisengajado.com.br', // Replace with your actual website's origin
-            'X-Requested-With': 'XMLHttpRequest', // Required for CORS request
-          },
-        })
-          .then(response => response.blob()) // Get the image as a Blob (binary data)
-          .then(blob => {
-            const reader = new FileReader();
-
-            reader.onloadend = () => {
-              // This is the Base64 encoded image data
-              const base64Image = reader.result;
-              setuserImg(base64Image)
-              updateCheckoutData("userProfile", base64Image);
-
-            };
-
-            // Read the Blob as a Data URL (Base64)
-            reader.readAsDataURL(blob);
-          })
-          .catch(err => {
-            console.error("Error fetching image:", err);
-          });
-        //  removeable
-        // setuserInsta(response.data.user)
-        setisDisable(false)
+        addInfo(response.data.response.data)
+        //  removeable  
+        let imageUrl = response.data.response.data.profile_pic_url
+        const fetchImage = async (imageUrl) => {
+          try {
+            const proxyUrl = `${baseUrl}/proxy-image?imageUrl=${encodeURIComponent(imageUrl)}`;
+            const response = await fetch(proxyUrl);
+            const blob = await response.blob();
+            const imageObjectURL = URL.createObjectURL(blob);
+            console.log('imageObjectURL: ', imageObjectURL);
+            setuserImg(imageObjectURL);
+          } catch (error) {
+            console.error("Error fetching image:", error);
+          }
+        };
+        fetchImage(imageUrl)
+        updateCheckoutData("userProfile", response.data.response.data.profile_pic_url);
 
       } else {
         console.error("Username not found.");
