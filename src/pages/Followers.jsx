@@ -59,7 +59,7 @@ const Followers = () => {
       availablePackages: 10
     },
     {
-      title: "Pacote Profissional",
+      title: "Pacote Influence",
       followers: 50000,
       bonusLikes: 50000,
       originalPrice: "1900,94",
@@ -68,7 +68,7 @@ const Followers = () => {
       isBestSeller: true
     },
     {
-      title: "Pacote Profissional",
+      title: "Pacote Top Influence",
       followers: 100000,
       bonusLikes: 100000,
       originalPrice: "3000,00",
