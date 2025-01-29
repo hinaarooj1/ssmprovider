@@ -8,12 +8,12 @@ const CheckIcon = () => (
   </svg>
 );
 
-const TiktokPackage = ({ 
-  title, 
-  followers, 
-  bonusLikes, 
-  originalPrice, 
-  discountedPrice, 
+const TiktokPackage = ({
+  title,
+  followers,
+  bonusLikes,
+  originalPrice,
+  discountedPrice,
   isGold = false,
   isBestSeller = false,
   availablePackages
@@ -48,7 +48,7 @@ const TiktokPackage = ({
       <div className="w-full flex-col flex items-center gap-2">
         <div className={isGold ? "divider-gold" : "divider"}></div>
         <div className="flex items-end gap-2 h-min">
-          <h2 className="text-[#999999] text-base font-semibold line-through mb-[7px]">
+          <h2 className="text-red text-base font-semibold line-through mb-[7px]">
             R${originalPrice.toFixed(2)}
           </h2>
           <h2 className={isGold ? "text-white text-3xl font-bold" : "text-[#1E1127] text-3xl font-bold"}>

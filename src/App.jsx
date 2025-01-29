@@ -25,6 +25,7 @@ import './assets/css/style.css'
 import './assets/css/styles.css'
 import Form from './pages/Form.jsx';
 import Pending from './pages/Pending.jsx';
+import SelectPost from './pages/SelectPost.jsx';
 
 
 
@@ -51,6 +52,7 @@ function App() {
         <Route path="/pay/checkout" element={<Checkout />} />
         <Route path="/pay/form" element={<Form />} />
         <Route path="/pay/pending" element={<Pending />} />
+        <Route path="/pay/select" element={<SelectPost />} />
 
       </Routes>
     </Router>

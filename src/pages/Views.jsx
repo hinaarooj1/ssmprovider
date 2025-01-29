@@ -49,7 +49,7 @@ const PackageCard = ({ title, likes, oldPrice, newPrice, availablePackages }) =>
         <div className="w-full flex-col flex items-center gap-2">
           <div className="divider"></div>
           <div className="flex items-end gap-2 h-min">
-            <h2 className="text-[#999999] text-base font-semibold line-through mb-[7px]">R${oldPrice}</h2>
+            <h2 className="text-red text-base font-semibold line-through mb-[7px]">R${oldPrice}</h2>
             <h2 className="text-[#1E1127] text-3xl font-bold">R${newPrice}</h2>
           </div>
         </div>

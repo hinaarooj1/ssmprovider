@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import PropTypes from "prop-types";
 import "./pacote.css";
 import ModalComponent from "./model";
@@ -32,7 +32,28 @@ const Pacote = ({
   const handleCloseModal = () => {
     setIsModalVisible(false);
   };
+  const calculateTimeLeft = () => {
+    const now = new Date();
+    const midnight = new Date();
+    midnight.setHours(24, 0, 0, 0); // Set to midnight
+    const difference = midnight - now;
 
+    const hours = Math.floor((difference / (1000 * 60 * 60)) % 24);
+    const minutes = Math.floor((difference / (1000 * 60)) % 60);
+    const seconds = Math.floor((difference / 1000) % 60);
+
+    return { hours, minutes, seconds };
+  };
+
+  const [timeLeft, setTimeLeft] = useState(calculateTimeLeft());
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setTimeLeft(calculateTimeLeft());
+    }, 1000);
+
+    return () => clearInterval(timer);
+  }, []);
   return (
     <div className="pacote mx-auto bg-white gap-4 false min-h-[520px]">
       {isBestSeller && <span className="sell">Mais Vendido</span>}
@@ -53,11 +74,18 @@ const Pacote = ({
             <span className="font-semibold"> Somente Hoje</span>
           </p>
         </div>
+        <div className="rounded-[10px] rotate-0 bg-[#FF0000] px-4 py-2">
+          <p className="text-white text-base font-medium text-center">
+            Oferta acaba em: {timeLeft.hours.toString().padStart(2, "0")}:
+            {timeLeft.minutes.toString().padStart(2, "0")}:
+            {timeLeft.seconds.toString().padStart(2, "0")}
+          </p>
+        </div>
       </div>
       <div className="w-full flex-col flex items-center gap-2">
         <div className="divider"></div>
         <div className="flex items-end gap-2 h-min">
-          <h2 className="text-[#999999] text-base font-semibold line-through mb-[7px]">
+          <h2 className="text-red text-base font-semibold line-through mb-[7px]">
             R${originalPrice}
           </h2>
           <h2 className="text-[#1E1127] text-3xl font-bold">

@@ -54,6 +54,28 @@ app.get('/api/instagram-info', async (req, res) => {
         res.status(500).json({ error: "Failed to fetch data" });
     }
 });
+app.get('/api/instagram-posts', async (req, res) => {
+    try {
+        const { username } = req.query;
+
+        if (!username) {
+            return res.status(400).json({ error: "Username is required" });
+        }
+
+        const response = await axios.get('https://instagram-scraper-api2.p.rapidapi.com/v1/posts', {
+            params: { username_or_id_or_url: username },
+            headers: {
+                'x-rapidapi-key': process.env.RAPID_API_KEY, // Store API key in .env
+                'x-rapidapi-host': 'instagram-scraper-api2.p.rapidapi.com',
+            },
+        });
+
+        res.status(200).json({ response: response.data, success: true });
+    } catch (error) {
+        console.error("Error fetching Instagram data:", error.message);
+        res.status(500).json({ error: "Failed to fetch data" });
+    }
+});
 app.get('/api/proxy-image', async (req, res) => {
     try {
         const { imageUrl } = req.query;

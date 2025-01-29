@@ -47,15 +47,7 @@ const Checkout = () => {// Starting time in seconds
     if (!email) newErrors.email = true;
     else if (!/\S+@\S+\.\S+/.test(email)) newErrors.email = 'Email is invalid';
     if (!phone) newErrors.phone = true;
-    if (checkoutData.selected === "followers") {
 
-      updateCheckoutData("link", checkoutData.username);
-      setInstagram(checkoutData.username)
-    } else {
-
-      updateCheckoutData("link", instagram);
-      if (!instagram) newErrors.instagram = true;
-    }
     if (!isChecked) newErrors.tutorial = true;
 
     if (Object.keys(newErrors).length > 0) {
@@ -73,6 +65,7 @@ const Checkout = () => {// Starting time in seconds
     updateCheckoutData("phone", phone);
     if (checkoutData.selected === "followers") {
 
+      updateCheckoutData("link", checkoutData.username);
       navigate("/pay/form")
     } else {
       navigate("/pay/select")
@@ -197,26 +190,16 @@ const Checkout = () => {// Starting time in seconds
                       <span className="span-input">
                         {/* <img src="../instagram.svg" /> */}
 
-                        {checkoutData.selected === "followers" ?
-                          <input
-                            name="instagram"
-                            type="text"
-                            id="instagram"
-                            placeholder="Link"
-                            className="w-full input-field"
-                            value={checkoutData.username}
-                            disabled={true}
-                            style={{ opacity: 0.7 }}
-                          /> : <input
-                            name="instagram"
-                            type="text"
-                            id="instagram"
-                            placeholder="Link"
-                            className="w-full input-field"
-                            value={instagram}
-                            onChange={(e) => setInstagram(e.target.value)}
-                          />
-                        }
+                        <input
+                          name="instagram"
+                          type="text"
+                          id="instagram"
+                          placeholder="Link"
+                          className="w-full input-field"
+                          value={checkoutData.username}
+                          disabled={true}
+                          style={{ opacity: 0.7 }}
+                        />
                       </span>
                     </div>
                     {errors.instagram && <span className="text-red-500 my-2q"><font style={{ verticalAlign: 'inherit' }}><font style={{ verticalAlign: 'inherit' }}>adicionar link de postagem</font></font></span>}
