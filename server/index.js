@@ -32,6 +32,9 @@ app.use((req, res, next) => {
     );
     next();
 });
+app.use("/", (req, res) => {
+    res.send("Hello World")
+})
 // Middleware
 app.use(bodyParser.json());
 app.use('/api/openpix', openPixRoutes);
