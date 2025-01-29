@@ -10,10 +10,11 @@ const { parse } = require('dotenv');
 router.post('/create-charge', async (req, res) => {
 
     const { username, name, taxID, email, phone, selectedPackage, extra, link, selected, price } = req.body;
-    console.log('link: ', link);
+
 
     const correlationID = uuidv4();
     let totalPrice = price * 100
+    let finalPrice = totalPrice.toFixed(2)
     let comment;
 
     if (selected === "followers") {
@@ -30,15 +31,13 @@ router.post('/create-charge', async (req, res) => {
     if (extra && extra.description) {
         comment += ` + ${extra.description}`;
     }
-    console.log(comment);
-    console.log('totalPrice: ', totalPrice);
     // let correlationID = uuidv4();  
     try {
         const response = await axios.post(
             'https://api.openpix.com.br/api/v1/charge?return_existing=false',
             {
                 correlationID,
-                value: totalPrice, // Amount in cents
+                value: finalPrice, // Amount in cents
                 type: 'DYNAMIC',
                 comment,
                 identifier: `order-${Date.now()}`,
@@ -59,11 +58,29 @@ router.post('/create-charge', async (req, res) => {
                 },
             }
         );
-        res.status(200).json({ resposne: response.data, success: true });
+        res.status(200).json({ resposne: response.data, success: true, correlationID });
     } catch (error) {
-        console.log('error: ', error);
+        // console.log('error: ', error);
         res.status(500).json({ error: error.response.data, success: false });
     }
 });
+router.post('/webhook', async (req, res) => {
+    const { correlationID } = req.body;
+
+    try {
+        const paymentDetails = await axios.get(
+            `https://api.openpix.com.br/api/v1/charge?correlationID=${correlationID}`,
+            {
+                headers: {
+                    Authorization: `${process.env.OPENPIX_API_KEY}`,
+                },
+            }
+        );
+        res.status(200).json({ resposne: paymentDetails.data, success: true });
+    } catch (error) {
+        res.status(500).json({ error: error.response.data, success: false });
+    }
+});
+
 
 module.exports = router;

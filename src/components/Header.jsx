@@ -43,25 +43,25 @@ export default function Header() {
             >
               Avaliacoes
             </Link>
-            <Link
+            {/* <Link
               className={`navlink-button ${currentPath === '/tiktok/followers' ? 'selected-button-nav' : ''}`}
               to="/tiktok/followers"
             >
               TikTok!
-            </Link>
-            <Link
+            </Link> */}
+            {/* <Link
               className={`navlink-button ${currentPath === '/dashboard' ? 'selected-button-nav' : ''}`}
               to="/dashboard"
             >
               Dashboard
-            </Link>
+            </Link> */}
           </div>
         </div>
         <div className="flex hidden-oon  items-center gap-2 !z-20">
           <button className="btn-buy">
             Comprar
           </button>
-          <a className="btn-log-ext">
+          {/* <a className="btn-log-ext">
             <span className="mdi mdi-account-key lg:hidden block">
             </span>
             <span className="block lg:hidden">
@@ -71,7 +71,7 @@ export default function Header() {
             <Link to="/login" className="lg:block text-white hidden log-span">
               Login
             </Link>
-          </a>
+          </a> */}
         </div>
       </nav>
       <nav className={` ${isActive ? 'navact' : ""} md:!hidden navbar-old ubuntu flex flex-[1] false mt-2 items-center overflow-hidden !z-30 w-[98%] rounded-full -mt-3 lg:px-4 lg:w-[90%] mx-auto lg:mt-2 lg:border-[#a6ddd293] lg:border lg:rounded-[120px] lg:shadow-[#06D1A9] lg:shadow-nav`}>

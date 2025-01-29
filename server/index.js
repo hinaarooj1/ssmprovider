@@ -11,7 +11,8 @@ const PORT = process.env.PORT || 3000;
 let ALLOWED_ORIGINS = [
 
     "http://localhost:5173",
-    "http://localhost:3000",
+    "https://vocemaisengajado.com.br",
+    "https://www.vocemaisengajado.com.br",
 ];
 app.use((req, res, next) => {
     let origin = req.headers.origin;

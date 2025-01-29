@@ -7,7 +7,6 @@ const router = express.Router();
 // Create Service Order
 router.post('/create-order', async (req, res) => {
     const { serviceID, link, quantity } = req.body;
-    console.log('req.body: ', req.body);
 
     try {
         const params = new URLSearchParams();
@@ -22,7 +21,7 @@ router.post('/create-order', async (req, res) => {
                 'Content-Type': 'application/x-www-form-urlencoded',
             },
         });
-        console.log(response);
+        // console.log(response);
         res.status(200).json({ response: response.data, success: true });
     } catch (error) {
         res.status(500).json({ error: error.response.data, success: true });

@@ -15,6 +15,7 @@ export const CheckoutProvider = ({ children }) => {
         paymentInfo: [],
         userProfile: "",
         totalPrice: "",
+        correlationID: "",
 
         // Stores selected packages
     });

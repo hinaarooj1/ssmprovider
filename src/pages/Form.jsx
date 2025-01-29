@@ -6,6 +6,7 @@ import { useCheckout } from "../context/CheckoutContext";
 import TimerHead from "../components/TimerHead";
 import { toast } from "react-toastify";
 import { useNavigate } from "react-router-dom";
+import { baseUrl } from "../utils/constant";
 
 
 const Form = () => {// Starting time in seconds
@@ -120,83 +121,20 @@ const Form = () => {// Starting time in seconds
     }
     setisDisable(true)
     try {
-      const res = await axios.post(`http://localhost:4000/api/openpix/create-charge`, formData);
+      const res = await axios.post(`${baseUrl}/openpix/create-charge`, formData);
 
 
       if (res.data.success === true) {
         addPaymentInfo(res.data.resposne.charge.paymentMethods.pix)
         toast.success("Pedido realizado com sucesso!");
-        let serviceID = ""
-        let quantity = ""
-        let link = ""
-        if (checkoutData.selected === "followers") {
-          link = checkoutData.username
-          if (checkoutData.packages[0].followers === 100) {
-
-            serviceID = 3878
-            quantity = "quantity=110"
-
-          } else if (checkoutData.packages[0].followers === 600) {
-            serviceID = 4112
-            quantity = "quantity=660"
+        updateCheckoutData("correlationID", res.data.correlationID)
+        navigate('/pay/pending')
 
 
-
-          } else if (checkoutData.packages[0].followers === 3000) {
-            serviceID = 6178
-            quantity = "quantity=3000"
-
-
-
-          } else {
-            serviceID = 6178
-            quantity = `quantity=${checkoutData.packages[0].followers}`
-
-          }
-        } else if (checkoutData.selected === "likes") {
-          link = checkoutData.link
-          serviceID = 4379
-          quantity = `quantity=${checkoutData.packages[0].likes}`
-
-        } else if (checkoutData.selected === "story views") {
-          link = checkoutData.link
-
-          serviceID = 1339
-          quantity = `quantity=${checkoutData.packages[0].likes}`
-
-        } else if (checkoutData.selected === "reel views") {
-          link = checkoutData.link
-
-          serviceID = 5528
-          quantity = `quantity=${checkoutData.packages[0].likes}`
-
-        } else if (checkoutData.selected === "comments") {
-          link = checkoutData.link
-          serviceID = 5502
-          quantity = `comments=Comments`
-
-        }
-        const orderData = {
-          serviceID,
-          link,
-          quantity
-
-        };
 
         // Call the second API to create the order
-        const orderRes = await axios.post(
-          "http://localhost:4000/api/raja/create-order",
-          orderData
-        );
-        console.log(orderRes);
-        if (orderRes.data.success) {
-          navigate('/pay/pending')
 
-          console.log("Order created:", orderRes.data);
-        } else {
-          toast.error("Falha ao criar ordem.");
-          console.error("Order API error:", orderRes.data.error);
-        }
+
       } else {
         toast.error("Ocorreu um erro ao realizar o pedido.");
       }
