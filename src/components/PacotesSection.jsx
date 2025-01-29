@@ -174,7 +174,7 @@ const PacotesSection = () => {
             </Link>
           </div>
         </div>
-        <div className="!w-fit card-main tiktok-new">
+        {/* <div className="!w-fit card-main tiktok-new">
           <span>
             <svg height="64px" viewBox="0 0 128 129" width="64px" xmlns="http://www.w3.org/2000/svg">
               <g fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -230,7 +230,7 @@ const PacotesSection = () => {
           <div className="px-4 py-2 gradient-novo absolute -right-4 rounded-t-xl rounded-e-xl top-2 rotate-12 text-lg h-min text-white font-semibold ubuntu">
             NOVO SERVIÇO!
           </div>
-        </div>
+        </div> */}
       </div>
     </section>
   );

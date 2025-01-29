@@ -8,6 +8,7 @@ import Footer from '../components/Footer';
 import CountUp from "react-countup";
 
 import './home.css'
+import BottomBar from "../components/bottomBar";
 function Home() {
   const [countTrigger, setCountTrigger] = useState(false);
   const sectionRef = useRef(null);
@@ -308,6 +309,7 @@ function Home() {
       </div>
       <FAQSection />
       <Footer />
+      <BottomBar />
     </>
   );
 }

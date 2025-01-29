@@ -3,6 +3,7 @@ import Header from '../components/Header';
 import Footer from '../components/Footer';
 import './avaliacoes.css';
 import { Link } from 'react-router-dom';
+import BottomBar from '../components/bottomBar';
 
 
 const Avaliacoes = () => {
@@ -143,6 +144,7 @@ const Avaliacoes = () => {
         </div>
       </div>
       <Footer />
+      <BottomBar />
     </div>
   );
 };

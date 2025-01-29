@@ -7,6 +7,7 @@ import Iphone from '../components/Iphone';
 import Footer from '../components/Footer';
 import ModalComponent from '../components/model';
 import { useCheckout } from '../context/CheckoutContext';
+import BottomBar from '../components/bottomBar';
 
 const CheckIcon = () => (
   <svg aria-hidden="true" className="fill-[#1E1127] w-4 h-4" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg">
@@ -118,6 +119,7 @@ const Curtidas = () => {
       <PacotesSection />
       <Iphone />
       <Footer />
+      <BottomBar />
     </>
   );
 };
