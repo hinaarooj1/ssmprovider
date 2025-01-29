@@ -107,7 +107,7 @@ const Checkout = () => {// Starting time in seconds
         fetch(proxiedImageUrl, {
           method: 'GET', // Specify the method (GET is default)
           headers: {
-            'Origin': 'http://localhost:5173', // Replace with your actual website's origin
+            'Origin': 'https://vocemaisengajado.com.br', // Replace with your actual website's origin
             'X-Requested-With': 'XMLHttpRequest', // Required for CORS request
           },
         })
