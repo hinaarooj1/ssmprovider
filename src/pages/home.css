@@ -1,3 +1,7 @@
+* {
+    scroll-behavior: smooth;
+}
+
 .text-yello {
     color: #f9cd12;
 }

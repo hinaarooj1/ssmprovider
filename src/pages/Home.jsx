@@ -118,7 +118,7 @@ function Home() {
                 </span>
               </div>
               <div className="lg:ml-0 flex flex-col gap-8 -mt-4 mx-auto">
-                <a className="button-main-sel cursor-pointer">
+                <a href="#offers" className="button-main-sel cursor-pointer">
                   Crescer Meu Instagram Agora
                   <span>
                   </span>
@@ -301,7 +301,10 @@ function Home() {
             <div className="-z-10 elipse304 lg:top-[-500px] 2xl:top-[-400px] 2xl:right-0 lg:-right-[300px] -right-[600px] top-[200px] overflow-hidden">
             </div>
           </div>
-          <PacotesSection />
+          <div id="offers">
+
+            <PacotesSection />
+          </div>
           <Iphone />
         </div>
         <div className="Toastify">
