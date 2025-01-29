@@ -205,7 +205,7 @@ const Checkout = () => {// Starting time in seconds
                     {errors.instagram && <span className="text-red-500 my-2q"><font style={{ verticalAlign: 'inherit' }}><font style={{ verticalAlign: 'inherit' }}>adicionar link de postagem</font></font></span>}
 
 
-                    <div className="input-data pl-2 gap-1.5 flex items-center justify-start w-full">
+                    <div className="input-data pl-2 gap-1.5 flex asnja items-center justify-start w-full">
                       <input checked={isChecked}
                         onChange={handleCheckboxChange} className=" thweh" id="disable_analise" type="checkbox" />
                       <button type="button" onClick={() => setisTour(true)} className="text-left text-blue-400 hover:text-blue-600 font-medium text-xs justify-start">

@@ -15,7 +15,7 @@ const Avaliacoes = () => {
           <div className="lg:max-w-[55%] px-10 md:px-1 2xl:max-w-[60%] flex flex-col my-auto h-full gap-0 sm:gap-5 lg:gap-12 pb-3">
             <div>
               <h1 className="xl:leading-title montserrat text-2xl font-extrabold md:text-3xl xl:text-7xl xl:tracking-tight">
-                EngajamaisVoce é confiável? Veja Avaliações
+                VoceMaisEngajado é confiável? Veja Avaliações
               </h1>
               <div className="mt-4 flex justify-center text-sm md:mt-6 md:text-lg lg:justify-start xl:text-2xl 2xl:text-3xl">
                 <div className="mr-4 text-yellow-400">
@@ -26,7 +26,7 @@ const Avaliacoes = () => {
                 </div>
               </div>
               <p className="mt-4 opacity-60 montserrat">
-                EngajaMaisVocê é a solução confiável para impulsionar o engajamento nas redes sociais. Com um compromisso firme com a transparência e a segurança, oferecemos serviços de alta qualidade para aumentar seguidores, curtidas, comentários e compartilhamentos de forma autêntica e eficaz. Nossa abordagem ética garante resultados reais e duradouros, enquanto nossa equipe de especialistas oferece suporte personalizado para atender suas necessidades específicas. Confie na EngajaMaisVocê para fortalecer sua presença online e alcançar seus objetivos de marketing digital com confiança.
+                VoceMaisEngajado é a solução confiável para impulsionar o engajamento nas redes sociais. Com um compromisso firme com a transparência e a segurança, oferecemos serviços de alta qualidade para aumentar seguidores, curtidas, comentários e compartilhamentos de forma autêntica e eficaz. Nossa abordagem ética garante resultados reais e duradouros, enquanto nossa equipe de especialistas oferece suporte personalizado para atender suas necessidades específicas. Confie na VoceMaisEngajado para fortalecer sua presença online e alcançar seus objetivos de marketing digital com confiança.
               </p>
               <svg aria-hidden="true" className="h-6 w-6 mx-auto mt-10 animate-bounce" viewBox="0 0 448 512" xmlns="http://www.w3.org/2000/svg">
                 <path d="M441.9 89.7L232.5 299.1c-4.7 4.7-12.3 4.7-17 0L6.1 89.7c-4.7-4.7-4.7-12.3 0-17l19.8-19.8c4.7-4.7 12.3-4.7 17 0L224 233.6 405.1 52.9c4.7-4.7 12.3-4.7 17 0l19.8 19.8c4.7 4.7 4.7 12.3 0 17zm0 143l-19.8-19.8c-4.7-4.7-12.3-4.7-17 0L224 393.6 42.9 212.9c-4.7-4.7-12.3-4.7-17 0L6.1 232.7c-4.7 4.7-4.7 12.3 0 17l209.4 209.4c4.7 4.7 12.3 4.7 17 0l209.4-209.4c4.7-4.7 4.7-12.3 0-17z" fill="currentColor">
@@ -108,40 +108,369 @@ const Avaliacoes = () => {
           </div>
 
           {/* ... More review items would go here ... */}
-
-        </div>
-        <div role="navigation" aria-label="Navegação da Paginação" className="flex items-center justify-between mt-2">
-          <div className="flex flex-1 justify-between sm:hidden">
-            <button className="relative inline-flex items-center rounded-md border border-gray-300 bg-white px-4 py-2 text-sm leading-5 text-gray-700 ring-gray-300 transition duration-150 ease-in-out hover:text-gray-500 focus:border-blue-300 focus:outline-none focus:ring active:bg-gray-100 active:text-gray-700" disabled>« Anterior</button>
-            <button className="relative ml-3 inline-flex items-center rounded-md border border-gray-300 bg-white px-4 py-2 text-sm leading-5 text-gray-700 ring-gray-300 transition duration-150 ease-in-out hover:text-gray-500 focus:border-blue-300 focus:outline-none focus:ring active:bg-gray-100 active:text-gray-700">Próxima »</button>
-          </div>
-          <div className="hidden sm:flex sm:flex-1 sm:items-center sm:justify-between">
-            <div>
-              <p className="text-sm leading-5 text-gray-700">
-                Mostrando<span> 1 </span>até<span> 8 </span>de<span> 84 </span>resultados
-              </p>
-            </div>
-            <div>
-              <span className="relative z-0 inline-flex rounded-md shadow-sm">
-                <button className="relative inline-flex items-center rounded-l-md border border-gray-300 bg-white px-2 py-2 text-sm leading-5 text-gray-500 ring-gray-300 transition duration-150 ease-in-out hover:text-gray-400 focus:z-10 focus:border-blue-300 focus:outline-none focus:ring active:bg-gray-100 active:text-gray-500" aria-label="« Anterior" disabled>
-                  <svg className="h-5 w-5" fill="currentColor" viewBox="0 0 20 20">
-                    <path fillRule="evenodd" d="M12.707 5.293a1 1 0 010 1.414L9.414 10l3.293 3.293a1 1 0 01-1.414 1.414l-4-4a1 1 0 010-1.414l4-4a1 1 0 011.414 0z" clipRule="evenodd"></path>
-                  </svg>
-                </button>
-                <button className="relative -ml-px inline-flex items-center border border-gray-300 bg-white px-4 py-2 text-sm leading-5 text-gray-700 ring-gray-300 transition duration-150 ease-in-out hover:text-gray-500 focus:z-10 focus:border-blue-300 focus:outline-none focus:ring active:bg-gray-100 active:text-gray-700 bg-gray-100 font-semibold text-gray-500" aria-label="Ir para página 1">1</button>
-                <button className="relative -ml-px inline-flex items-center border border-gray-300 bg-white px-4 py-2 text-sm leading-5 text-gray-700 ring-gray-300 transition duration-150 ease-in-out hover:text-gray-500 focus:z-10 focus:border-blue-300 focus:outline-none focus:ring active:bg-gray-100 active:text-gray-700 " aria-label="Ir para página 2">2</button>
-                <button className="relative -ml-px inline-flex items-center border border-gray-300 bg-white px-4 py-2 text-sm leading-5 text-gray-700 ring-gray-300 transition duration-150 ease-in-out hover:text-gray-500 focus:z-10 focus:border-blue-300 focus:outline-none focus:ring active:bg-gray-100 active:text-gray-700 " aria-label="Ir para página 3">3</button>
-                <span className="relative -ml-px inline-flex items-center border border-transparent bg-white px-4 py-2 text-sm leading-5 text-gray-700">...</span>
-                <button className="relative -ml-px inline-flex items-center border border-gray-300 bg-white px-4 py-2 text-sm leading-5 text-gray-700 ring-gray-300 transition duration-150 ease-in-out hover:text-gray-500 focus:z-10 focus:border-blue-300 focus:outline-none focus:ring active:bg-gray-100 active:text-gray-700 " aria-label="Ir para página 11">11</button>
-                <button className="relative -ml-px inline-flex items-center rounded-r-md border border-gray-300 bg-white px-2 py-2 text-sm leading-5 text-gray-500 ring-gray-300 transition duration-150 ease-in-out hover:text-gray-400 focus:z-10 focus:border-blue-300 focus:outline-none focus:ring active:bg-gray-100 active:text-gray-500" aria-label="Próxima »">
-                  <svg className="h-5 w-5" fill="currentColor" viewBox="0 0 20 20">
-                    <path fillRule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clipRule="evenodd"></path>
-                  </svg>
-                </button>
+          <div className="flex transform flex-col rounded-lg border bg-white p-4 shadow-md transition-transform hover:scale-105 hover:shadow-lg">
+            <b className="text-lg font-extrabold text-gray-700">
+              M.Z
+            </b>
+            <div className="my-1 flex flex-row text-xl text-yellow-400">
+              ★★★★★
+              <span className="sr-only">
+                25 de 5 estrelas
               </span>
             </div>
+            <blockquote className="prose text-gray-600">
+              Serviço eficiente e bem pontual, suporte prestativo nota 10 🌟
+            </blockquote>
+            <div className="mt-2 flex flex-row">
+              <Link to="/followers" className="mr-3 flex items-center">
+                <img className="ls-is-cached lazyloaded" width="44px" height="44px" src="https://seguidores.storage.googleapis.com/images/menu-comprar-seguidores-instagram.svg?v=6" />
+              </Link>
+              <div className="flex items-center">
+                <div className="flex flex-col justify-start">
+                  <div className="flex justify-start text-sm">
+                    <div>
+                      por M.Z
+                    </div>
+                    <div className="flex justify-start">
+                      <abbr style={{ textDecoration: 'none' }}>
+                        em 27/06/2024{" "}
+                      </abbr>&nbsp;
+                      <img className="ls-is-cached lazyloaded" width="15px" height="15px" src="https://seguidores.storage.googleapis.com/images/user-verified.svg" />
+                    </div>
+                  </div>
+                  <div className="flex justify-start text-sm">
+                    <span className="whitespace-nowrap">
+                      após comprar
+                    </span>&nbsp;
+                    <Link to="/followers" className="font-extrabold">
+                      Seguidores Instagram
+                    </Link>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
+
+
+          {/* ... More review items would go here ... */}
+          {/* ... More review items would go here ... */}
+          <div className="flex transform flex-col rounded-lg border bg-white p-4 shadow-md transition-transform hover:scale-105 hover:shadow-lg">
+            <b className="text-lg font-extrabold text-gray-700">
+              Matheus
+            </b>
+            <div className="my-1 flex flex-row text-xl text-yellow-400">
+              ★★★★★
+              <span className="sr-only">
+                25 de 5 estrelas
+              </span>
+            </div>
+            <blockquote className="prose text-gray-600">
+              Tudo certo
+            </blockquote>
+            <div className="mt-2 flex flex-row">
+              <Link to="/followers" className="mr-3 flex items-center">
+                <img className="ls-is-cached lazyloaded" width="44px" height="44px" src="https://seguidores.storage.googleapis.com/images/menu-comprar-seguidores-instagram.svg?v=6" />
+              </Link>
+              <div className="flex items-center">
+                <div className="flex flex-col justify-start">
+                  <div className="flex justify-start text-sm">
+                    <div>
+                      por Matheus
+                    </div>
+                    <div className="flex justify-start">
+                      <abbr style={{ textDecoration: 'none' }}>
+                        em 26/06/2024
+                        {" "}
+                      </abbr>&nbsp;
+                      <img className="ls-is-cached lazyloaded" width="15px" height="15px" src="https://seguidores.storage.googleapis.com/images/user-verified.svg" />
+                    </div>
+                  </div>
+                  <div className="flex justify-start text-sm">
+                    <span className="whitespace-nowrap">
+                      após comprar
+                    </span>&nbsp;
+                    <Link to="/followers" className="font-extrabold">
+                      Seguidores Instagram
+                    </Link>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          {/* ... More review items would go here ... */}
+          {/* ... More review items would go here ... */}
+          <div className="flex transform flex-col rounded-lg border bg-white p-4 shadow-md transition-transform hover:scale-105 hover:shadow-lg">
+            <b className="text-lg font-extrabold text-gray-700">
+              CURTIDAS NO INSTAGRAM
+            </b>
+            <div className="my-1 flex flex-row text-xl text-yellow-400">
+              ★★★★★
+              <span className="sr-only">
+                25 de 5 estrelas
+              </span>
+            </div>
+            <blockquote className="prose text-gray-600">
+              NOTA 10 ! SERVIÇO RÁPIDO. RECOMENDO COM CERTEZA !
+            </blockquote>
+            <div className="mt-2 flex flex-row">
+              <Link to="/followers" className="mr-3 flex items-center">
+                <img className="ls-is-cached lazyloaded" width="44px" height="44px" src="https://seguidores.storage.googleapis.com/images/menu-comprar-seguidores-instagram.svg?v=6" />
+              </Link>
+              <div className="flex items-center">
+                <div className="flex flex-col justify-start">
+                  <div className="flex justify-start text-sm">
+                    <div>
+                      por CURTIDAS NO INSTAGRAM
+                    </div>
+                    <div className="flex justify-start">
+                      <abbr style={{ textDecoration: 'none' }}>
+                        em 10/06/2024
+                        {" "}
+                      </abbr>&nbsp;
+                      <img className="ls-is-cached lazyloaded" width="15px" height="15px" src="https://seguidores.storage.googleapis.com/images/user-verified.svg" />
+                    </div>
+                  </div>
+                  <div className="flex justify-start text-sm">
+                    <span className="whitespace-nowrap">
+                      após comprar
+                    </span>&nbsp;
+                    <Link to="/followers" className="font-extrabold">
+                      Seguidores Instagram
+                    </Link>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          {/* ... More review items would go here ... */}
+          {/* ... More review items would go here ... */}
+          <div className="flex transform flex-col rounded-lg border bg-white p-4 shadow-md transition-transform hover:scale-105 hover:shadow-lg">
+            <b className="text-lg font-extrabold text-gray-700">
+              350 seguidores Antes
+            </b>
+            <div className="my-1 flex flex-row text-xl text-yellow-400">
+              ★★★★★
+              <span className="sr-only">
+                25 de 5 estrelas
+              </span>
+            </div>
+            <blockquote className="prose text-gray-600">
+              Agora tenho 3553 , mudou totalmente meu alcance para conseguir clientes
+            </blockquote>
+            <div className="mt-2 flex flex-row">
+              <Link to="/followers" className="mr-3 flex items-center">
+                <img className="ls-is-cached lazyloaded" width="44px" height="44px" src="https://seguidores.storage.googleapis.com/images/menu-comprar-seguidores-instagram.svg?v=6" />
+              </Link>
+              <div className="flex items-center">
+                <div className="flex flex-col justify-start">
+                  <div className="flex justify-start text-sm">
+                    <div>
+                      por 350 seguidores Antes
+                    </div>
+                    <div className="flex justify-start">
+                      <abbr style={{ textDecoration: 'none' }}>
+                        em 13/11/2024
+                        {" "}
+                      </abbr>&nbsp;
+                      <img className="ls-is-cached lazyloaded" width="15px" height="15px" src="https://seguidores.storage.googleapis.com/images/user-verified.svg" />
+                    </div>
+                  </div>
+                  <div className="flex justify-start text-sm">
+                    <span className="whitespace-nowrap">
+                      após comprar
+                    </span>&nbsp;
+                    <Link to="/followers" className="font-extrabold">
+                      Seguidores Instagram
+                    </Link>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          {/* ... More review items would go here ... */}
+          {/* ... More review items would go here ... */}
+          <div className="flex transform flex-col rounded-lg border bg-white p-4 shadow-md transition-transform hover:scale-105 hover:shadow-lg">
+            <b className="text-lg font-extrabold text-gray-700">
+              Realmente funciona
+            </b>
+            <div className="my-1 flex flex-row text-xl text-yellow-400">
+              ★★★★★
+              <span className="sr-only">
+                25 de 5 estrelas
+              </span>
+            </div>
+            <blockquote className="prose text-gray-600">
+              Antes eu tinha poucos seguidores e ter seguidores faz toda diferença
+            </blockquote>
+            <div className="mt-2 flex flex-row">
+              <Link to="/followers" className="mr-3 flex items-center">
+                <img className="ls-is-cached lazyloaded" width="44px" height="44px" src="https://seguidores.storage.googleapis.com/images/menu-comprar-seguidores-instagram.svg?v=6" />
+              </Link>
+              <div className="flex items-center">
+                <div className="flex flex-col justify-start">
+                  <div className="flex justify-start text-sm">
+                    <div>
+                      por Realmente funciona
+                    </div>
+                    <div className="flex justify-start">
+                      <abbr style={{ textDecoration: 'none' }}>
+                        em 20/11/2024
+                        {" "}
+                      </abbr>&nbsp;
+                      <img className="ls-is-cached lazyloaded" width="15px" height="15px" src="https://seguidores.storage.googleapis.com/images/user-verified.svg" />
+                    </div>
+                  </div>
+                  <div className="flex justify-start text-sm">
+                    <span className="whitespace-nowrap">
+                      após comprar
+                    </span>&nbsp;
+                    <Link to="/followers" className="font-extrabold">
+                      Seguidores Instagram
+                    </Link>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          {/* ... More review items would go here ... */}
+          {/* ... More review items would go here ... */}
+          <div className="flex transform flex-col rounded-lg border bg-white p-4 shadow-md transition-transform hover:scale-105 hover:shadow-lg">
+            <b className="text-lg font-extrabold text-gray-700">
+              Carina
+            </b>
+            <div className="my-1 flex flex-row text-xl text-yellow-400">
+              ★★★★★
+              <span className="sr-only">
+                25 de 5 estrelas
+              </span>
+            </div>
+            <blockquote className="prose text-gray-600">
+              Meu perfil tinha poucos seguidores, após comprar 300 seguidores meu perfil teve mais interações. Comprei seguidores e meu perfil ganhou de brinde visualização dos stories, curtidas...Enfim, o site entrega mais que o prometido. Super indico!
+            </blockquote>
+            <div className="mt-2 flex flex-row">
+              <Link to="/followers" className="mr-3 flex items-center">
+                <img className="ls-is-cached lazyloaded" width="44px" height="44px" src="https://seguidores.storage.googleapis.com/images/menu-comprar-seguidores-instagram.svg?v=6" />
+              </Link>
+              <div className="flex items-center">
+                <div className="flex flex-col justify-start">
+                  <div className="flex justify-start text-sm">
+                    <div>
+                      por Carina
+                    </div>
+                    <div className="flex justify-start">
+                      <abbr style={{ textDecoration: 'none' }}>
+                        em 27/11/2024
+                        {" "}
+                      </abbr>&nbsp;
+                      <img className="ls-is-cached lazyloaded" width="15px" height="15px" src="https://seguidores.storage.googleapis.com/images/user-verified.svg" />
+                    </div>
+                  </div>
+                  <div className="flex justify-start text-sm">
+                    <span className="whitespace-nowrap">
+                      após comprar
+                    </span>&nbsp;
+                    <Link to="/followers" className="font-extrabold">
+                      Seguidores Instagram
+                    </Link>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          {/* ... More review items would go here ... */}
+          {/* ... More review items would go here ... */}
+          <div className="flex transform flex-col rounded-lg border bg-white p-4 shadow-md transition-transform hover:scale-105 hover:shadow-lg">
+            <b className="text-lg font-extrabold text-gray-700">
+              Confiança
+            </b>
+            <div className="my-1 flex flex-row text-xl text-yellow-400">
+              ★★★★★
+              <span className="sr-only">
+                25 de 5 estrelas
+              </span>
+            </div>
+            <blockquote className="prose text-gray-600">
+              Rápido, eficiente e confiança vc adquire nessa plataforma.
+            </blockquote>
+            <div className="mt-2 flex flex-row">
+              <Link to="/followers" className="mr-3 flex items-center">
+                <img className="ls-is-cached lazyloaded" width="44px" height="44px" src="https://seguidores.storage.googleapis.com/images/menu-comprar-seguidores-instagram.svg?v=6" />
+              </Link>
+              <div className="flex items-center">
+                <div className="flex flex-col justify-start">
+                  <div className="flex justify-start text-sm">
+                    <div>
+                      por Confiança
+                    </div>
+                    <div className="flex justify-start">
+                      <abbr style={{ textDecoration: 'none' }}>
+                        em 04/12/2024
+                        {" "}
+                      </abbr>&nbsp;
+                      <img className="ls-is-cached lazyloaded" width="15px" height="15px" src="https://seguidores.storage.googleapis.com/images/user-verified.svg" />
+                    </div>
+                  </div>
+                  <div className="flex justify-start text-sm">
+                    <span className="whitespace-nowrap">
+                      após comprar
+                    </span>&nbsp;
+                    <Link to="/followers" className="font-extrabold">
+                      Seguidores Instagram
+                    </Link>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          {/* ... More review items would go here ... */}
+          {/* ... More review items would go here ... */}
+          <div className="flex transform flex-col rounded-lg border bg-white p-4 shadow-md transition-transform hover:scale-105 hover:shadow-lg">
+            <b className="text-lg font-extrabold text-gray-700">
+              Serviço rápido e muito confiável
+            </b>
+            <div className="my-1 flex flex-row text-xl text-yellow-400">
+              ★★★★★
+              <span className="sr-only">
+                25 de 5 estrelas
+              </span>
+            </div>
+            <blockquote className="prose text-gray-600">
+              Eu tinha 800 seguidores em poucos minutos fui pra 3 mil. Comprei 2.500 seguidores e chegou muito rápido. Minha conta melhorou mto após a compra minhas clientes piram quando vêem que tenho mais de 3 mil seguidores ❤️
+            </blockquote>
+            <div className="mt-2 flex flex-row">
+              <Link to="/followers" className="mr-3 flex items-center">
+                <img className="ls-is-cached lazyloaded" width="44px" height="44px" src="https://seguidores.storage.googleapis.com/images/menu-comprar-seguidores-instagram.svg?v=6" />
+              </Link>
+              <div className="flex items-center">
+                <div className="flex flex-col justify-start">
+                  <div className="flex justify-start text-sm">
+                    <div>
+                      por Serviço rápido e muito confiável
+                    </div>
+                    <div className="flex justify-start">
+                      <abbr style={{ textDecoration: 'none' }}>
+                        em 18/12/2024
+                        {" "}
+                      </abbr>&nbsp;
+                      <img className="ls-is-cached lazyloaded" width="15px" height="15px" src="https://seguidores.storage.googleapis.com/images/user-verified.svg" />
+                    </div>
+                  </div>
+                  <div className="flex justify-start text-sm">
+                    <span className="whitespace-nowrap">
+                      após comprar
+                    </span>&nbsp;
+                    <Link to="/followers" className="font-extrabold">
+                      Seguidores Instagram
+                    </Link>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          {/* ... More review items would go here ... */}
+
         </div>
+
       </div>
       <Footer />
       <BottomBar />

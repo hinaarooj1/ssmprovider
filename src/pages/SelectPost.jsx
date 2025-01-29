@@ -102,6 +102,7 @@ const SelectPost = () => {// Starting time in seconds
       return
     }
     updateCheckoutData("link", selectedPost)
+    navigate("/pay/form")
   }
   useEffect(() => {
     if (checkoutData.username) {

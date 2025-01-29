@@ -6,11 +6,11 @@ export default function Footer() {
       <div className="mx-auto max-w-screen-xl px-4 py-12 sm:px-6 lg:px-8">
         <div className="md:grid md:grid-cols-2 md:gap-8 lg:grid-cols-3">
           <div className="space-y-8">
-            <div className="flex items-center lg:justify-start justify-center gap-2">
+            <Link to="/" className="flex items-center lg:justify-start justify-center gap-2">
               <figure className="w-36">
                 <img className="w-full h-full object-contain" src="../logo-purple.png" />
               </figure>
-            </div>
+            </Link>
             <address className="text-sm not-italic leading-6 text-gray-400">
               suporte@vocemaisengajado.com.br
             </address>
@@ -38,27 +38,24 @@ export default function Footer() {
               </div>
               <ul className="mt-4 space-y-4">
                 <li>
-                  <a className="text-base text-gray-300 hover:text-white">
+                  <Link to='/' className="text-base text-gray-300 hover:text-white">
                     Início
-                  </a>
+                  </Link>
                 </li>
                 <li>
-                  <a className="text-base text-gray-300 hover:text-white">
+                  <Link to="/followers" className="text-base text-gray-300 hover:text-white">
                     Serviços
-                  </a>
+                  </Link>
                 </li>
-                <li>
-                  <a className="text-base text-gray-300 hover:text-white">
-                    Mais vendido
-                  </a>
-                </li>
+
               </ul>
             </div>
             <div>
               <div className="text-sm font-semibold uppercase tracking-wider text-gray-400">
                 Informações
               </div>
-              <ul className="mt-4 space-y-4">
+              <p className='text-gray-400 mt-4'>Endereço: Passagem São Pedro Número 100 cep 67.145-050, Ananindeua-Pa - Brasil</p>
+              {/* <ul className="mt-4 space-y-4">
                 <li>
                   <button className="text-base text-gray-300 hover:text-white">
                     Suporte
@@ -74,7 +71,7 @@ export default function Footer() {
                     Privacidade
                   </Link>
                 </li>
-              </ul>
+              </ul> */}
             </div>
             <figure className="mt-0 mb-auto col-span-2 lg:col-span-1">
               <img className="w-full h-full object-contain" src="../pagamento.webp" />

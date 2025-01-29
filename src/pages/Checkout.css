@@ -132,6 +132,10 @@ input[type=checkbox] {
     height: auto !important;
 }
 
+.asnja::before {
+    display: none !important
+}
+
 .thweh {
     width: 4rem !important;
     height: 4rem !important;

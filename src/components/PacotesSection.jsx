@@ -1,9 +1,10 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 // import 'bootstrap/dist/css/bootstrap.min.css';
 import './pacotesSection.css';
 import { Link } from "react-router-dom";
 
 const PacotesSection = () => {
+
   return (
     <section className="w-full mt-32 lg:mt-20 lg:gap-10 lg:px-24 2xl:px-28 px-4 flex lg:flex-row flex-col mb-10" id="pacotes">
       <div className="flex items-start w-fit gap-32 mx-auto flex-col lg:flex-row">

@@ -207,12 +207,16 @@ const Form = () => {// Starting time in seconds
               <div className="input-data noaa cnpj" style={{ marginBottom: "20px" }}>
                 <span className="span-input">
                   <input className="w-full input-field" value={cpf} onChange={(e) => setCpf(e.target.value)} placeholder="CPF..." id="cnpj" />
-                  {!isValid && <span className="text-red-400">
-                    Por favor, ingresa un CNPJ/CPF válido- CPF: necessário somente para emissão da nota fisca
-                  </span>}
+                  {!isValid ? <span className="text-red-400">
+                    Campo obrigatório - CPF: necessário somente para emissão da nota fiscal.
+                  </span> : <span className="text-red-400">
+                    CPF: necessário somente para emissão da nota fiscal
+                  </span>
+
+                  }
                 </span>
               </div>
-              <div className="flex flex-col w-full bg-white rounded-md pb-4">
+              {/* <div className="flex flex-col w-full bg-white rounded-md pb-4">
                 <div className="bg-[#79009C] sm:py-3 px-3 py-4 text-white font-bold text-center rounded-md rounded-b-none">
                   <p className="duration-700">
                     As ofertas abaixo são EXCLUSIVAS para essa compra!
@@ -360,7 +364,7 @@ const Form = () => {// Starting time in seconds
                     </div>
                   </div>
                 </div> : ""}
-              </div>
+              </div> */}
               <button onClick={handleSubmit} disabled={isDisable} style={{ opacity: isDisable ? 0.6 : 1 }} type="button" className="bg-green-500 text-white mx-auto w-fit hover:bg-green-700 transition-all duration-150 mt-4 px-4 py-2 rounded-md">
                 Pagar
               </button>

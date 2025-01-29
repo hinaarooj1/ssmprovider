@@ -32,7 +32,7 @@ const Followers = () => {
       bonusLikes: 3000,
       originalPrice: "200,00",
       discountedPrice: "97,90",
-      availablePackages: 6
+      availablePackages: 6, isBestSeller: true
     },
     {
       title: "Pacote Premium",
@@ -65,7 +65,7 @@ const Followers = () => {
       originalPrice: "1900,94",
       discountedPrice: "889,90",
       availablePackages: 5,
-      isBestSeller: true
+
     },
     {
       title: "Pacote Top Influence",

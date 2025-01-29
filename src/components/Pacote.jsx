@@ -56,7 +56,7 @@ const Pacote = ({
   }, []);
   return (
     <div className="pacote mx-auto bg-white gap-4 false min-h-[520px]">
-      {isBestSeller && <span className="sell">Mais Vendido</span>}
+      {isBestSeller && <span className="sell" style={{ backgroundColor: "#00bf63" }}>Mais Vendido</span>}
       <img src="../eng.gif" className="h-10 mt-3 rounded-full" alt="promocao" />
       <div className="max-w-full w-full text-center z-10 px-3">
         <div className="title-rounded">
@@ -68,12 +68,7 @@ const Pacote = ({
           {followers.toLocaleString()} <br />
           <span className="text-lg">Seguidores Instagram</span>
         </h1>
-        <div className="rounded-[10px] rotate-1 bg-[#FF0000] px-4 py-2">
-          <p className="text-white text-base font-medium text-center">
-            +{bonusLikes.toLocaleString()} Curtidas Bonus <br />
-            <span className="font-semibold"> Somente Hoje</span>
-          </p>
-        </div>
+
         <div className="rounded-[10px] rotate-0 bg-[#FF0000] px-4 py-2">
           <p className="text-white text-base font-medium text-center">
             Oferta acaba em: {timeLeft.hours.toString().padStart(2, "0")}:

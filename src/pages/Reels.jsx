@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import '../components/pacote.css';
 import Header from '../components/Header';
@@ -32,6 +32,28 @@ const PackageCard = ({ title, likes, oldPrice, newPrice, availablePackages }) =>
   const handleCloseModal = () => {
     setIsModalVisible(false);
   };
+  const calculateTimeLeft = () => {
+    const now = new Date();
+    const midnight = new Date();
+    midnight.setHours(24, 0, 0, 0); // Set to midnight
+    const difference = midnight - now;
+
+    const hours = Math.floor((difference / (1000 * 60 * 60)) % 24);
+    const minutes = Math.floor((difference / (1000 * 60)) % 60);
+    const seconds = Math.floor((difference / 1000) % 60);
+
+    return { hours, minutes, seconds };
+  };
+  const [timeLeft, setTimeLeft] = useState(calculateTimeLeft());
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setTimeLeft(calculateTimeLeft());
+    }, 1000);
+
+    return () => clearInterval(timer);
+  }, []);
+
   return (
     <>
       <div className="pacote mx-auto bg-white gap-4 !w-[240px] !h-min min-w-fit min-h-[450px]">
@@ -45,6 +67,13 @@ const PackageCard = ({ title, likes, oldPrice, newPrice, availablePackages }) =>
           <h1 className="heading-title">
             {likes} <br /><span className="text-lg">Visualizações para Reels</span>
           </h1>
+          <div className="rounded-[10px] rotate-0 bg-[#FF0000] px-4 py-2">
+            <p className="text-white text-base font-medium text-center">
+              Oferta acaba em: {timeLeft.hours.toString().padStart(2, "0")}:
+              {timeLeft.minutes.toString().padStart(2, "0")}:
+              {timeLeft.seconds.toString().padStart(2, "0")}
+            </p>
+          </div>
         </div>
         <div className="w-full flex-col flex items-center gap-2">
           <div className="divider"></div>
