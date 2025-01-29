@@ -9,6 +9,7 @@ import CountUp from "react-countup";
 
 import './home.css'
 import BottomBar from "../components/bottomBar";
+import { Link } from "react-router-dom";
 function Home() {
   const [countTrigger, setCountTrigger] = useState(false);
   const sectionRef = useRef(null);
@@ -288,12 +289,12 @@ function Home() {
                     contas no Instagram!
                   </span>
                 </h1>
-                <button className="w-fit px-4 py-2 font-bold ubuntu rounded-[120px] bg-[#a337c4] flex items-center mt-8">
+                <Link to="/followers" className="w-fit px-4 py-2 font-bold ubuntu rounded-[120px] bg-[#a337c4] flex items-center mt-8">
                   Nossos
                   serviços
                   <i className="mdi mdi-arrow-right mdi-24px">
                   </i>
-                </button>
+                </Link>
               </div>
             </section>
             <div className="-z-10 lg:-left-[50px] -top-10 2xl:-left-[5vw] elipse303 hidden lg:block overflow-hidden">
