@@ -122,6 +122,7 @@ const Form = () => {// Starting time in seconds
     setisDisable(true)
     try {
       const res = await axios.post(`${baseUrl}/openpix/create-charge`, formData);
+      console.log('res: ', res);
 
 
       if (res.data.success === true) {
@@ -136,6 +137,7 @@ const Form = () => {// Starting time in seconds
 
 
       } else {
+        console.log("sja");
         toast.error("Ocorreu um erro ao realizar o pedido.");
       }
     } catch (err) {

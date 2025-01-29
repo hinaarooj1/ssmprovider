@@ -100,13 +100,13 @@ const Checkout = () => {// Starting time in seconds
             const blob = await response.blob();
             const imageObjectURL = URL.createObjectURL(blob);
             console.log('imageObjectURL: ', imageObjectURL);
+            updateCheckoutData("userProfile", imageObjectURL);
             setuserImg(imageObjectURL);
           } catch (error) {
             console.error("Error fetching image:", error);
           }
         };
         fetchImage(imageUrl)
-        updateCheckoutData("userProfile", response.data.response.data.profile_pic_url);
 
       } else {
         console.error("Username not found.");
