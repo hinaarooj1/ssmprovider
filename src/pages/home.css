@@ -11,6 +11,10 @@
     position: relative;
 }
 
+.asnja.input-data::before {
+    display: none !important
+}
+
 .text-red {
     color: red;
 }

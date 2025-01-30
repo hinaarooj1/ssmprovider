@@ -88,13 +88,15 @@ const SelectPost = () => {// Starting time in seconds
 
     }
   };
-  const handlePostClick = (postUrl) => {
-    setSelectedPost(postUrl); // Store the selected post URL
-    setmanualInput(false)
+  const handlePostClick = (post) => {
+    const postUrl = `https://www.instagram.com/p/${post.code}`;
 
+    setSelectedPost((prevSelected) =>
+      prevSelected === postUrl ? null : postUrl // Toggle selection
+    );
+
+    setmanualInput(false);
   };
-
-
   let goNext = () => {
     console.log(selectedPost);
     if (selectedPost === null || selectedPost.trim() === "") {
@@ -164,13 +166,14 @@ const SelectPost = () => {// Starting time in seconds
                     {userInsta.map((post, index) => (
                       <button
                         key={index}
-                        onClick={() => handlePostClick(post.thumbnail_url)}
+                        onClick={() => handlePostClick(post)}
                         className={`aspect-h-4 lg:h-32 h-16 w-16  aspect-w-4 lg:w-32 ring-transparent  ring rounded-md focus-within:ring-purple-500 bg-transparent bg-cover  `}
                         style={{ backgroundImage: `url(${post.thumbnail_url})` }}  // Ensure `post.imageUrl` contains a valid URL
                       >
                         <input
                           type="checkbox"
-                          className={`${selectedPost === post.thumbnail_url ? "h-full w-full checked-bg   bg-purple-500 rounded-md  text-purple-600 opacity-0  border-blue-500  !opacity-75" : "h-full w-full checked:bg-purple-500 rounded-md text-purple-600 opacity-0"}`}
+                          checked={selectedPost === `https://www.instagram.com/p/${post.code}` ? true : false}
+                          className={`${selectedPost === `https://www.instagram.com/p/${post.code}` ? "h-full w-full checked-bg   bg-purple-500 rounded-md  text-purple-600 opacity-0  border-blue-500  !opacity-75" : "h-full w-full checked:bg-purple-500 rounded-md text-purple-600 opacity-0"}`}
 
                           id={`selectedPost-${index}`} // Unique ID for each input
                         />

@@ -30,13 +30,14 @@
     background-color: #020202 !important
 }
 
-.checked-bg {
-    background-image: url(/images/check.svg);
-    border-color: transparent;
-    background-color: #7c3aed;
-    background-size: 100% 100%;
-    background-position: center;
-    background-repeat: no-repeat
+.bg-purple-500.rounded-md.checked-bg {
+    background-image: url("./check.svg") !important;
+    border-color: transparent !important;
+    background-color: white !important;
+    background-size: 100% 100% !important;
+    opacity: 0.75 !important;
+    background-position: center !important;
+    background-repeat: no-repeat !important
 }
 
 input[type=checkbox] {
@@ -132,9 +133,6 @@ input[type=checkbox] {
     height: auto !important;
 }
 
-.asnja::before {
-    display: none !important
-}
 
 .thweh {
     width: 4rem !important;
