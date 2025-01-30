@@ -15,7 +15,7 @@ const CheckIcon = () => (
   </svg>
 );
 
-const PackageCard = ({ title, likes, oldPrice, newPrice, availablePackages }) => {
+const PackageCard = ({ title, likes, oldPrice, newPrice, availablePackages, isBestSeller }) => {
   const [isModalVisible, setIsModalVisible] = useState(false);
   const { addPackage, updateCheckoutData } = useCheckout();
   const handleOpenModal = () => {
@@ -57,6 +57,8 @@ const PackageCard = ({ title, likes, oldPrice, newPrice, availablePackages }) =>
   return (
     <>
       <div className="pacote mx-auto bg-white gap-4 !w-[240px] !h-min min-w-fit min-h-[450px]">
+
+        {isBestSeller && <span className="sell" style={{ backgroundColor: "#00bf63" }}>Mais Vendido</span>}
         <img src="../eng.gif" className="h-10 mt-3 rounded-full" alt="promocao" />
         <div className="max-w-full w-full text-center z-10 px-3">
           <div className="title-rounded">
@@ -116,28 +118,29 @@ const Curtidas = () => {
       <div className="w-full lg:px-10 pt-28 grid grid-flow-cols grid-cols-1 lg:grid-cols-2 gap-y-8 justify-center items-end">
         <PackageCard
           title="Pacote Basico"
-          likes="1000"
+          likes="1.000"
           oldPrice="19,90"
           newPrice="6,90"
           availablePackages=""
         />
         <PackageCard
           title="Pacote Iniciante"
-          likes="2000"
+          likes="2.000"
           oldPrice="29,90"
           newPrice="12,90"
           availablePackages="33"
         />
         <PackageCard
           title="Pacote Premium"
-          likes="5000"
+          likes="5.000"
           oldPrice="49,90"
+          isBestSeller={true}
           newPrice="19,90"
           availablePackages=""
         />
         <PackageCard
           title="Pacote Profissional"
-          likes="10,000"
+          likes="10.000"
           oldPrice="159,00"
           newPrice="29,90"
           availablePackages=""

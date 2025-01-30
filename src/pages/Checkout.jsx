@@ -63,7 +63,7 @@ const Checkout = () => {// Starting time in seconds
     updateCheckoutData("email", email);
 
     updateCheckoutData("phone", phone);
-    if (checkoutData.selected === "followers") {
+    if (checkoutData.selected === "followers" || checkoutData.selected === "story views") {
 
       updateCheckoutData("link", checkoutData.username);
       navigate("/pay/form")

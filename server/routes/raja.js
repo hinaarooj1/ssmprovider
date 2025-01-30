@@ -7,6 +7,7 @@ const router = express.Router();
 // Create Service Order
 router.post('/create-order', async (req, res) => {
     const { serviceID, link, quantity } = req.body;
+    console.log('req.body: ', req.body);
 
     try {
         const params = new URLSearchParams();

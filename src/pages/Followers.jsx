@@ -28,40 +28,40 @@ const Followers = () => {
     },
     {
       title: "Pacote Intermediario",
-      followers: 3000,
-      bonusLikes: 3000,
+      followers: "3.000",
+      bonusLikes: "3.000",
       originalPrice: "200,00",
       discountedPrice: "97,90",
       availablePackages: 6, isBestSeller: true
     },
     {
       title: "Pacote Premium",
-      followers: 5000,
-      bonusLikes: 5000,
+      followers: "5.000",
+      bonusLikes: "5.000",
       originalPrice: "250,00",
       discountedPrice: "129,90",
       availablePackages: 14
     },
     {
       title: "Pacote Profissional",
-      followers: 10000,
-      bonusLikes: 10000,
+      followers: "10.000",
+      bonusLikes: "10.000",
       originalPrice: "500,00",
       discountedPrice: "197,00",
       availablePackages: 10
     },
     {
       title: "Pacote Gold",
-      followers: 20000,
-      bonusLikes: 20000,
+      followers: "20.000",
+      bonusLikes: "20.000",
       originalPrice: "1000,00",
       discountedPrice: "347,00",
       availablePackages: 10
     },
     {
       title: "Pacote Influence",
-      followers: 50000,
-      bonusLikes: 50000,
+      followers: "50.000",
+      bonusLikes: "50.000",
       originalPrice: "1900,94",
       discountedPrice: "889,90",
       availablePackages: 5,
@@ -69,8 +69,8 @@ const Followers = () => {
     },
     {
       title: "Pacote Top Influence",
-      followers: 100000,
-      bonusLikes: 100000,
+      followers: "100.000",
+      bonusLikes: "100.000",
       originalPrice: "3000,00",
       discountedPrice: "1500,00",
       availablePackages: 4

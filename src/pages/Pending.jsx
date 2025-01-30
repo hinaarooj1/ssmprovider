@@ -90,7 +90,7 @@ const Pending = () => {
                 } else if (checkoutData.selected === "comments") {
                     link = checkoutData.link
                     serviceID = 5502
-                    quantity = `comments=Comments`
+                    quantity = `comments=${checkoutData.commentContent}`
 
                 }
                 const orderData = {
