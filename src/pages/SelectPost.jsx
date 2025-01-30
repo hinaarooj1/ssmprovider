@@ -142,8 +142,12 @@ const SelectPost = () => {// Starting time in seconds
               </h1>
               <p className="mt-3" style={{ backgroundColor: "#fbcfe9", padding: '5px 5px', fontWeight: "bold", borderRadius: '5px' }}>Por favor, escreva seu comentário logo abaixo.</p>
 
-              <div className="relative h-14 w-full rounded-md px-2"><div className="absolute inset-y-0 left-0 flex items-center pl-3">
+              <div className="relative h-14 w-full rounded-md px-2"><div style={{ left: "7px" }} className="absolute inset-y-0 left- flex items-center pl-3">
+                <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" className="h-4 w-4 text-gray-400" viewBox="0 0 50 50">
+                  <path fill="#9ca3af" d="M 25 4 C 12.316406 4 2 12.972656 2 24 C 2 30.1875 5.335938 36.066406 10.949219 39.839844 C 10.816406 40.890625 10.285156 43.441406 8.183594 46.425781 L 7.078125 47.992188 L 9.054688 48 C 14.484375 48 18.15625 44.671875 19.363281 43.394531 C 21.195313 43.796875 23.089844 44 25 44 C 37.683594 44 48 35.027344 48 24 C 48 12.972656 37.683594 4 25 4 Z"></path>
+                </svg>
               </div>
+
                 <input value={commentContent} onChange={(e) => setcommentContent(e.target.value)} className="rounded-t rounded-b border-b block h-14 w-full border-gray-300 pl-9  text-xs text-gray-700 focus:outline-none placeholder-gray-400 placeholder:text-xs focus:border-purple-500 focus:ring-purple-500 lg:text-sm lg:placeholder:text-sm" placeholder="Digite o comentário personalizado" autoComplete="off" title="Link" type="text" />
 
               </div>
@@ -233,7 +237,8 @@ const SelectPost = () => {// Starting time in seconds
                   </button>
                 </div>
                 {manualInput &&
-                  <div className="relative h-14 w-full rounded-md px-2"><div className="absolute inset-y-0 left-0 flex items-center pl-3">
+                  <div className="relative h-14 w-full rounded-md px-2"><div style={{ left: "7px" }} className="absolute inset-y-0 left- flex items-center pl-3">
+
                     <svg aria-hidden="true" className="h-4 w-4 text-gray-400" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg"><path d="M314.222 197.78c51.091 51.091 54.377 132.287 9.75 187.16-6.242 7.73-2.784 3.865-84.94 86.02-54.696 54.696-143.266 54.745-197.99 0-54.711-54.69-54.734-143.255 0-197.99 32.773-32.773 51.835-51.899 63.409-63.457 7.463-7.452 20.331-2.354 20.486 8.192a173.31 173.31 0 0 0 4.746 37.828c.966 4.029-.272 8.269-3.202 11.198L80.632 312.57c-32.755 32.775-32.887 85.892 0 118.8 32.775 32.755 85.892 32.887 118.8 0l75.19-75.2c32.718-32.725 32.777-86.013 0-118.79a83.722 83.722 0 0 0-22.814-16.229c-4.623-2.233-7.182-7.25-6.561-12.346 1.356-11.122 6.296-21.885 14.815-30.405l4.375-4.375c3.625-3.626 9.177-4.594 13.76-2.294 12.999 6.524 25.187 15.211 36.025 26.049zM470.958 41.04c-54.724-54.745-143.294-54.696-197.99 0-82.156 82.156-78.698 78.29-84.94 86.02-44.627 54.873-41.341 136.069 9.75 187.16 10.838 10.838 23.026 19.525 36.025 26.049 4.582 2.3 10.134 1.331 13.76-2.294l4.375-4.375c8.52-8.519 13.459-19.283 14.815-30.405.621-5.096-1.938-10.113-6.561-12.346a83.706 83.706 0 0 1-22.814-16.229c-32.777-32.777-32.718-86.065 0-118.79l75.19-75.2c32.908-32.887 86.025-32.755 118.8 0 32.887 32.908 32.755 86.025 0 118.8l-45.848 45.84c-2.93 2.929-4.168 7.169-3.202 11.198a173.31 173.31 0 0 1 4.746 37.828c.155 10.546 13.023 15.644 20.486 8.192 11.574-11.558 30.636-30.684 63.409-63.457 54.733-54.735 54.71-143.3-.001-197.991z" fill="currentColor" /></svg></div>
                     <input value={selectedPost} onChange={(e) => setSelectedPost(e.target.value)} className="rounded-t rounded-b border-b block h-14 w-full border-gray-300 pl-9  text-xs text-gray-700 focus:outline-none placeholder-gray-400 placeholder:text-xs focus:border-purple-500 focus:ring-purple-500 lg:text-sm lg:placeholder:text-sm" placeholder="Digite o link da postagem" autoComplete="off" title="Link" type="text" />
 
