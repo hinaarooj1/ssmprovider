@@ -11,7 +11,8 @@ import { baseUrl } from "../utils/constant";
 const Pending = () => {
     const { checkoutData } = useCheckout();
     const [isLoading, setisLoading] = useState(true);
-    const [isDone, setisDone] = useState(false);
+    const [payStatus, setpayStatus] = useState(false);
+    const [isDone, setisDone] = useState({ status: "ACTIVE" });
     const checkStatus = async () => {
 
         console.log(checkoutData);
@@ -24,139 +25,147 @@ const Pending = () => {
         // will be moved
 
 
-        setisLoading(true)
         try {
             let formData = {
                 correlationID: checkoutData.correlationID,
+            };
 
+            try {
+                const res = await axios.post(`${baseUrl}/openpix/webhook`, formData);
+                checkoutData.packages[0]
+                const charge = res.data.resposne.charges.find(charge => charge.correlationID === checkoutData.correlationID);
+                console.log('charge: ', charge);
 
-            }
-            const res = await axios.post(`${baseUrl}/openpix/webhook`, formData);
-            const charge = res.data.resposne.charges.filter(charge => charge.correlationID === checkoutData.correlationID);
+                if (charge) {
 
-            if (charge.length > 0) {
-                console.log("Charge details found:", charge[0]);
-            } else {
-                console.log("No charge found for the given correlationID.");
-            }
+                    if (charge.status === "ACTIVE") {
+                        setpayStatus(true)
+                        setisDone({ status: "PAID" })  // Stop polling when paid
+                        console.log("Payment completed! Proceeding with order...");
 
-
-
-            if (charge[0].status === "PAID") {
-                let serviceID = ""
-                let quantity = ""
-                let link = ""
-                if (checkoutData.selected === "followers") {
-                    link = checkoutData.username
-                    if (checkoutData.packages[0].followers === 100) {
-
-                        serviceID = 3878
-                        quantity = "quantity=110"
-
-                    } else if (checkoutData.packages[0].followers === 600) {
-                        serviceID = 4112
-                        quantity = "quantity=660"
+                        let serviceID = "";
+                        let quantity = "";
+                        let link = "";
+                        const formatNumber = (value) =>
+                            typeof value === "string" ? parseInt(value.replace(/\./g, ""), 10) : value;
+                        if (checkoutData.selected === "followers") {
+                            link = checkoutData.username;
+                            let followers = formatNumber(checkoutData.packages[0].followers);
 
 
 
-                    } else if (checkoutData.packages[0].followers === 3000) {
-                        serviceID = 6178
-                        quantity = "quantity=3000"
+                            if (followers === 100) {
+                                serviceID = 3878;
+                                quantity = 110;
+                            } else if (followers === 600) {
+                                serviceID = 4112;
+                                quantity = 660;
+                            } else if (followers === 3000) {
+                                serviceID = 6178;
+                                quantity = 3000;
+                            } else {
+                                serviceID = 6178;
+                                quantity = followers;
+                            }
+                        } else if (checkoutData.selected === "likes") {
+                            link = checkoutData.link;
+                            serviceID = 4379;
+                            quantity = formatNumber(checkoutData.packages[0].likes);
+                        } else if (checkoutData.selected === "story views") {
+                            link = checkoutData.link;
+                            serviceID = 1339;
+                            quantity = formatNumber(checkoutData.packages[0].likes);
+                        } else if (checkoutData.selected === "reel views") {
+                            link = checkoutData.link;
+                            serviceID = 5528;
+                            quantity = formatNumber(checkoutData.packages[0].likes);
+                        } else if (checkoutData.selected === "comments") {
+                            link = checkoutData.link;
+                            serviceID = 5502;
+                            quantity = "checkoutData.commentContent";
+                        }
+
+                        const orderData = {
+                            serviceID,
+                            link,
+                            quantity
+                        };
+
+                        // Call the second API to create the order
+                        const orderRes = await axios.post(`${baseUrl}/raja/create-order`, orderData);
+                        console.log('orderRes: ', orderRes);
 
 
+                        console.log('orderRes.data.response.order: ', orderRes.data.response.order);
+                        if (orderRes.data.success && orderRes.data.response.order) {
+                            toast.success("Pedido concluído com sucesso");
+                            setTimeout(() => {
 
-                    } else {
-                        serviceID = 6178
-                        quantity = `quantity=${checkoutData.packages[0].followers}`
+                                setisDone({ status: "COMPLETED" });
+                            }, 4000);
 
+                        } else {
+                            toast.error("Falha ao criar ordem.");
+                            console.error("Order API error:", orderRes.data.error);
+                        }
+                    } else if (charge.status === "EXPIRED" || charge === undefined || charge === null) {
+                        setisDone({ status: "EXPIRED" })
+                        console.log("Payment is expired...");
                     }
-                } else if (checkoutData.selected === "likes") {
-                    link = checkoutData.link
-                    serviceID = 4379
-                    quantity = `quantity=${checkoutData.packages[0].likes}`
-
-                } else if (checkoutData.selected === "story views") {
-                    link = checkoutData.link
-
-                    serviceID = 1339
-                    quantity = `quantity=${checkoutData.packages[0].likes}`
-
-                } else if (checkoutData.selected === "reel views") {
-                    link = checkoutData.link
-
-                    serviceID = 5528
-                    quantity = `quantity=${checkoutData.packages[0].likes}`
-
-                } else if (checkoutData.selected === "comments") {
-                    link = checkoutData.link
-                    serviceID = 5502
-                    quantity = `comments=${checkoutData.commentContent}`
-
-                }
-                const orderData = {
-                    serviceID,
-                    link,
-                    quantity
-
-                };
-
-                // Call the second API to create the order
-                const orderRes = await axios.post(
-                    `${baseUrl}/raja/create-order`,
-                    orderData
-                );
-                console.log(orderRes);
-                if (orderRes.data.success) {
-                    toast.success("Pedido concluído com sucesso")
-                    setisDone(true)
-                    console.log("Order created:", orderRes.data);
                 } else {
-                    toast.error("Falha ao criar ordem.");
-                    console.error("Order API error:", orderRes.data.error);
+                    setisDone({ status: "EXPIRED" })
+                    console.log("No charge found for the given correlationID.");
                 }
-            } else {
-                console.log("Ocorreu um erro ao realizar o pedido.");
-                // toast.error("Ocorreu um erro ao realizar o pedido.");
+            } catch (error) {
+                console.error("Error while checking payment status:", error);
             }
+            // Check every 5 seconds
+
         } catch (err) {
             toast.error("Ocorreu um erro ao realizar o pedido.");
-
-            console.log('err: ', err);
-            // setError(err.response?.data || 'An error occurred');
-            // setResponse(null);
+            console.error("Error in API call:", err);
         } finally {
-            setisLoading(false)
+            setisLoading(false);
         }
     }
+    console.log(isDone);
     useEffect(() => {
 
         checkStatus()
     }, []);
+    useEffect(() => {
+        let intervalId;
+
+        // Function to start checking payment status every 5 seconds
+        const startCheckingStatus = () => {
+            if (!payStatus) {
+                console.log("run it");
+                intervalId = setInterval(() => {
+                    checkStatus();
+                }, 5000); // Check every 5 seconds
+            }
+        };
+
+        startCheckingStatus();
+
+        // Cleanup function
+        return () => {
+            clearInterval(intervalId); // Clear the interval when component unmounts
+        };
+    }, [payStatus]);
+    // useEffect(() => {
+    //     const paymentInterval = setInterval(checkPaymentStatus, 5000); // Check every 5s
+    //     return () => clearInterval(paymentInterval); // Cleanup on unmount
+    // }, []);
     return (
         <>
             <div className="min-h-screen w-screen overflow-hidden relative">
                 <TimerHead />
 
                 {checkoutData.name !== "" && checkoutData.paymentInfo?.length > 0 ? (
-                    isDone ?
+                    isDone.status === "ACTIVE" ?
                         <div
-                            className="lg:w-[550px] min-h-fit mx-auto w-fit flex-col rounded-2xl py-6 z-40 border-purple-400 border backdrop-blur-xl lg:mt-12 px-10 items-center flex bg-[#f4f4f4] gap-2 animate__animated animate__flipInX"
-                            id="payment-info"
-                        >
-                            <div className="w-full text-center flex flex-col items-center">
-                                <h1 className="font-bold text-[#6c18cd] text-xl">
-                                    Order Completed Successfully
-                                </h1>
-
-                                <Link to="/" type="button" className="pix-code mt-5">
-
-                                    Back to home
-                                </Link>
-
-                            </div>
-                        </div> :
-                        <div
-                            className="lg:w-[550px] min-h-fit mx-auto w-fit flex-col rounded-2xl py-6 z-40 border-purple-400 border backdrop-blur-xl lg:mt-12 px-10 items-center flex bg-[#f4f4f4] gap-2 animate__animated animate__flipInX"
+                            className="lg:w-[550px] min-h-fit mx-auto w-fit flex-col rounded-2xl py-6 z-40 border-purple-400 border backdrop-blur-xl lg:mt-12 px-10 items-center flex bg-[#f4f4f4] gap-2 "
                             id="payment-info"
                         >
                             <div className="w-full text-center flex flex-col items-center">
@@ -226,6 +235,50 @@ const Pending = () => {
                                 </figure>
                             </div>
                         </div>
+                        : isDone.status === "PAID" ?
+                            <div
+                                className="lg:w-[550px] min-h-fit mx-auto w-fit flex-col rounded-2xl py-6 z-40 border-purple-400 border backdrop-blur-xl lg:mt-12 px-10 items-center flex bg-[#f4f4f4] gap-2 "
+                                id="payment-info"
+                            >
+                                <div className="w-full text-center flex flex-col items-center">
+                                    <h1 className="font-bold text-[#6c18cd] text-xl">
+                                        Pagamento concluído com sucesso, estamos processando seu pedido
+                                    </h1>
+
+
+
+                                </div>
+                            </div> : isDone.status === "EXPIRED" ? <div
+                                className="lg:w-[550px] min-h-fit mx-auto w-fit flex-col rounded-2xl py-6 z-40 border-purple-400 border backdrop-blur-xl lg:mt-12 px-10 items-center flex bg-[#f4f4f4] gap-2 "
+                                id="payment-info"
+                            >
+                                <div className="w-full text-center flex flex-col items-center">
+                                    <h1 className="font-bold text-[#6c18cd] text-xl">
+                                        O pagamento expirou ou nenhuma cobrança foi encontrada
+                                    </h1>
+
+                                    <Link to="/" type="button" className="pix-code mt-5">
+
+                                        Back to home
+                                    </Link>
+
+                                </div>
+                            </div> : isDone.status === "COMPLETED" ? <div
+                                className="lg:w-[550px] min-h-fit mx-auto w-fit flex-col rounded-2xl py-6 z-40 border-purple-400 border backdrop-blur-xl lg:mt-12 px-10 items-center flex bg-[#f4f4f4] gap-2 "
+                                id="payment-info"
+                            >
+                                <div className="w-full text-center flex flex-col items-center">
+                                    <h1 className="font-bold text-[#6c18cd] text-xl">
+                                        Pedido concluído com sucesso
+                                    </h1>
+
+                                    <Link to="/" type="button" className="pix-code mt-5">
+
+                                        Back to home
+                                    </Link>
+
+                                </div>
+                            </div> : ""
                 ) : null}
             </div>
             <Footer />

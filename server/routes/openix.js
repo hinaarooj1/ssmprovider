@@ -12,9 +12,11 @@ router.post('/create-charge', async (req, res) => {
     const { username, name, taxID, email, phone, selectedPackage, extra, link, selected, price } = req.body;
 
 
+
     const correlationID = uuidv4();
     let totalPrice = price * 100
-    let finalPrice = totalPrice.toFixed(2)
+    let final = Math.round(totalPrice)
+    console.log(totalPrice, price, 'totalPrice: ', final);
     let comment;
 
     if (selected === "followers") {
@@ -37,7 +39,7 @@ router.post('/create-charge', async (req, res) => {
             'https://api.openpix.com.br/api/v1/charge?return_existing=false',
             {
                 correlationID,
-                value: finalPrice, // Amount in cents
+                value: final, // Amount in cents
                 type: 'DYNAMIC',
                 comment,
                 identifier: `order-${Date.now()}`,

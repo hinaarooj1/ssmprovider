@@ -22,7 +22,7 @@ export const CheckoutProvider = ({ children }) => {
     });
     const [time, setTime] = useState(900); // 5 minutes in seconds
     // console.log('checkoutData: ', checkoutData);
-    console.log('checkoutData: ', checkoutData);
+
 
     // Function to update checkout data
     const updateCheckoutData = (field, value) => {
