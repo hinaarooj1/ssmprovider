@@ -14,8 +14,9 @@ const Pending = () => {
     const [payStatus, setpayStatus] = useState(false);
     const [isDone, setisDone] = useState({ status: "ACTIVE" });
     const checkStatus = async () => {
-
-        console.log(checkoutData);
+        if (payStatus) {
+            return
+        }
         if (!checkoutData.username || !checkoutData.name || !checkoutData.email || !checkoutData.phone || checkoutData.packages.length == 0 || checkoutData.userInfo.length == 0
 
         ) {
@@ -34,7 +35,7 @@ const Pending = () => {
                 const res = await axios.post(`${baseUrl}/openpix/webhook`, formData);
                 checkoutData.packages[0]
                 const charge = res.data.resposne.charges.find(charge => charge.correlationID === checkoutData.correlationID);
-                console.log('charge: ', charge);
+
 
                 if (charge) {
 
@@ -93,10 +94,7 @@ const Pending = () => {
 
                         // Call the second API to create the order
                         const orderRes = await axios.post(`${baseUrl}/raja/create-order`, orderData);
-                        console.log('orderRes: ', orderRes);
 
-
-                        console.log('orderRes.data.response.order: ', orderRes.data.response.order);
                         if (orderRes.data.success && orderRes.data.response.order) {
                             toast.success("Pedido concluído com sucesso");
                             setTimeout(() => {
@@ -128,18 +126,18 @@ const Pending = () => {
             setisLoading(false);
         }
     }
-    console.log(isDone);
     useEffect(() => {
+        if (!payStatus) {
 
-        checkStatus()
+            checkStatus()
+        }
     }, []);
     useEffect(() => {
         let intervalId;
 
         // Function to start checking payment status every 5 seconds
         const startCheckingStatus = () => {
-            if (!payStatus) {
-                console.log("run it");
+            if (payStatus === false) {
                 intervalId = setInterval(() => {
                     checkStatus();
                 }, 5000); // Check every 5 seconds
