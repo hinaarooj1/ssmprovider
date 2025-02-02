@@ -38,7 +38,7 @@ const Pending = () => {
 
                 if (charge) {
 
-                    if (charge.status === "ACTIVE") {
+                    if (charge.status === "PAID") {
                         setpayStatus(true)
                         setisDone({ status: "PAID" })  // Stop polling when paid
                         console.log("Payment completed! Proceeding with order...");
