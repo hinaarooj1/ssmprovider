@@ -106,6 +106,10 @@ const Pending = () => {
                             }, 4000);
 
                         } else {
+                            setTimeout(() => {
+
+                                setisDone({ status: "FAILED" });
+                            }, 4000);
                             toast.error("Falha ao criar ordem.");
                             console.error("Order API error:", orderRes.data.error);
                         }
@@ -277,6 +281,18 @@ const Pending = () => {
 
                                         Back to home
                                     </Link>
+
+                                </div>
+                            </div> : isDone.status === "FAILED" ? <div
+                                className="lg:w-[550px] min-h-fit mx-auto w-fit flex-col rounded-2xl py-6 z-40 border-purple-400 border backdrop-blur-xl lg:mt-12 px-10 items-center flex bg-[#f4f4f4] gap-2 "
+                                id="payment-info"
+                            >
+                                <div className="w-full text-center flex flex-col items-center">
+                                    <h1 className="font-bold text-[#6c18cd] text-xl">
+                                        O pagamento foi concluído, mas eles estão com problemas para enviar os seguidores. Entre em contato com o suporte
+                                    </h1>
+
+
 
                                 </div>
                             </div> : ""
