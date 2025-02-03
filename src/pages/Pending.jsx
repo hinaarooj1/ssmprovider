@@ -14,6 +14,7 @@ const Pending = () => {
     const [payStatus, setpayStatus] = useState(false);
     const [isDone, setisDone] = useState({ status: "ACTIVE" });
     const checkStatus = async () => {
+        console.log("is running");
         if (payStatus) {
             return
         }
@@ -35,11 +36,12 @@ const Pending = () => {
                 const res = await axios.post(`${baseUrl}/openpix/webhook`, formData);
                 checkoutData.packages[0]
                 const charge = res.data.resposne.charges.find(charge => charge.correlationID === checkoutData.correlationID);
+                console.log("is running webhook");
 
-
+                console.log('charge: ', charge);
                 if (charge) {
 
-                    if (charge.status === "PAID") {
+                    if (charge.status === "COMPLETED") {
                         setpayStatus(true)
                         setisDone({ status: "PAID" })  // Stop polling when paid
                         console.log("Payment completed! Proceeding with order...");
@@ -94,6 +96,7 @@ const Pending = () => {
 
                         // Call the second API to create the order
                         const orderRes = await axios.post(`${baseUrl}/raja/create-order`, orderData);
+
 
                         if (orderRes.data.success && orderRes.data.response.order) {
                             toast.success("Pedido concluído com sucesso");
