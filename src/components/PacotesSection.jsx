@@ -46,7 +46,7 @@ const PacotesSection = () => {
                   Curtidas Instagram
                 </h3>
                 <p className="outfit">
-                  a partir de R$ 6,90
+                  a partir de R$ 8,90
                   <span className="bg-[#c339ff] rounded-[20px] text-white py-0.5 px-1.5">
                     34% OFF
                   </span>
@@ -103,7 +103,7 @@ const PacotesSection = () => {
                   Comentarios Instagram
                 </h3>
                 <p className="outfit">
-                  a partir de R$ 2,99
+                  a partir de R$ 8,90
                   <span className="bg-[#c339ff] rounded-[20px] text-white py-0.5 px-1.5">
                     20% OFF
                   </span>

@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import '../components/pacote.css';
 import Header from '../components/Header';
@@ -111,16 +111,57 @@ const PackageCard = ({ title, likes, oldPrice, newPrice, availablePackages, isBe
 
 
 const Curtidas = () => {
+  const iframeRef = useRef();
+
+  useEffect(() => {
+    const loadVimeoScript = () => {
+      if (!document.querySelector("script[src='https://player.vimeo.com/api/player.js']")) {
+        const script = document.createElement("script");
+        script.src = "https://player.vimeo.com/api/player.js";
+        script.async = true;
+        document.body.appendChild(script);
+      }
+    };
+
+    loadVimeoScript();
+  }, []);
   return (
     <>
       <Header />
       <Link to="/" className="flex items-center fixed text-white text-sm font-medium top-20 left-[20px] z-20 px-4 py-2 mt-2 back !w-fit h-min"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M9.57 5.92999L3.5 12L9.57 18.07" stroke="white" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"></path><path d="M20.4999 12H3.66992" stroke="white" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"></path></svg>Back to home</Link>
-      <div className="w-full lg:px-10 pt-28 grid grid-flow-cols grid-cols-1 lg:grid-cols-2 gap-y-8 justify-center items-end">
+      {/* video */}
+      <div className="this-vio">
+
+        <div className="video-js vjs-16-9 !w-full vjs-big-play-centered vjs-paused vjs-controls-enabled vjs-touch-enabled vjs-workinghover vjs-v8 vjs-user-active vjs_video_554-dimensions" id="vjs_video_554">
+          <iframe className="this-ifrm"
+            ref={iframeRef}
+            src="https://player.vimeo.com/video/1053215823?byline=0&amp;portrait=0&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479"
+            frameBorder="0"
+            allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media"
+            style={{
+              position: "absolute",
+              top: 0,
+              left: 0,
+              width: "100%",
+              height: "100%",
+            }}
+            title="Video vendas você mais engajado"
+          ></iframe>
+          {/* <div className="vjs-poster">
+                  <picture className="vjs-poster">
+                    <img src="../thumbnailMain.jpg" alt="Video Thumbnail" />
+                  </picture>
+                </div> */}
+        </div>
+
+      </div>
+      {/* video */}
+      <div className="w-full lg:px-10 pt-20 poti-17 grid grid-flow-cols grid-cols-1 lg:grid-cols-2 gap-y-8 justify-center items-end">
         <PackageCard
           title="Pacote Basico"
           likes="1.000"
           oldPrice="19,90"
-          newPrice="6,90"
+          newPrice="8,90"
           availablePackages=""
         />
         <PackageCard

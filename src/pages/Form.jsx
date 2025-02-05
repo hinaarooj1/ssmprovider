@@ -7,7 +7,7 @@ import TimerHead from "../components/TimerHead";
 import { toast } from "react-toastify";
 import { useNavigate } from "react-router-dom";
 import { baseUrl } from "../utils/constant";
-
+import './form.css'
 
 const Form = () => {// Starting time in seconds
 
@@ -482,10 +482,10 @@ const Form = () => {// Starting time in seconds
               </h3>
               <div className="client-list flex flex-col mt-4 gap-6">
                 <div className="client flex w-full gap-4">
-                  <div className="img">
+                  <div className="img imooo">
                     <img className="w-16 h-16 rounded-full" src="../testimonial-1.webp" />
                   </div>
-                  <div className="list flex gap-1 flex-col max-w-[300px]">
+                  <div className="list flex gap-1 flex-col max-w-[300px] this-abo">
                     <h3 className="font-semibold mt-1 text-black text-lg loop_head_sec">
                       Seguidores Reais e Entrega Rápida
                     </h3>
@@ -507,10 +507,10 @@ const Form = () => {// Starting time in seconds
                   </div>
                 </div>
                 <div className="client flex w-full gap-4">
-                  <div className="img">
+                  <div className="img imooo">
                     <img className="w-16 h-16 rounded-full" src="../testimonial-2.webp" />
                   </div>
-                  <div className="list flex gap-1 flex-col max-w-[300px]">
+                  <div className="list flex gap-1 flex-col max-w-[300px] this-abo">
                     <h3 className="font-semibold mt-1 text-black text-lg loop_head_sec">
                       Mais Credibilidade No Meu Perfil
                     </h3>
@@ -532,10 +532,10 @@ const Form = () => {// Starting time in seconds
                   </div>
                 </div>
                 <div className="client flex w-full gap-4">
-                  <div className="img">
+                  <div className="img imooo">
                     <img className="w-16 h-16 rounded-full" src="../testimonial-3.webp" />
                   </div>
-                  <div className="list flex gap-1 flex-col max-w-[300px]">
+                  <div className="list flex gap-1 flex-col max-w-[300px] this-abo">
                     <h3 className="font-semibold mt-1 text-black text-lg loop_head_sec">
                       Cumprem O Que Prometem
                     </h3>

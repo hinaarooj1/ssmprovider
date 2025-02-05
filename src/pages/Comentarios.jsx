@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
 import '../components/pacote.css';
 import Header from '../components/Header';
@@ -115,6 +115,20 @@ const PackageCard = ({ title, comments, oldPrice, newPrice, availablePackages, i
 };
 
 const Comentarios = () => {
+  const iframeRef = useRef();
+
+  useEffect(() => {
+    const loadVimeoScript = () => {
+      if (!document.querySelector("script[src='https://player.vimeo.com/api/player.js']")) {
+        const script = document.createElement("script");
+        script.src = "https://player.vimeo.com/api/player.js";
+        script.async = true;
+        document.body.appendChild(script);
+      }
+    };
+
+    loadVimeoScript();
+  }, []);
   return (
     <>
       <Header />
@@ -125,12 +139,39 @@ const Comentarios = () => {
         </svg>
         Back to home
       </Link>
-      <div className="w-full lg:px-28 pt-28 grid grid-flow-cols grid-cols-1 lg:grid-cols-3 gap-y-8 justify-center items-end">
+      {/* video */}
+      <div className="this-vio">
+
+        <div className="video-js vjs-16-9 !w-full vjs-big-play-centered vjs-paused vjs-controls-enabled vjs-touch-enabled vjs-workinghover vjs-v8 vjs-user-active vjs_video_554-dimensions" id="vjs_video_554">
+          <iframe className="this-ifrm"
+            ref={iframeRef}
+            src="https://player.vimeo.com/video/1053215877?byline=0&amp;portrait=0&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479"
+            frameBorder="0"
+            allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media"
+            style={{
+              position: "absolute",
+              top: 0,
+              left: 0,
+              width: "100%",
+              height: "100%",
+            }}
+            title="Video vendas você mais engajado"
+          ></iframe>
+          {/* <div className="vjs-poster">
+          <picture className="vjs-poster">
+            <img src="../thumbnailMain.jpg" alt="Video Thumbnail" />
+          </picture>
+        </div> */}
+        </div>
+
+      </div>
+      {/* video */}
+      <div className="w-full poti-17 lg:px-28 pt-28 grid grid-flow-cols grid-cols-1 lg:grid-cols-3 gap-y-8 justify-center items-end">
         <PackageCard
           title="Pacote Basico"
           comments="1"
           oldPrice="15,90"
-          newPrice="2,99"
+          newPrice="8,90"
           availablePackages=""
         />
         {/* <PackageCard

@@ -1,0 +1,24 @@
+@media (max-width:450px) {
+    .this-abo {
+        max-width: 75%;
+    }
+
+    .imooo {
+        width: 25%;
+    }
+}
+
+@media (max-width:380px) {
+    /* .this-abo {
+        max-width: 65%;
+    } */
+
+    .imooo img {
+        width: 3rem;
+        height: 3rem;
+    }
+
+    /* .imooo {
+        width: 35%;
+    } */
+}

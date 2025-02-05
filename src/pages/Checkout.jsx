@@ -29,6 +29,7 @@ const Checkout = () => {// Starting time in seconds
   });
   // Handle change of checkbox
   const handleCheckboxChange = () => {
+    setisTour(true)
     setIsChecked(!isChecked);
   };
   const { updateCheckoutData, checkoutData, addInfo } = useCheckout();
@@ -36,7 +37,7 @@ const Checkout = () => {// Starting time in seconds
 
   const [email, setEmail] = useState("");
   const [phone, setPhone] = useState("");
-  const [instagram, setInstagram] = useState("");
+  const [next, setNext] = useState(false);
   const [name, setName] = useState("");
 
   const handleSubmit = async (event) => {
@@ -51,6 +52,39 @@ const Checkout = () => {// Starting time in seconds
     if (!isChecked) newErrors.tutorial = true;
 
     if (Object.keys(newErrors).length > 0) {
+      setNext(false)
+      setErrors(newErrors);
+      return; // Stop further processing if validation fails
+    }
+
+    // Reset errors if validation passed
+    setErrors({});
+    // Handle form submission logic here
+
+    // updateCheckoutData("name", name);
+    // updateCheckoutData("email", email);
+
+    // updateCheckoutData("phone", phone);
+    setisTour(true)
+    setNext(true)
+    return
+
+
+  };
+  let goNext = () => {
+
+
+    const newErrors = {};
+    if (!name) newErrors.name = true;
+    if (!email) newErrors.email = true;
+    else if (!/\S+@\S+\.\S+/.test(email)) newErrors.email = 'Email is invalid';
+    if (!phone) newErrors.phone = true;
+
+    if (!isChecked) newErrors.tutorial = true;
+
+    if (Object.keys(newErrors).length > 0) {
+      setisTour(false)
+      setNext(false)
       setErrors(newErrors);
       return; // Stop further processing if validation fails
     }
@@ -70,8 +104,7 @@ const Checkout = () => {// Starting time in seconds
     } else {
       navigate("/pay/select")
     }
-
-  };
+  }
   const fetchInstagramData = async () => {
 
 
@@ -116,6 +149,7 @@ const Checkout = () => {// Starting time in seconds
 
     }
   };
+
 
 
 
@@ -361,13 +395,23 @@ const Checkout = () => {// Starting time in seconds
                   </figure>
                 </div>
                 <div className="flex justify-center rs-modal-footer">
-                  <button onClick={() => setisTour(false)} className="w-[80%] !mx-auto hover:!bg-[#C114B0] transition-all duration-500 rs-btn rs-btn-primary">
-                    Já desativei
-                    <span className="rs-ripple-pond">
-                      <span className="rs-ripple">
+                  {next
+                    ?
+
+                    <button onClick={goNext} className="w-[80%] !mx-auto hover:!bg-[#C114B0] transition-all duration-500 rs-btn rs-btn-primary">
+                      Já desativei
+                      <span className="rs-ripple-pond">
+                        <span className="rs-ripple">
+                        </span>
                       </span>
-                    </span>
-                  </button>
+                    </button> : <button onClick={() => setisTour(false)} className="w-[80%] !mx-auto hover:!bg-[#C114B0] transition-all duration-500 rs-btn rs-btn-primary">
+                      Já desativei
+                      <span className="rs-ripple-pond">
+                        <span className="rs-ripple">
+                        </span>
+                      </span>
+                    </button>
+                  }
                 </div>
               </div>
             </div>

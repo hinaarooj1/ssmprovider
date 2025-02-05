@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import "./Checkout.css";
 import Footer from "../components/Footer";
 import { useCheckout } from "../context/CheckoutContext";
@@ -13,6 +13,7 @@ const Pending = () => {
     const [isLoading, setisLoading] = useState(true);
     const [payStatus, setpayStatus] = useState(false);
     const [isDone, setisDone] = useState({ status: "ACTIVE" });
+    // const [isDone, setisDone] = useState({ status: "COMPLETED" });
     const checkStatus = async () => {
         console.log("is running");
         if (payStatus) {
@@ -158,6 +159,20 @@ const Pending = () => {
             clearInterval(intervalId); // Clear the interval when component unmounts
         };
     }, [payStatus]);
+    const iframeRef = useRef();
+
+    useEffect(() => {
+        const loadVimeoScript = () => {
+            if (!document.querySelector("script[src='https://player.vimeo.com/api/player.js']")) {
+                const script = document.createElement("script");
+                script.src = "https://player.vimeo.com/api/player.js";
+                script.async = true;
+                document.body.appendChild(script);
+            }
+        };
+
+        loadVimeoScript();
+    }, []);
     // useEffect(() => {
     //     const paymentInterval = setInterval(checkPaymentStatus, 5000); // Check every 5s
     //     return () => clearInterval(paymentInterval); // Cleanup on unmount
@@ -276,7 +291,27 @@ const Pending = () => {
                                     <h1 className="font-bold text-[#6c18cd] text-xl">
                                         Pedido concluído com sucesso
                                     </h1>
-
+                                    <div className="video-js vjs-16-9 mt-5 !w-full vjs-big-play-centered vjs-paused vjs-controls-enabled vjs-touch-enabled vjs-workinghover vjs-v8 vjs-user-active vjs_video_554-dimensions" id="vjs_video_554">
+                                        <iframe className="this-ifrm"
+                                            ref={iframeRef}
+                                            src="https://player.vimeo.com/video/1053024389?byline=0&amp;portrait=0&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479"
+                                            frameBorder="0"
+                                            allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media"
+                                            style={{
+                                                position: "absolute",
+                                                top: 0,
+                                                left: 0,
+                                                width: "100%",
+                                                height: "100%",
+                                            }}
+                                            title="Video vendas você mais engajado"
+                                        ></iframe>
+                                        {/* <div className="vjs-poster">
+                  <picture className="vjs-poster">
+                    <img src="../thumbnailMain.jpg" alt="Video Thumbnail" />
+                  </picture>
+                </div> */}
+                                    </div>
                                     <Link to="/" type="button" className="pix-code mt-5">
 
                                         Back to home
@@ -288,9 +323,31 @@ const Pending = () => {
                                 id="payment-info"
                             >
                                 <div className="w-full text-center flex flex-col items-center">
-                                    <h1 className="font-bold text-[#6c18cd] text-xl">
-                                        O pagamento foi concluído, mas eles estão com problemas para enviar os seguidores. Entre em contato com o suporte
-                                    </h1>
+                                    <div className="video-js vjs-16-9 mt-5 !w-full vjs-big-play-centered vjs-paused vjs-controls-enabled vjs-touch-enabled vjs-workinghover vjs-v8 vjs-user-active vjs_video_554-dimensions" id="vjs_video_554">
+                                        <iframe className="this-ifrm"
+                                            ref={iframeRef}
+                                            src="https://player.vimeo.com/video/1053024389?byline=0&amp;portrait=0&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479"
+                                            frameBorder="0"
+                                            allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media"
+                                            style={{
+                                                position: "absolute",
+                                                top: 0,
+                                                left: 0,
+                                                width: "100%",
+                                                height: "100%",
+                                            }}
+                                            title="Video vendas você mais engajado"
+                                        ></iframe>
+                                        {/* <div className="vjs-poster">
+                  <picture className="vjs-poster">
+                    <img src="../thumbnailMain.jpg" alt="Video Thumbnail" />
+                  </picture>
+                </div> */}
+                                    </div>
+                                    <Link to="/" type="button" className="pix-code mt-5">
+
+                                        Back to home
+                                    </Link>
 
 
 

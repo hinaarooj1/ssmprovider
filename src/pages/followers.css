@@ -1,0 +1,27 @@
+.this-vio {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-top: 7rem;
+    width: 50%;
+    margin: auto;
+}
+
+.this-vio .this-ifrm {
+    border-radius: 15px;
+}
+
+@media (max-width:768px) {
+    .poti-17 {
+        padding-top: 3.5rem !important;
+    }
+
+    .this-vio {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding-top: 9rem;
+        width: 90%;
+        margin: auto;
+    }
+}
