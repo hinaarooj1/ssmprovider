@@ -43,6 +43,7 @@ const Pending = () => {
                 if (charge) {
 
                     if (charge.status === "COMPLETED") {
+                        // if (charge.status === "ACTIVE") {
                         setpayStatus(true)
                         setisDone({ status: "PAID" })  // Stop polling when paid
                         console.log("Payment completed! Proceeding with order...");
@@ -50,6 +51,7 @@ const Pending = () => {
                         let serviceID = "";
                         let quantity = "";
                         let link = "";
+                        let comment = false;
                         const formatNumber = (value) =>
                             typeof value === "string" ? parseInt(value.replace(/\./g, ""), 10) : value;
                         if (checkoutData.selected === "followers") {
@@ -86,13 +88,14 @@ const Pending = () => {
                         } else if (checkoutData.selected === "comments") {
                             link = checkoutData.link;
                             serviceID = 5502;
-                            quantity = "checkoutData.commentContent";
+                            quantity = `${checkoutData.commentContent}`;
+                            comment = true;
                         }
 
                         const orderData = {
                             serviceID,
                             link,
-                            quantity
+                            quantity, comment
                         };
 
                         // Call the second API to create the order

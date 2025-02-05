@@ -6,7 +6,7 @@ const router = express.Router();
 
 // Create Service Order
 router.post('/create-order', async (req, res) => {
-    const { serviceID, link, quantity } = req.body;
+    const { serviceID, link, quantity, comment } = req.body;
     console.log('req.body: ', req.body);
 
     try {
@@ -15,14 +15,18 @@ router.post('/create-order', async (req, res) => {
         params.append('action', 'add');
         params.append('service', serviceID);
         params.append('link', link);
-        params.append('quantity', quantity);
-
+        if (comment === true) {
+            params.append('comments', quantity);
+        } else {
+            params.append('quantity', quantity);
+        }
+        console.log(params);
         const response = await axios.post('https://www.smmraja.com/api/v3', params, {
             headers: {
                 'Content-Type': 'application/x-www-form-urlencoded',
             },
         });
-        // console.log(response);
+        console.log(response);
         res.status(200).json({ response: response.data, success: true });
     } catch (error) {
         res.status(500).json({ error: error.response.data, success: true });
