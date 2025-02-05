@@ -9,7 +9,8 @@ const { parse } = require('dotenv');
 // Create Charge
 router.post('/create-charge', async (req, res) => {
 
-    const { username, name, taxID, email, phone, selectedPackage, extra, link, selected, price } = req.body;
+    const { username, name, taxID, email, phone, selectedPackage, comments, extra, link, selected, price } = req.body;
+    console.log('comments: ', comments);
 
 
 
@@ -35,6 +36,15 @@ router.post('/create-charge', async (req, res) => {
     }
     // let correlationID = uuidv4();  
     try {
+        const additionalInfo = [
+            { key: 'InstagramProfile', value: username },
+            { key: 'video Link', value: link }
+        ];
+
+        // Add 'Comment' only if comments is not empty or null
+        if (comments != "" && comments != null) {
+            additionalInfo.push({ key: 'Comment', value: comments });
+        }
         const response = await axios.post(
             'https://api.openpix.com.br/api/v1/charge?return_existing=false',
             {
@@ -45,11 +55,7 @@ router.post('/create-charge', async (req, res) => {
                 identifier: `order-${Date.now()}`,
                 expiresIn: 3600, // 1 hour
                 customer: { name, taxID, email, phone },
-                additionalInfo: [
-                    { key: 'InstagramProfile', value: username },
-                    { key: 'video Link ', value: link },
-
-                ],
+                additionalInfo
 
             },
             {

@@ -60,7 +60,6 @@ const Form = () => {// Starting time in seconds
   };
 
   const handleSubmit = async () => {
-
     console.log(checkoutData);
     if (!checkoutData.username || !checkoutData.name || !checkoutData.email || !checkoutData.phone || checkoutData.packages.length == 0 || checkoutData.userInfo.length == 0
 
@@ -84,6 +83,7 @@ const Form = () => {// Starting time in seconds
       name: checkoutData.name,
       email: checkoutData.email,
       phone: checkoutData.phone,
+      comments: checkoutData.commentContent,
       taxID: cpf,
       selectedPackage: checkoutData.packages[0],
       price: totalPrice,
@@ -92,6 +92,7 @@ const Form = () => {// Starting time in seconds
       link: checkoutData.link
 
     }
+    console.log('formData: ', formData);
     if (moreFollow) {
       formData.extra = {
         description: "100 Seguidores - Instagram",

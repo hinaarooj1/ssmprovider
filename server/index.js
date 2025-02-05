@@ -47,6 +47,7 @@ app.get('/api/instagram-info', async (req, res) => {
                 'x-rapidapi-host': 'instagram-scraper-api2.p.rapidapi.com',
             },
         });
+        console.log('response: ', response);
 
         res.status(200).json({ response: response.data, success: true });
     } catch (error) {
