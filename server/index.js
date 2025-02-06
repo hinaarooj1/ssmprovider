@@ -43,7 +43,7 @@ app.get('/api/instagram-info', async (req, res) => {
         const response = await axios.get('https://instagram-scraper-api2.p.rapidapi.com/v1/info', {
             params: { username_or_id_or_url: username },
             headers: {
-                'x-rapidapi-key': "a208880cbamshf25da64da039948p1a4dbejsn03117cfa62b8", // Store API key in .env
+                'x-rapidapi-key': "06ed61b1b8msh8a3b96a828fa2cdp1077a6jsn800ccc602366", // Store API key in .env
                 'x-rapidapi-host': 'instagram-scraper-api2.p.rapidapi.com',
             },
         });
@@ -66,7 +66,7 @@ app.get('/api/instagram-posts', async (req, res) => {
         const response = await axios.get('https://instagram-scraper-api2.p.rapidapi.com/v1/posts', {
             params: { username_or_id_or_url: username },
             headers: {
-                'x-rapidapi-key': "a208880cbamshf25da64da039948p1a4dbejsn03117cfa62b8", // Store API key in .env
+                'x-rapidapi-key': "06ed61b1b8msh8a3b96a828fa2cdp1077a6jsn800ccc602366", // Store API key in .env
                 'x-rapidapi-host': 'instagram-scraper-api2.p.rapidapi.com',
             },
         });
