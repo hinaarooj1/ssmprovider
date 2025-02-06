@@ -25,12 +25,12 @@ export default function Header() {
             >
               Home
             </Link>
-            <Link
+            <a
               className={`navlink-button ${currentPath === '/followers' ? 'selected-button-nav' : ''}`}
-              to="/followers"
+              href="#offers"
             >
-              Pacote
-            </Link>
+              Pacotes
+            </a>
             <Link
               className={`navlink-button ${currentPath === '/faq' ? 'selected-button-nav' : ''}`}
               to="/faq"
@@ -85,8 +85,8 @@ export default function Header() {
             <a className="selected !text-gray-500 lg:!text-purple-400 navlink">
               Home
             </a>
-            <a className="navlink nav-li">
-              Pacote
+            <a href="#offers" className="navlink nav-li">
+              Pacotes
             </a>
             <a className="navlink nav-li">
               F.A.Q
