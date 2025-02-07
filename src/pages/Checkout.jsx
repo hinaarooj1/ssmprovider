@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import './Checkout.css';
 import Footer from '../components/Footer';
 import axios from 'axios'
@@ -159,9 +159,44 @@ const Checkout = () => {// Starting time in seconds
       fetchInstagramData();
     }
   }, []);
+  const [isVisible, setIsVisible] = useState(true);
+  const modalRef = useRef(null);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY > 80) {
+        setIsVisible(false);
+      } else {
+        setIsVisible(true);
+      }
+    };
+
+    const handleModalScroll = (event) => {
+      if (event.target.scrollTop > 80) {
+        setIsVisible(false);
+      } else {
+        setIsVisible(true);
+      }
+    };
+
+    // Add event listeners
+    window.addEventListener("scroll", handleScroll);
+
+    if (modalRef.current) {
+      modalRef.current.addEventListener("scroll", handleModalScroll);
+    }
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+      if (modalRef.current) {
+        modalRef.current.removeEventListener("scroll", handleModalScroll);
+      }
+    };
+  }, []);
+
   return (
     <>
-      <div className="min-h-screen w-screen overflow-hidden relative">
+      <div className="min-h-screen w-screen overflow-hidden relative" >
         <TimerHead />
         <div className="flex lg:items-start mx-auto items-center gap-14 w-screen overflow-hidden flex-col lg:flex-row justify-center h-full">
           <div className="react-card-flip lg:mt-12 mt-10" style={{ zIndex: "auto" }}>
@@ -365,7 +400,7 @@ const Checkout = () => {// Starting time in seconds
       {isTour ? <>
         <div onClick={() => setisTour(false)} aria-hidden="true" className="rs-modal-backdrop rs-anim-fade rs-anim-in" />
 
-        <div className="rs-modal-wrapper">
+        <div ref={modalRef} className="rs-modal-wrapper">
           <div className="!bg-[#020202] text-center lg:w-[90%] xl:w-[70%] rs-modal-sm rs-anim-bounce-in rs-modal" id="dialog-:r0:" style={{ display: 'block' }}>
             <div className="rs-modal-dialog">
               <div className="rs-modal-content">
@@ -416,6 +451,13 @@ const Checkout = () => {// Starting time in seconds
               </div>
             </div>
           </div>
+          {isVisible &&
+
+            <div className="scroll-q">
+              {/* <iframe src="https://lottie.host/embed/61149357-5cf5-422c-a9f6-92ca7cfaf402/EfgzpGes2O.lottie"></iframe> */}
+              <iframe src="https://lottie.host/embed/8d7faeea-f8df-4330-bb23-792ba14d7e6f/IB0nHfpPQx.lottie"></iframe>
+            </div>
+          }
         </div></> : ""}
 
 

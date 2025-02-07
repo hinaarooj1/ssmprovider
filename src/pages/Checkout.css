@@ -44,6 +44,24 @@ input[type=checkbox] {
     accent-color: rgb(124 58 237 / 1)
 }
 
+.scroll-q iframe {
+    margin: auto;
+}
+
+.scroll-q {
+    background: rgb(0, 0, 0);
+    background: linear-gradient(90deg, rgba(0, 0, 0, 0.642) 4%, rgba(0, 0, 0, 0.46551120448179273) 100%);
+    position: fixed;
+    bottom: 0;
+    z-index: 999999;
+    right: 0;
+    left: 0;
+    max-width: calc(100% - 10px);
+    margin: 30px;
+    margin-bottom: 0;
+    padding-bottom: 15px;
+}
+
 @keyframes pulse-finally {
     0% {
         transform: scale(1);
